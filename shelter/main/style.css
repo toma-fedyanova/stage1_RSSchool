@@ -1,1 +1,14 @@
+@font-face {
+  font-family: "Arial";
+  src: local("Ariall"), url("/shelter/assets/ARIAL.TTF") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Arial";
+  src: local("Ariall italic"), url("/shelter/assets/ARIALI_italic.TTF") format("truetype");
+  font-weight: normal;
+  font-style: italic;
+}
+
 /*# sourceMappingURL=style.css.map */
