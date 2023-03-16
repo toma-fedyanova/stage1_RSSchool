@@ -1,3 +1,11 @@
 @import "./abstrcts/constants";
 @import "./abstrcts/mixin";
 @import "./abstrcts/placeholder";
+
+//base
+@import "./base/base";
+@import "./base/button";
+
+//components
+@import "./components/header";
+@import "./components/not__only";

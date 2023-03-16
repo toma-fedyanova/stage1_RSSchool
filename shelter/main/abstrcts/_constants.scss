@@ -2,22 +2,23 @@
 
 @font-face {
 	font-family: 'Arial'; 
-	src: local('Ariall'),
+	src: local('/shelter/assets/ARIAL.TTF'),
   url('/shelter/assets/ARIAL.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
 	font-family: 'Arial'; 
-	src: local('Ariall italic'),
+	src: local('/shelter/assets/ARIALI_italic.TTF'),
   url('/shelter/assets/ARIALI_italic.TTF') format('truetype');
   font-weight: normal;
   font-style: italic;
 }
+
 //font
-$font-georgia: 'Noto Sans Georgian', sans-serif;
-$font-arial: 'Arial', sans-serif;
-$font-arial-italic: 'Arial-italic', sans-serif;
+$font-georgia: 'Georgia', serif;
+$font-arial: 'Arial', serif;
+
 
 //color
 $color-brand: #F1CDB3;

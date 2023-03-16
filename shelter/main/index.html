@@ -13,24 +13,24 @@
 </head>
 <body>
   <header class="header">
-    <div class="wrapper">
+    <div class="wrapper header__wrapper">
       <div class="logo">
-        <div>
+        <div class="logo__text">
           <h1 class="cozy">Cozy House</h1>
           <p class="cozy_text">Shelter for pets in Boston</p>
-          <div class="burger__menu"> 
+        </div>
+          <div class="burger__menu hidden"> 
             <div class="burger__line line_1"></div>
             <div class="burger__line line_2"></div>
             <div class="burger__line line_3"></div>
           </div>
         </div>
-      </div>
       <nav class="header__navigation">
         <ul class="header__list">
-          <li><a href = "#" class = "list list-underline">About the shelter</a></li>
+          <li><a href = "#" class = "list list-underline" disabled>About the shelter</a></li>
           <li><a href = "#" class = "list">Our pets</a></li>
-          <li><a href = "#" class = "list">Help the shelter</a></li>
-          <li><a href = "#" class = "list">Contacts</a></li>
+          <li><a href = "#help" class = "list">Help the shelter</a></li>
+          <li><a href = "#footer" class = "list">Contacts</a></li>
         </ul>
       </nav>
     </div>
@@ -44,7 +44,7 @@
           <p class="not__only_text">We offer to give a chance to a little and nice puppy with an 
             extremely wide and open heart. He or she will love you more than anybody else in the world, you will see!</p>
           <div class="not__only_button">
-             <a href="#" class="not__only_button">Make a friend</a>
+             <a href="#our__friends" class="button__round">Make a friend</a>
           </div>
        </div>
       </div>
@@ -63,7 +63,7 @@
         </div>
       </div>
     </section>
-    <section class="our__friends">
+    <section class="our__friends" id="our__friends">
       <div class="wrapper">
         <div class="our__friends_description">
           <h3>Our friends who are looking for a house</h3>
@@ -96,13 +96,15 @@
               </div>
             </div>
           </div>
+          <div class="arrow arrow_left"><object type = "image/svg+xml" data = "../assets/Arrow-left.svg" class = "icos__ico"></object></div>
+          <div class="arrow arrow_right"><object type = "image/svg+xml" data = "../assets/Arrow-right.svg" class = "icos__ico"></object></div>
           <div class="our__friends_button">
-            <button class="button__round ">Get to know the rest</button>
+            <a href="" class="button__round ">Get to know the rest</a>
           </div>
         </div>
       </div>
     </section>
-    <section class="help">
+    <section class="help" id="help">
       <div class="wrapper">
         <h3>How you can help our shelter</h3>
         <div class="icos">
@@ -159,7 +161,7 @@
     </section>
   </main>
 
-  <footer class="footer">
+  <footer class="footer" id="footer">
     <div class="wrapper">
        <div class="footer_block">
         <h3>For questions and suggestions</h3>
