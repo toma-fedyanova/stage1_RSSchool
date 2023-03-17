@@ -2,17 +2,18 @@
 .not__only {
   padding-top: 20%;
   margin-top: -20%;
-  background: url(../../assets/noise_transparent@2x.png),
+  background: url('.././assets/noise_transparent@2x.png'),
   radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 .not__only__wrapper {
   display: flex;
+  background: url('.././assets/start-screen-puppy.png') 100% 100%/auto 90% no-repeat;
 }
 .not__only_description {
   width: 50%;
   padding-bottom: 14%;
   padding-top: 10%;
-  background-image: url(../../assets/start-screen-puppy.png);
+  
 }
 .not__only_text {
   @include font ($weight: 400, $size: 1.5rem, $height:160%);
@@ -21,8 +22,4 @@
   padding-bottom: 5%;
   width: 80%;
   text-align: justify;
-}
-.img_puppy {
-  width: 94%;
-  padding-top: 10%;
 }

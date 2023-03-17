@@ -1,0 +1,17 @@
+.about__wrapper {
+  background-image: url('.././assets/about-pets.png');
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  .about_description {
+    width: 50%;
+    padding-top: 80px;
+    margin-left: 50%;
+    margin-bottom: 100px;
+    .about_text {
+      @include font ($weight: 400, $size: 2.4rem, $height:130%);
+    font-family: $font-arial;
+    color: $color-dark;
+    padding-bottom: 25px;
+    }
+  }
+}
