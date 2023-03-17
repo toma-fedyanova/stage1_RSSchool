@@ -101,6 +101,18 @@ li {
   content: "";
 }
 
+.button__bordered {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 130%;
+  font-family: "Georgia", serif;
+  color: #292929;
+  padding: 15px 45px;
+  border: 2px solid #F1CDB3;
+  border-radius: 100px;
+}
+
 .header__wrapper {
   display: flex;
   justify-content: space-between;
@@ -204,4 +216,146 @@ li {
   font-family: "Arial", serif;
   color: #4C4C4C;
   padding-bottom: 25px;
+}
+
+.our__friends {
+  background-color: #F6F6F6;
+}
+
+.our__friends_description {
+  padding: 80px 0;
+}
+.our__friends_description h3 {
+  width: 35%;
+  text-align: center;
+  letter-spacing: 2px;
+  margin: auto;
+}
+
+.our__friends_animals {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 60px 60px 0 60px;
+  justify-content: space-around;
+  -moz-column-gap: 5%;
+       column-gap: 5%;
+}
+.our__friends_animals > * {
+  flex-basis: 28%;
+}
+.our__friends_animals .animal__card {
+  background-color: #FAFAFA;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.our__friends_animals .animal__card .animal_name {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2rem;
+  line-height: 100%;
+  font-family: "Georgia", serif;
+  color: #545454;
+}
+.our__friends_animals .animal__card .animal__card_button {
+  margin-bottom: 30px;
+}
+
+.our__friends_button a {
+  display: inline-block;
+  margin-left: 45%;
+}
+
+.arrow {
+  position: relative;
+  content: "";
+  cursor: pointer;
+}
+
+.arrow_left {
+  top: -300px;
+}
+
+.arrow_right {
+  left: 95%;
+  top: -330px;
+}
+
+.help__wrapper {
+  padding-top: 7%;
+}
+.help__wrapper h3 {
+  margin: auto;
+  text-align: center;
+  width: 40%;
+}
+
+.icos {
+  margin-top: 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  -moz-column-gap: 7%;
+       column-gap: 7%;
+}
+.icos > * {
+  flex-basis: 14%;
+}
+.icos .help__block {
+  padding-bottom: 3%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.in__addition {
+  background-color: #F6F6F6;
+}
+
+.in__addition__wrapper {
+  padding-left: 30%;
+  background-image: url(".././assets/donation-dog.png");
+  background-position: 0% 100%;
+  background-repeat: no-repeat;
+  width: 70%;
+}
+.in__addition__wrapper h3 {
+  padding-top: 10%;
+}
+.in__addition__wrapper .in__addition_text {
+  font-style: normal;
+  font-weight: 400;
+  font-size: 1.7rem;
+  line-height: 110%;
+  font-family: "Georgia", serif;
+  color: #545454;
+  padding-top: 20px;
+  padding-bottom: 15px;
+}
+.in__addition__wrapper .bank_text {
+  font-style: Italic;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 130%;
+  font-family: "Georgia", serif;
+  color: #B2B2B2;
+  width: 62%;
+  padding-bottom: 6%;
+}
+
+.input {
+  padding-left: 40px;
+  background-color: #F1CDB3;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 2.3rem;
+  line-height: 115%;
+  font-family: "Georgia", serif;
+  color: #545454;
+  border-radius: 9px;
+  width: 65%;
+  background-image: url(".././assets/credit-card.png");
+  background-repeat: no-repeat;
+  background-position: 2% 50%;
 }/*# sourceMappingURL=style.css.map */

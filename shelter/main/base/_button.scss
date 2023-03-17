@@ -22,3 +22,11 @@
   cursor: pointer;
   content: "";
 }
+.button__bordered {
+  @include font ($weight: 400, $size: 2.2rem, $height:130%);
+  font-family: $font-georgia;
+  color: $color-button-text;
+  padding: 15px 45px;
+  border: 2px solid $color-brand;
+  border-radius: 100px;
+}
