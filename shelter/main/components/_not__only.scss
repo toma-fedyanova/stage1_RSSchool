@@ -1,7 +1,28 @@
 
 .not__only {
-  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-  background: url(../../assets/95577108af837b8b441616746225b66e.png), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
   padding-top: 20%;
   margin-top: -20%;
+  background: url(../../assets/noise_transparent@2x.png),
+  radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+.not__only__wrapper {
+  display: flex;
+}
+.not__only_description {
+  width: 50%;
+  padding-bottom: 14%;
+  padding-top: 10%;
+  background-image: url(../../assets/start-screen-puppy.png);
+}
+.not__only_text {
+  @include font ($weight: 400, $size: 1.5rem, $height:160%);
+  font-family: $font-arial;
+  color: $color-inactive;
+  padding-bottom: 5%;
+  width: 80%;
+  text-align: justify;
+}
+.img_puppy {
+  width: 94%;
+  padding-top: 10%;
 }
