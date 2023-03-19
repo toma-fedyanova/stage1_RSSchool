@@ -135,6 +135,9 @@ li {
   .button__round:hover {
     background-color: #f3934f;
   }
+  .header__list .list:hover {
+    color: #F1CDB3;
+  }
   .header__list a {
     display: inline-block;
     position: relative;
@@ -158,6 +161,10 @@ li {
     color: #f1904b;
   }
   li:hover a {
+    color: #FDDCC4;
+  }
+  .footer__wrapper .footer_link:hover a,
+  .footer__wrapper .footer_link:focus a {
     color: #FDDCC4;
   }
 }

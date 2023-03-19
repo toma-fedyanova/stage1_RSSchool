@@ -16,7 +16,9 @@
   .button__round:hover {
     background-color: #f3934f;
   }
-
+  .header__list .list:hover {
+    color: $color-brand;
+  }
   .header__list a {
     display: inline-block;
     position: relative;
@@ -40,6 +42,10 @@
     color: #f1904b;
   }
   li:hover a {
+    color: $color-hover;
+  }
+  .footer__wrapper .footer_link:hover a, 
+  .footer__wrapper .footer_link:focus a {
     color: $color-hover;
   }
 }
