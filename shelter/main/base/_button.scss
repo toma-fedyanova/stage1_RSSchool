@@ -8,6 +8,7 @@
   text-align: center;
   padding: 15px 45px;
   border-radius: 100px;
+  @extend %transition;
 }
 
 .arrow {
@@ -21,6 +22,10 @@
   position: absolute;
   cursor: pointer;
   content: "";
+  @extend %transition;
+}
+.icos__ico {
+  @extend %transition;
 }
 .button__bordered {
   @include font ($weight: 400, $size: 2.2rem, $height:130%);
@@ -29,4 +34,5 @@
   padding: 15px 45px;
   border: 2px solid $color-brand;
   border-radius: 100px;
+  @extend %transition;
 }

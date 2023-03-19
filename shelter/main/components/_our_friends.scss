@@ -51,3 +51,6 @@
   left: 95%;
   top: -330px;
 }
+.button__bordered {
+  @extend %transition;
+}

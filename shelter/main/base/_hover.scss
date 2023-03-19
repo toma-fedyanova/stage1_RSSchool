@@ -1,0 +1,46 @@
+@media (hover:hover) {
+  .arrow:hover {
+    background-color: $color-hover;
+    transform: scale(1.1);
+  }
+  .icos__ico:hover,
+  .icos__ico:focus {
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    cursor: pointer;
+    
+  }
+  .button__bordered:hover {
+    cursor: pointer;
+    background-color: $color-hover;
+  }
+  .button__round:hover {
+    background-color: #f3934f;
+  }
+  .header__list {
+    a:hover {
+      color: #f3934f;
+    }
+  }
+  .header__list a {
+    display: inline-block;
+    position: relative;
+    content: "";
+    &::before {
+      position: absolute;
+      content: "";
+      width: 0;
+      right: -100px;
+      transition: 0.5s cubic-bezier(1,  0,  0,  1);
+      height: 3px;
+      background-color: $color-brand;
+      top: 29px;
+    }
+    &:hover::before {
+      right: 0;
+      width: 100%;
+    }
+  }
+  .help__block:hover {
+    color: #f1904b;
+  }
+}

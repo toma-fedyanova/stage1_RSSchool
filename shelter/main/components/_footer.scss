@@ -1,0 +1,25 @@
+.footer {
+  background: url('.././assets/noise_transparent@2x.png'),
+  radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+.footer__wrapper {
+  @include layout (30%);
+  align-items: center;
+  background: url('.././assets/footer-puppy.png');
+  background-repeat: no-repeat;
+  background-position: 100% 100%;
+  padding-top: 5%;
+  h3 {
+    color: $color-light;
+  }
+  a {
+    color: $color-brand;
+    @include font ($weight: 400, $size: 2.3rem, $height:115%);
+    font-family: $font-georgia;
+    display: inline-block;
+    padding-bottom: 10%;
+  }
+  .footer_title {
+    align-self: flex-start;
+  }
+}
