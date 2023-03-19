@@ -2,20 +2,19 @@
   background-color: #F6F6F6;
 }
 .our__friends_description {
-  padding: 80px 0;
+  padding: 64px 0;
   h3 {
     width: 35%;
     text-align: center;
     letter-spacing: 2px;
     margin: auto;
-
+    padding-top: 6px;
   }
 }
 .our__friends_animals {
   @include layout(28%);
   margin: 60px 60px 0 60px;
   justify-content: space-around;
-  column-gap: 5%;
   .animal__card {
     background-color: #FAFAFA;
     display: flex;
@@ -26,17 +25,24 @@
       @include font ($weight: 400, $size: 2.0rem, $height:100%);
       font-family: $font-georgia;
       color: $color-text;
+      margin-top: 27px;
+      margin-bottom: 29px;
     }
     .animal__card_button {
       margin-bottom: 30px;
+      .button__bordered {
+        padding: 11px 37px;
+      }
     }
   }
 }
 .our__friends_button {
   a {
     display: inline-block;
-    margin-left: 45%
-
+    margin-left: 39.5%;
+    position: relative;
+    content: "";
+    top: -43px;
   }
 }
 .arrow {
@@ -45,11 +51,11 @@
   cursor: pointer;
 }
 .arrow_left {
-  top: -300px;
+  top: -251px;
 }
 .arrow_right {
-  left: 95%;
-  top: -330px;
+  left: 95.5%;
+  top: -297px;
 }
 .button__bordered {
   @extend %transition;

@@ -3,23 +3,32 @@
   radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
 .footer__wrapper {
-  @include layout (30%);
+  @include layout (37%);
   align-items: center;
   background: url('.././assets/footer-puppy.png');
   background-repeat: no-repeat;
-  background-position: 100% 100%;
-  padding-top: 5%;
+  background-position: 100% 185%;
+  background-size: auto 94%;
+  margin-top: -10px;
   h3 {
     color: $color-light;
+    margin-top: 54px;
+    letter-spacing: 2px;
   }
   a {
     color: $color-brand;
-    @include font ($weight: 400, $size: 2.3rem, $height:115%);
+    @include font ($weight: 400, $size: 2.2rem, $height:100%);
     font-family: $font-georgia;
     display: inline-block;
-    padding-bottom: 10%;
+    padding-bottom: 7%;
   }
   .footer_title {
     align-self: flex-start;
   }
+}
+.maps {
+  padding-left: 15px;
+}
+.mail {
+  padding-left: 15px;
 }

@@ -1,9 +1,10 @@
 .help__wrapper {
-  padding-top: 7%;
+  padding-top: 5%;
   h3 {
     margin: auto;
     text-align: center;
     width: 40%;
+    letter-spacing: 2px;
   }
 }
 .icos {
@@ -11,10 +12,36 @@
   @include layout(14%);
   justify-content: space-around;
   column-gap: 7%;
+  width: 95%;
+  padding-left: 4%;
   .help__block {
-    padding-bottom: 3%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-bottom: 3%;
+    .help_text {
+      font-size: 2.3rem;
+      margin-top: 19%;
+    }
   }
+}
+.help_vitamins {
+  position: relative;
+  content: "";
+  left: 5%;
+}
+.help_medicine {
+  position: relative;
+  content: "";
+  right: 2%;
+}
+.help_collars {
+  position: relative;
+  content: "";
+  right: 5%;
+}
+.help_sleeping {
+  position: relative;
+  content: "";
+  right: 7%;
 }

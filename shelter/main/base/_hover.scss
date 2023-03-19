@@ -16,11 +16,7 @@
   .button__round:hover {
     background-color: #f3934f;
   }
-  .header__list {
-    a:hover {
-      color: #f3934f;
-    }
-  }
+
   .header__list a {
     display: inline-block;
     position: relative;
@@ -42,5 +38,8 @@
   }
   .help__block:hover {
     color: #f1904b;
+  }
+  li:hover a {
+    color: $color-hover;
   }
 }
