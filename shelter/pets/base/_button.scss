@@ -1,0 +1,23 @@
+.arrow {
+  width: 52px;
+  height: 52px;
+  border: 1px solid $color-brand;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  @extend %transition;
+}
+.icos__ico {
+  @extend %transition;
+}
+.button__bordered {
+  @include font ($weight: 400, $size: 1.8rem, $height:130%);
+  font-family: $font-georgia;
+  color: $color-button-text;
+  padding: 15px 40px;
+  border: 2px solid $color-brand;
+  border-radius: 100px;
+  @extend %transition;
+}

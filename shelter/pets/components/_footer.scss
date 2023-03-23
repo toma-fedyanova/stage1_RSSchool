@@ -1,0 +1,68 @@
+.footer {
+  background: url('.././assets/noise_transparent@2x.png'),
+  radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+}
+.footer__wrapper {
+  @include layout (37%);
+  align-items: center;
+  background: url('.././assets/footer-puppy.png');
+  background-repeat: no-repeat;
+  background-position: 99% 463%;
+  background-size: auto 97%;
+  margin-top: -10px;
+  .footer-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+  h3 {
+    color: $color-light;
+    margin-top: 50px;
+    letter-spacing: 2px;
+  }
+  a {
+    color: $color-brand;
+    @include font ($weight: 400, $size: 2.2rem, $height:100%);
+    font-family: $font-georgia;
+    display: inline-block;
+    padding-bottom: 7%;
+  }
+  .footer_title {
+    align-self: flex-start;
+  }
+  #footer_for_questions {
+    padding-top: 2px;
+    margin-bottom: 19px;
+  }
+}
+.footer_link {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  span {
+    display: inline-block;
+    padding-top: 0;
+    object {
+      position: relative;
+      z-index: -1;
+      top: 9px;
+      left: -10px;
+    }
+    .ico_map {
+      top: 6px;
+      left: -24px;
+    }
+  }
+
+}
+#tel {
+  padding-top: 20px;
+  padding-bottom: 3px;
+}
+.maps {
+  padding-left: 15px;
+}
+.mail {
+  padding-left: 15px;
+}

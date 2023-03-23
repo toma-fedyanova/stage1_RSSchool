@@ -1,0 +1,40 @@
+*{
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  scroll-behavior: smooth;
+}
+body {
+  font-size: 1.5rem;
+}
+h1 {
+  @include font ($weight: 400, $size: 3.2rem, $height:110%);
+  font-family: $font-georgia;
+  color: $color-text;
+  letter-spacing: 2px;
+}
+h3 {
+  @include font ($weight: 400, $size: 3.5rem, $height:130%);
+  font-family: $font-georgia;
+  color: $color-text;
+}
+a {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+.wrapper {
+  max-width: $content-width;
+  margin: auto;
+}
+.hidden {
+  display: none;
+}
+.active {
+  display: inline-block;
+}
+
+

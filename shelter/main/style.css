@@ -326,6 +326,11 @@ li {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
+}
+.our__friends_animals .animal__card img {
+  transition: 1s;
+  display: block;
 }
 .our__friends_animals .animal__card .animal_name {
   font-style: normal;
@@ -480,6 +485,9 @@ li {
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+.input a {
+  color: #545454;
 }
 
 .footer {
