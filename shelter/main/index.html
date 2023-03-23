@@ -16,7 +16,7 @@
     <div class="wrapper header__wrapper">
       <div class="logo">
         <div class="logo__text">
-          <h1 class="cozy">Cozy House</h1>
+          <a class="link_logo" href="#"><h1 class="cozy">Cozy House</h1></a>
           <p class="cozy_text">Shelter for pets in Boston</p>
         </div>
           <div class="burger__menu hidden"> 
@@ -152,7 +152,7 @@
         <h3>You can also</br>make a donation</h3>
         <p class="in__addition_text">Name of the bank / Type of bank account</p>
         <div class="bank_input">
-          <input class="input" type="text" placeholder="8380 2880 8028 8791 7435">
+          <div class="input"><a href="#">8380 2880 8028 8791 7435</a></div>
         </div>
         <p class="bank_text">Legal information and lorem ipsum dolor sit amet, consectetur adipiscing elit. 
           Maecenas a ipsum at libero sagittis dignissim sed ac diam. Praesent ultrices maximus tortor et vulputate. 
@@ -166,23 +166,27 @@
        <div class="footer_block">
         <h3 class="footer_title">For questions</br>and suggestions</h3>
         <div class="footer_link">
-          <object type = "image/svg+xml" data = "../assets/icon-email.svg" class = "icos__ico"></object>
-          <a class="mail" href="mailto:email@shelter.com">email@shelter.com</a>
+          <a class="mail footer_link" href="mailto:email@shelter.com">
+            <span><object type = "image/svg+xml" data = "../assets/icon-email.svg" class = "icos__ico"></object>
+          email@shelter.com</span></a>
         </div>
-        <div class="footer_link">
-          <object type = "image/svg+xml" data = "../assets/icon-phone.svg" class = "icos__ico"></object>
-          <a class="mail" href="tel:+136745677554">+13 674 567 75 54</a>
+        <div class="footer_link" id="tel">
+          <a class="mail footer_link" href="tel:+136745677554">
+          <span><object type = "image/svg+xml" data = "../assets/icon-phone.svg" class = "icos__ico"></object>
+          +13 674 567 75 54</span></a>
         </div>
        </div>
        <div class="footer_block">
-        <h3>We are waiting</br>for your visit</h3>
+        <h3 id="footer_for_questions">We are waiting</br>for your visit</h3>
         <div class="footer_link">
-          <object type = "image/svg+xml" data = "../assets/icon-marker.svg" class = "icos__ico"></object>
-          <a class="maps" href="http://maps.google.com/">1 Central Street, Boston</br> (entrance from the store)</a>
+          <a class="maps footer_link" href="https://goo.gl/maps/xXmjNnPktCwrQoko6" target="_blank">
+          <span class="text__footer"><object type = "image/svg+xml" data = "../assets/icon-marker.svg" class = "icos__ico ico_map"></object>
+          1 Central Street, Boston</br> (entrance from the store)</span></a>
         </div>
         <div class="footer_link">
-          <object type = "image/svg+xml" data = "../assets/icon-marker.svg" class = "icos__ico"></object>
-          <a class="maps" href="http://maps.google.com/">18 South Park, London</a>
+          <a class="maps footer_link" href="https://goo.gl/maps/rzSQvFUFMxtAgDEv7" target="_blank">
+          <span><object type = "image/svg+xml" data = "../assets/icon-marker.svg" class = "icos__ico ico_map"></object>
+          18 South Park, London</span></a>
         </div>
       </div>
     </div>

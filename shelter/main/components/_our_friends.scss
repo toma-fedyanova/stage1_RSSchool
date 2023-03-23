@@ -21,6 +21,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    @extend %transition;
     .animal_name {
       @include font ($weight: 400, $size: 2.0rem, $height:100%);
       font-family: $font-georgia;

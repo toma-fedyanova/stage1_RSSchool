@@ -10,7 +10,7 @@
   font-weight: normal;
   font-style: italic;
 }
-.button__bordered, .icos__ico, .arrow, .button__round {
+.our__friends_animals .animal__card, .button__bordered, .icos__ico, .arrow, .button__round {
   transition: all 0.8s ease-out;
 }
 
@@ -135,15 +135,16 @@ li {
   .button__round:hover {
     background-color: #f3934f;
   }
-  .header__list .list:hover {
-    color: #F1CDB3;
-  }
-  .header__list a {
+  .header__list a:not(.list-underline) {
     display: inline-block;
     position: relative;
+    color: #CDCDCD;
     content: "";
   }
-  .header__list a::before {
+  .header__list a:not(.list-underline):hover {
+    color: #FAFAFA;
+  }
+  .header__list a:not(.list-underline)::before {
     position: absolute;
     content: "";
     width: 0;
@@ -153,15 +154,19 @@ li {
     background-color: #F1CDB3;
     top: 29px;
   }
-  .header__list a:hover::before {
+  .header__list a:not(.list-underline):hover::before {
     right: 0;
     width: 100%;
   }
+  .animal__card:hover .button__bordered {
+    cursor: pointer;
+    background-color: #FDDCC4;
+  }
+  .animal__card:hover .animal__img > img {
+    transform: scale(1.2);
+  }
   .help__block:hover {
     color: #f1904b;
-  }
-  li:hover a {
-    color: #FDDCC4;
   }
   .footer__wrapper .footer_link:hover a,
   .footer__wrapper .footer_link:focus a {
@@ -173,7 +178,6 @@ li {
   justify-content: space-between;
   position: relative;
   z-index: 5;
-  padding-top: 30px;
 }
 
 .logo__text {
@@ -188,6 +192,10 @@ li {
   color: #FFFFFF;
   margin-top: -9px;
   letter-spacing: 1.3px;
+}
+
+.link_logo {
+  display: block;
 }
 
 .burger__menu {
@@ -211,7 +219,6 @@ li {
   justify-content: space-between;
 }
 .header__navigation .header__list .list {
-  color: #CDCDCD;
   font-style: normal;
   font-weight: 400;
   font-size: 1.5rem;
@@ -223,6 +230,10 @@ li {
   padding-bottom: 5px;
 }
 
+.list-underline {
+  color: #FAFAFA;
+}
+
 .not__only {
   padding-top: 20%;
   margin-top: -20%;
@@ -231,13 +242,13 @@ li {
 
 .not__only__wrapper {
   display: flex;
-  background: url(".././assets/start-screen-puppy.png") 100% 100%/auto 94% no-repeat;
+  background: url(".././assets/start-screen-puppy.png") 100% 100%/auto 90% no-repeat;
 }
 
 .not__only_description {
   width: 50%;
   padding-bottom: 20.2%;
-  padding-top: 10%;
+  padding-top: 12.5%;
 }
 .not__only_description h2 {
   padding-top: 9%;
@@ -357,7 +368,8 @@ li {
 }
 
 .help__wrapper {
-  padding-top: 5%;
+  padding-top: 6%;
+  padding-bottom: 2%;
 }
 .help__wrapper h3 {
   margin: auto;
@@ -383,7 +395,7 @@ li {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-bottom: 3%;
+  margin-bottom: 2%;
 }
 .icos .help__block .help_text {
   font-size: 2.3rem;
@@ -421,13 +433,13 @@ li {
 .in__addition__wrapper {
   padding-left: 41%;
   background-image: url(".././assets/donation-dog.png");
-  background-position: 0% 47%;
+  background-position: 0% 42%;
   background-repeat: no-repeat;
   width: 70%;
   padding-bottom: 6.2%;
 }
 .in__addition__wrapper h3 {
-  padding-top: 25%;
+  padding-top: 21%;
   letter-spacing: 2px;
 }
 .in__addition__wrapper .in__addition_text {
@@ -480,16 +492,22 @@ li {
   align-items: center;
   background: url(".././assets/footer-puppy.png");
   background-repeat: no-repeat;
-  background-position: 100% 185%;
-  background-size: auto 94%;
+  background-position: 99% 463%;
+  background-size: auto 97%;
   margin-top: -10px;
 }
 .footer__wrapper > * {
   flex-basis: 37%;
 }
+.footer__wrapper .footer-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
 .footer__wrapper h3 {
   color: #FFFFFF;
-  margin-top: 54px;
+  margin-top: 50px;
   letter-spacing: 2px;
 }
 .footer__wrapper a {
@@ -504,6 +522,35 @@ li {
 }
 .footer__wrapper .footer_title {
   align-self: flex-start;
+}
+.footer__wrapper #footer_for_questions {
+  padding-top: 2px;
+  margin-bottom: 19px;
+}
+
+.footer_link {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+}
+.footer_link span {
+  display: inline-block;
+  padding-top: 0;
+}
+.footer_link span object {
+  position: relative;
+  z-index: -1;
+  top: 9px;
+  left: -10px;
+}
+.footer_link span .ico_map {
+  top: 6px;
+  left: -24px;
+}
+
+#tel {
+  padding-top: 20px;
+  padding-bottom: 3px;
 }
 
 .maps {

@@ -3,7 +3,7 @@
   justify-content: space-between;
   position: relative;
   z-index: 5;
-  padding-top:  30px;
+  //padding-top:  30px;
 }
 
 .logo__text {
@@ -16,7 +16,9 @@
     letter-spacing: 1.3px;
   }
 }
-
+.link_logo {
+  display: block;
+}
 .burger__menu {
   width: 30px;
   height: 40px;
@@ -34,7 +36,6 @@
     display: flex;
     justify-content: space-between;
     .list {
-      color: $color-inactive;
       @include font ($weight: 400, $size: 1.5rem, $height:160%);
       font-family: $font-arial;
     }
@@ -44,5 +45,8 @@
     }
   }
 
+}
+.list-underline {
+  color: #FAFAFA;
 }
 

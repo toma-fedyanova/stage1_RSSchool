@@ -7,12 +7,18 @@
   align-items: center;
   background: url('.././assets/footer-puppy.png');
   background-repeat: no-repeat;
-  background-position: 100% 185%;
-  background-size: auto 94%;
+  background-position: 99% 463%;
+  background-size: auto 97%;
   margin-top: -10px;
+  .footer-block {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
   h3 {
     color: $color-light;
-    margin-top: 54px;
+    margin-top: 50px;
     letter-spacing: 2px;
   }
   a {
@@ -25,6 +31,34 @@
   .footer_title {
     align-self: flex-start;
   }
+  #footer_for_questions {
+    padding-top: 2px;
+    margin-bottom: 19px;
+  }
+}
+.footer_link {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  span {
+    display: inline-block;
+    padding-top: 0;
+    object {
+      position: relative;
+      z-index: -1;
+      top: 9px;
+      left: -10px;
+    }
+    .ico_map {
+      top: 6px;
+      left: -24px;
+    }
+  }
+
+}
+#tel {
+  padding-top: 20px;
+  padding-bottom: 3px;
 }
 .maps {
   padding-left: 15px;

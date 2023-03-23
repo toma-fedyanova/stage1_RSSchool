@@ -16,12 +16,13 @@
   .button__round:hover {
     background-color: #f3934f;
   }
-  .header__list .list:hover {
-    color: $color-brand;
-  }
-  .header__list a {
+  .header__list a:not(.list-underline) {
     display: inline-block;
     position: relative;
+    color: $color-inactive;
+    &:hover {
+      color: #FAFAFA;
+    }
     content: "";
     &::before {
       position: absolute;
@@ -38,11 +39,15 @@
       width: 100%;
     }
   }
+  .animal__card:hover .button__bordered {
+    cursor: pointer;
+    background-color: $color-hover;
+  }
+  .animal__card:hover .animal__img>img {
+    transform: scale(1.2);
+  }
   .help__block:hover {
     color: #f1904b;
-  }
-  li:hover a {
-    color: $color-hover;
   }
   .footer__wrapper .footer_link:hover a, 
   .footer__wrapper .footer_link:focus a {
