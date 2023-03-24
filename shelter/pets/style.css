@@ -240,7 +240,7 @@ li {
 .our__friends_animals .animal__card .animal_name {
   font-style: normal;
   font-weight: 400;
-  font-size: 1.9rem;
+  font-size: 2.2rem;
   line-height: 100%;
   font-family: "Georgia", serif;
   color: #545454;
@@ -268,15 +268,15 @@ li {
   padding-top: 5%;
   width: 31%;
   margin-left: 34.5%;
-  padding-bottom: 3.5%;
+  padding-bottom: 4%;
 }
 
 .arrow.inactive {
   border: 1px solid #CDCDCD;
 }
 
-.our__friends_description:nth-child(3) {
-  padding-top: 24px;
+#our__friend_second {
+  margin-top: 34px;
 }
 
 .footer {
