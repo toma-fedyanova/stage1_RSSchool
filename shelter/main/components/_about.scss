@@ -1,12 +1,23 @@
 .about__wrapper {
   background-image: url('.././assets/about-pets.png');
   background-position: 19% 91%;
+  background-size: auto auto;
   background-repeat: no-repeat;
+  
+  @include media-tablet {
+    background-size: auto 40%;
+    background-position: 50% 90%;
+    padding-bottom: 45%;
+  }
   .about_description {
     width: 50%;
     padding-top: 80px;
     margin-left: 50%;
     margin-bottom: 100px;
+    @include media-tablet {
+      margin-left: 20%;
+      width: 80%;
+    }
     h3 {
       letter-spacing: 1.9px;
       margin-top: 15px;
@@ -19,6 +30,9 @@
     width: 71%;
     margin-top: -8px;
     margin-bottom: 10px;
+    @include media-tablet {
+      line-height: 160%;
+    }
    }
   }
 }

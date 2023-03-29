@@ -199,9 +199,9 @@ li {
   padding-bottom: 5px;
 }
 
-.list-underline {
+.list.list-underline {
   color: #292929;
-  cursor: auto;
+  cursor: default;
 }
 
 .our__friends {
@@ -277,7 +277,7 @@ li {
 
 .arrow.inactive {
   border: 1px solid #CDCDCD;
-  cursor: auto;
+  cursor: default;
 }
 
 #our__friend_second {

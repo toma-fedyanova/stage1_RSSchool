@@ -3,14 +3,13 @@
   justify-content: space-between;
   position: relative;
   z-index: 5;
-  //padding-top:  30px;
 }
 
 .logo__text {
   text-align: center;
   .cozy_text{
     @include font ($weight: 400, $size: 1.3rem, $height:100%);
-    font-family: $font-arial;
+    font-family: Arial, Helvetica, sans-serif;
     color: $color-light;
     margin-top: -9px;
     letter-spacing: 1.3px;
@@ -32,12 +31,15 @@
 .header__navigation {
   width: 37%;
   padding-top: 2%;
+  @include media-tablet {
+    width: 61%;
+  }
   .header__list {
     display: flex;
     justify-content: space-between;
     .list {
       @include font ($weight: 400, $size: 1.5rem, $height:160%);
-      font-family: $font-arial;
+      font-family: Arial, Helvetica, sans-serif;
     }
     .list-underline {
       border-bottom: 3px solid $color-brand;
@@ -46,8 +48,8 @@
   }
 
 }
-.list-underline {
+.list.list-underline {
   color: #FAFAFA;
-  cursor: auto;
+  cursor: default;
 }
 

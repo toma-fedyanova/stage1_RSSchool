@@ -15,6 +15,9 @@
   column-gap: 7%;
   width: 95%;
   padding-left: 4%;
+  @include media-tablet {
+    column-gap: 17%;
+  }
   .help__block {
     display: flex;
     flex-direction: column;
@@ -30,19 +33,31 @@
   position: relative;
   content: "";
   left: 5%;
+  @include media-tablet {
+    position: static;
+  }
 }
 .help_medicine {
   position: relative;
   content: "";
   right: 2%;
+  @include media-tablet {
+    position: static;
+  }
 }
 .help_collars {
   position: relative;
   content: "";
   right: 5%;
+  @include media-tablet {
+    position: static;
+  }
 }
 .help_sleeping {
   position: relative;
   content: "";
   right: 7%;
+  @include media-tablet {
+    position: static;
+  }
 }

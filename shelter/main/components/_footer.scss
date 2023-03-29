@@ -10,6 +10,12 @@
   background-position: 99% 463%;
   background-size: auto 97%;
   margin-top: -10px;
+  @include media-tablet {
+    padding-bottom: 50%;
+    background-size: auto 47%;
+    background-position: 50% 100%;
+    @include layout (50%);
+  }
   .footer-block {
     display: flex;
     flex-direction: column;
@@ -27,6 +33,7 @@
     font-family: $font-georgia;
     display: inline-block;
     padding-bottom: 7%;
+  
   }
   .footer_title {
     align-self: flex-start;
