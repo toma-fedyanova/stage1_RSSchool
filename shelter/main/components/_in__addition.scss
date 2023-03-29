@@ -2,7 +2,7 @@
   background-color: #F6F6F6;
 }
 .in__addition__wrapper {
-  padding-left: 41%;
+  padding-left: 700px;
   background-image: url('.././assets/donation-dog.png');
   background-position: 0% 42%;
   background-repeat: no-repeat;
@@ -14,18 +14,11 @@
   }
   .in__addition_text {
     @include font ($weight: 400, $size: 1.7rem, $height:110%);
-    font-family: $font-georgia;
+  
     color: $color-text;
      margin-top: -4%;
   }
-  .bank_text {
-    @include font ($style: Italic, $weight: 400, $size: 1.2rem, $height:140%);
-    font-family: $font-georgia;
-    color: $color-italic;
-    width: 96%;
-    padding-bottom: 6%;
-    margin-top: 20px;
-  }
+
 }
 .input {
   padding-left: 54px;
@@ -34,7 +27,7 @@
   font-family: $font-georgia;
   color: $color-text;
   border-radius: 9px;
-  width: 96%;
+  width: 349px;
   background-image: url('.././assets/credit-card.png');
   background-repeat: no-repeat;
   background-position: 4% 50%;
@@ -44,4 +37,12 @@
   a {
     color: $color-text;
   }
+}  
+.bank_text#arial_text {
+  @include font ($style: Italic, $weight: 400, $size: 1.2rem, $height:140%);
+  font-family: Arial, Helvetica, sans-serif;
+  color: $color-italic;
+  width: 96%;
+  padding-bottom: 6%;
+  margin-top: 20px;
 }

@@ -92,7 +92,10 @@ li {
 }
 
 @media (hover: hover) {
-  .arrow:not(.inactive):hover {
+  h1:hover {
+    color: #CDCDCD;
+  }
+  .arrow:not(.inactive):not(.page_number):hover {
     background-color: #FDDCC4;
     transform: scale(1.1);
   }
@@ -198,6 +201,7 @@ li {
 
 .list-underline {
   color: #292929;
+  cursor: auto;
 }
 
 .our__friends {
@@ -273,6 +277,7 @@ li {
 
 .arrow.inactive {
   border: 1px solid #CDCDCD;
+  cursor: auto;
 }
 
 #our__friend_second {

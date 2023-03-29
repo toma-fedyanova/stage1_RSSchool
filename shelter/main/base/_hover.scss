@@ -1,4 +1,7 @@
 @media (hover:hover) {
+  h1:hover {
+    color: $color-inactive;
+  }
   .arrow:hover {
     background-color: $color-hover;
     transform: scale(1.1);

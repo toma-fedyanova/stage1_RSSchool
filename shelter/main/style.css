@@ -1,15 +1,17 @@
-@font-face {
-  font-family: "Arial";
-  src: local("/shelter/assets/ARIAL.TTF"), url("/shelter/assets/ARIAL.TTF") format("truetype");
+/*@font-face {
+	font-family: 'Arial'; 
+	src: local('/shelter/assets/ARIAL.TTF'),
+  url('/shelter/assets/ARIAL.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Arial";
-  src: local("/shelter/assets/ARIALI_italic.TTF"), url("/shelter/assets/ARIALI_italic.TTF") format("truetype");
+	font-family: 'Arial'; 
+	src: local('/shelter/assets/ARIALI_italic.TTF'),
+  url('/shelter/assets/ARIALI_italic.TTF') format('truetype');
   font-weight: normal;
   font-style: italic;
-}
+}*/
 .our__friends_animals .animal__card, .button__bordered, .icos__ico, .arrow, .button__round {
   transition: all 0.8s ease-out;
 }
@@ -119,6 +121,9 @@ li {
 }
 
 @media (hover: hover) {
+  h1:hover {
+    color: #CDCDCD;
+  }
   .arrow:hover {
     background-color: #FDDCC4;
     transform: scale(1.1);
@@ -232,6 +237,7 @@ li {
 
 .list-underline {
   color: #FAFAFA;
+  cursor: auto;
 }
 
 .not__only {
@@ -436,7 +442,7 @@ li {
 }
 
 .in__addition__wrapper {
-  padding-left: 41%;
+  padding-left: 700px;
   background-image: url(".././assets/donation-dog.png");
   background-position: 0% 42%;
   background-repeat: no-repeat;
@@ -452,20 +458,8 @@ li {
   font-weight: 400;
   font-size: 1.7rem;
   line-height: 110%;
-  font-family: "Georgia", serif;
   color: #545454;
   margin-top: -4%;
-}
-.in__addition__wrapper .bank_text {
-  font-style: Italic;
-  font-weight: 400;
-  font-size: 1.2rem;
-  line-height: 140%;
-  font-family: "Georgia", serif;
-  color: #B2B2B2;
-  width: 96%;
-  padding-bottom: 6%;
-  margin-top: 20px;
 }
 
 .input {
@@ -478,7 +472,7 @@ li {
   font-family: "Georgia", serif;
   color: #545454;
   border-radius: 9px;
-  width: 96%;
+  width: 349px;
   background-image: url(".././assets/credit-card.png");
   background-repeat: no-repeat;
   background-position: 4% 50%;
@@ -488,6 +482,18 @@ li {
 }
 .input a {
   color: #545454;
+}
+
+.bank_text#arial_text {
+  font-style: Italic;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 140%;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #B2B2B2;
+  width: 96%;
+  padding-bottom: 6%;
+  margin-top: 20px;
 }
 
 .footer {
