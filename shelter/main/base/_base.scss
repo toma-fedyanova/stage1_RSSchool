@@ -48,5 +48,12 @@ li {
 .active {
   display: inline-block;
 }
+.br {
+  display: block;
+  @include media-tablet {
+    display: inline;
+    padding-left: 5px;
+  }
+}
 
 

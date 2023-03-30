@@ -10,11 +10,21 @@
   background-position: 99% 463%;
   background-size: auto 97%;
   margin-top: -10px;
+  @include media-tablet {
+    background-position: 50% 100%;
+    background-size: auto 45%;
+    padding-bottom: 45%;
+  }
+  @include media-mobile { 
+    background-size: auto 25%;
+    padding-bottom: 85%;
+  }
   .footer-block {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    
   }
   h3 {
     color: $color-light;
@@ -27,6 +37,7 @@
     font-family: $font-georgia;
     display: inline-block;
     padding-bottom: 7%;
+    @extend %transition;
   }
   .footer_title {
     align-self: flex-start;
@@ -60,9 +71,18 @@
   padding-top: 20px;
   padding-bottom: 3px;
 }
-.maps {
-  padding-left: 15px;
-}
+.maps, 
 .mail {
   padding-left: 15px;
+  transition: top ease 0.5s;
+  position: relative;
+  top: 0;
+}
+.footer__wrapper>* {
+@include media-tablet {
+  flex-basis: 45%;
+  }
+@include media-mobile { 
+  flex-basis: 90%;
+  }
 }

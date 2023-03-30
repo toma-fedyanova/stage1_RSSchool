@@ -2,6 +2,17 @@
   display: flex;
   justify-content: space-between;
 }
+h1 {
+  @extend %transition;
+}
+.logo {
+  @include media-mobile { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+}
 .logo__text {
   text-align: center;
   .cozy_text{
@@ -19,22 +30,35 @@
 .burger__menu {
   width: 30px;
   height: 40px;
-  transform: rotate(90deg);
+  @extend %transition;
+  &:active {
+    transform: rotate(360deg);
+  }
+  @include media-mobile { 
+    display: block;
+  }
 }
 .burger__line {
   height: 2px;
-  background-color: $color-brand;
+  background-color: #000000;
   margin-bottom: 10px;
 }
 .header__navigation {
-  width: 37%;
+  width: 35%;
   padding-top: 2%;
+  @include media-tablet {
+    width: 65%;
+    @include media-tablet {
+      display: none;
+    }
+  }
   .header__list {
     display: flex;
     justify-content: space-between;
     .list {
       @include font ($weight: 400, $size: 1.5rem, $height:160%);
-      font-family: $font-arial;
+      font-family: Arial, Helvetica, sans-serif;
+      @extend %transition;
     }
     .list-underline {
       border-bottom: 3px solid $color-brand;

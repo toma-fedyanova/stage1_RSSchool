@@ -55,5 +55,10 @@
   .footer__wrapper .footer_link:hover a, 
   .footer__wrapper .footer_link:focus a {
     color: $color-hover;
+    
+  }
+  .maps:hover,
+  .mail:hover {
+    top: -5px;
   }
 }

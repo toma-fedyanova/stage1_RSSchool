@@ -12,7 +12,7 @@
   font-weight: normal;
   font-style: italic;
 }*/
-.our__friends_animals .animal__card, .button__bordered, .icos__ico, .arrow, .button__round {
+.footer__wrapper a, .our__friends_animals .animal__card, .header__navigation .header__list .list, h1, .button__bordered, .icos__ico, .arrow, .button__round {
   transition: all 0.8s ease-out;
 }
 
@@ -88,6 +88,16 @@ li {
 
 .active {
   display: inline-block;
+}
+
+.br {
+  display: block;
+}
+@media (max-width: 768px) {
+  .br {
+    display: inline;
+    padding-left: 5px;
+  }
 }
 
 .button__round {
@@ -186,6 +196,10 @@ li {
   .footer__wrapper .footer_link:hover a,
   .footer__wrapper .footer_link:focus a {
     color: #FDDCC4;
+  }
+  .maps:hover,
+  .mail:hover {
+    top: -5px;
   }
 }
 .header__wrapper {
@@ -612,16 +626,6 @@ li {
   }
 }
 
-.br {
-  display: block;
-}
-@media (max-width: 768px) {
-  .br {
-    display: inline;
-    padding-left: 5px;
-  }
-}
-
 .footer {
   background: url(".././assets/noise_transparent@2x.png"), radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
 }
@@ -705,10 +709,10 @@ li {
   padding-bottom: 3px;
 }
 
-.maps {
-  padding-left: 15px;
-}
-
+.maps,
 .mail {
   padding-left: 15px;
+  transition: top ease 0.5s;
+  position: relative;
+  top: 0;
 }/*# sourceMappingURL=style.css.map */

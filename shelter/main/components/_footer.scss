@@ -33,7 +33,7 @@
     font-family: $font-georgia;
     display: inline-block;
     padding-bottom: 7%;
-  
+    @extend %transition;
   }
   .footer_title {
     align-self: flex-start;
@@ -47,6 +47,7 @@
   display: inline-block;
   position: relative;
   z-index: 1;
+
   span {
     display: inline-block;
     padding-top: 0;
@@ -67,9 +68,11 @@
   padding-top: 20px;
   padding-bottom: 3px;
 }
-.maps {
-  padding-left: 15px;
-}
+.maps, 
 .mail {
   padding-left: 15px;
+  transition: top ease 0.5s;
+  position: relative;
+  top: 0;
 }
+

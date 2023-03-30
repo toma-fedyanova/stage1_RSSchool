@@ -54,10 +54,4 @@
     padding-bottom: 56%;
   }
 }
-.br {
-  display: block;
-  @include media-tablet {
-    display: inline;
-    padding-left: 5px;
-  }
-}
+
