@@ -6,7 +6,7 @@ h1 {
   @extend %transition;
 }
 .logo {
-  @include media-mobile { 
+  @include media-mini { 
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -34,7 +34,7 @@ h1 {
   &:active {
     transform: rotate(360deg);
   }
-  @include media-mobile { 
+  @include media-mini { 
     display: block;
   }
 }
@@ -46,9 +46,12 @@ h1 {
 .header__navigation {
   width: 35%;
   padding-top: 2%;
+  @include media-middle {
+    width: 55%;
+  }
   @include media-tablet {
     width: 65%;
-    @include media-tablet {
+    @include media-mini {
       display: none;
     }
   }

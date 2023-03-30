@@ -10,14 +10,22 @@
   background-position: 99% 463%;
   background-size: auto 97%;
   margin-top: -10px;
+  @include media-middle {
+    padding-bottom: 55%;
+    background-size: auto 55%;
+    background-position: 100% 100%;
+  }
   @include media-tablet {
     background-position: 50% 100%;
     background-size: auto 45%;
     padding-bottom: 45%;
   }
+  @include media-mini { 
+    background-size: auto 35%;
+    padding-bottom: 55%;
+  }
   @include media-mobile { 
-    background-size: auto 25%;
-    padding-bottom: 85%;
+    padding-bottom: 75%;
   }
   .footer-block {
     display: flex;
@@ -79,6 +87,7 @@
   top: 0;
 }
 .footer__wrapper>* {
+
 @include media-tablet {
   flex-basis: 45%;
   }

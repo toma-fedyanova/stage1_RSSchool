@@ -17,8 +17,14 @@
 @mixin media-laptop {
   @media (max-width: $content-width) {@content;}
 }
+@mixin media-middle {
+  @media (max-width: 880px) {@content;}
+}
 @mixin media-tablet {
   @media (max-width: 768px) {@content;}
+}
+@mixin media-mini {
+  @media (max-width: 760px) {@content;}
 }
 @mixin media-mobile {
   @media (max-width: 320px) {@content;}

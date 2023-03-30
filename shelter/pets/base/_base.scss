@@ -20,7 +20,8 @@ h3 {
   @include font ($weight: 400, $size: 3.5rem, $height:130%);
   font-family: $font-georgia;
   color: $color-text;
-  @include media-mobile { 
+
+  @include media-mini { 
     font-size: 2.5rem;
     width: 100%;
   }

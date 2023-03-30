@@ -25,7 +25,7 @@
     align-items: center;
     @extend %transition;
     overflow: hidden;
-    @include media-tablet {
+      @include media-tablet {
       flex-basis: 45%;
     }
     @include media-mobile { 
@@ -67,9 +67,17 @@
   width: 31%;
   margin-left: 34.5%;
   padding-bottom: 4%;
+  @include media-middle {
+    width: 65%;
+    margin-left: 18%;
+  }
   @include media-tablet {
     width: 57%;
     margin-left: 20%;
+  }
+  @include media-mini { 
+    width: 87%;
+    margin-left: 8%;
   }
   @include media-mobile { 
     width: 100%;

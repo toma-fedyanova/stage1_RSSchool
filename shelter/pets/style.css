@@ -46,7 +46,7 @@ h3 {
   font-family: "Georgia", serif;
   color: #545454;
 }
-@media (max-width: 320px) {
+@media (max-width: 760px) {
   h3 {
     font-size: 2.5rem;
     width: 100%;
@@ -168,7 +168,7 @@ li {
   justify-content: space-between;
 }
 
-@media (max-width: 320px) {
+@media (max-width: 760px) {
   .logo {
     display: flex;
     justify-content: space-between;
@@ -203,7 +203,7 @@ li {
 .burger__menu:active {
   transform: rotate(360deg);
 }
-@media (max-width: 320px) {
+@media (max-width: 760px) {
   .burger__menu {
     display: block;
   }
@@ -219,12 +219,17 @@ li {
   width: 35%;
   padding-top: 2%;
 }
+@media (max-width: 880px) {
+  .header__navigation {
+    width: 55%;
+  }
+}
 @media (max-width: 768px) {
   .header__navigation {
     width: 65%;
   }
 }
-@media (max-width: 768px) and (max-width: 768px) {
+@media (max-width: 768px) and (max-width: 760px) {
   .header__navigation {
     display: none;
   }
@@ -330,10 +335,22 @@ li {
   margin-left: 34.5%;
   padding-bottom: 4%;
 }
+@media (max-width: 880px) {
+  .button__list {
+    width: 65%;
+    margin-left: 18%;
+  }
+}
 @media (max-width: 768px) {
   .button__list {
     width: 57%;
     margin-left: 20%;
+  }
+}
+@media (max-width: 760px) {
+  .button__list {
+    width: 87%;
+    margin-left: 8%;
   }
 }
 @media (max-width: 320px) {
@@ -386,6 +403,13 @@ li {
 .footer__wrapper > * {
   flex-basis: 37%;
 }
+@media (max-width: 880px) {
+  .footer__wrapper {
+    padding-bottom: 55%;
+    background-size: auto 55%;
+    background-position: 100% 100%;
+  }
+}
 @media (max-width: 768px) {
   .footer__wrapper {
     background-position: 50% 100%;
@@ -393,10 +417,15 @@ li {
     padding-bottom: 45%;
   }
 }
+@media (max-width: 760px) {
+  .footer__wrapper {
+    background-size: auto 35%;
+    padding-bottom: 55%;
+  }
+}
 @media (max-width: 320px) {
   .footer__wrapper {
-    background-size: auto 25%;
-    padding-bottom: 85%;
+    padding-bottom: 75%;
   }
 }
 .footer__wrapper .footer-block {
