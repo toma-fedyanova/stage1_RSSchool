@@ -26,6 +26,9 @@
     .help_text {
       font-size: 2.3rem;
       margin-top: 19%;
+      @include media-mini {
+        font-size: 1.7rem;
+      }
     }
   }
 }
@@ -59,5 +62,10 @@
   right: 7%;
   @include media-tablet {
     position: static;
+  }
+}
+.icos__ico {
+  @include media-mini {
+    transform: scale(0.85);
   }
 }

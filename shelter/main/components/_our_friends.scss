@@ -22,6 +22,10 @@
     justify-content: space-between;
     column-gap: 20px;
   }
+  @include media-tablet {
+    margin-left: 10px;
+    margin-right: 10px;
+  }
   .animal__card {
     background-color: #FAFAFA;
     display: flex;
@@ -56,6 +60,12 @@
     position: relative;
     content: "";
     top: -43px;
+    @include media-mini { 
+      margin-left: 30%;
+    }
+    @include media-mobile { 
+      margin-left:5%;
+    }
   }
 }
 .arrow {
@@ -65,8 +75,13 @@
 }
 .arrow_left {
   top: -251px;
+
   @include media-tablet {
     left: 2%;
+  }
+  @include media-mini {
+    top: 12px;
+    left: 70px;
   }
 }
 .arrow_right {
@@ -75,6 +90,12 @@
   @include media-tablet {
     left: 88%;
   }
+  @include media-mini {
+    top: -40px;
+  }
+  @include media-mini {
+    left: 50%;
+  }
 }
 .button__bordered {
   @extend %transition;
@@ -82,5 +103,17 @@
 .animal__card.card_last {
   @include media-tablet {
     display: none;
+  }
+}
+.our__friends_animals >* {
+  @include media-tablet { 
+    flex-basis: 48%;
+  }
+  @include media-mini {
+    flex-basis: 45%;
+  
+  }
+  @include media-mobile {
+    flex-basis: 90%;
   }
 }
