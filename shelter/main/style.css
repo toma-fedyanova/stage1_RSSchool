@@ -1362,7 +1362,7 @@ li {
 }
 
 @media (max-width: 320px) {
-  span.br#br {
+  span.br.br_footer {
     display: inline;
     padding-left: 2px;
   }

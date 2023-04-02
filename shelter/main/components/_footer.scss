@@ -165,7 +165,7 @@
       }
     }
   }
-  span.br#br {
+  span.br.br_footer {
     @include media-mobile { 
       display: inline;
       padding-left: 2px;
