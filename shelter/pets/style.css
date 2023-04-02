@@ -515,7 +515,7 @@ li {
 }
 @media (max-width: 320px) {
   .footer__wrapper {
-    padding-bottom: 100%;
+    padding-bottom: 97%;
     background-size: auto 33.5%;
   }
 }
@@ -651,13 +651,6 @@ li {
   }
 }
 
-.maps.footer_link.second_link {
-  position: relative;
-  content: "";
-  top: 7px;
-  display: block;
-}
-
 @media (max-width: 768px) {
   .footer__wrapper > * {
     flex-basis: 50%;
@@ -679,8 +672,12 @@ li {
   width: 15px;
 }
 
+.text__footer {
+  white-space: nowrap;
+}
+
 @media (max-width: 320px) {
-  .second_line div.footer_link {
-    width: 320px;
+  .second_link {
+    padding-top: 14px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -27,7 +27,7 @@
     padding-bottom: 55%;
   }
   @include media-mobile { 
-    padding-bottom: 100%;
+    padding-bottom: 97%;
     background-size: auto 33.5%;
   }
   .footer-block {
@@ -141,12 +141,7 @@
    padding-bottom: 11%;
   }
 }
-.maps.footer_link.second_link {
-  position: relative;
-  content: "";
-  top: 7px;
-  display: block;
-}
+
 .footer__wrapper>* {
 
 @include media-tablet {
@@ -163,8 +158,11 @@
   display: inline-block;
   width: 15px;
 }
-.second_line div.footer_link {
-  @include media-mobile { 
-    width: 320px;
-  }
+.text__footer {
+  white-space: nowrap;
+}
+.second_link {
+  @include media-mobile {
+  padding-top: 14px;
+}
 }
