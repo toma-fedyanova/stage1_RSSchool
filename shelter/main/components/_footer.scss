@@ -7,23 +7,25 @@
   align-items: center;
   background: url('.././assets/footer-puppy.png');
   background-repeat: no-repeat;
-  background-position: 99% 463%;
-  background-size: auto 97%;
+  background-position: 100% 100%;
+  background-size: auto 88%;
   margin-top: -10px;
+  padding-bottom: 4%;
   @include media-middle {
     padding-bottom: 55%;
     background-size: auto 55%;
     background-position: 100% 100%;
   }
   @include media-tablet {
-    padding-bottom: 50%;
-    background-size: auto 47%;
+    padding-bottom: 47%;
+    background-size: auto 48.5%;
     background-position: 50% 100%;
     @include layout (50%);
+    padding-left: 35px;
   }
   @include media-mini { 
-    background-size: auto 35%;
-    padding-bottom: 55%;
+    background-size: auto 30%;
+    padding-bottom: 70%;
   }
   @include media-mobile { 
     padding-bottom: 75%;
@@ -44,25 +46,37 @@
     @include font ($weight: 400, $size: 2.2rem, $height:100%);
     font-family: $font-georgia;
     display: inline-block;
-    padding-bottom: 7%;
+    padding-bottom: 8%;
     @extend %transition;
-    @include media-mobile { 
+
+    @include media-mini { 
       font-size: 2.0rem;
     }
   }
   .footer_title {
     align-self: flex-start;
+    position: relative;
+    top: 6px;
+    @include media-tablet {
+      top: -22px;
+      margin-bottom: 10px;
+    }
   }
   #footer_for_questions {
     padding-top: 2px;
     margin-bottom: 19px;
+    @include media-tablet {
+      top: -22px;
+      margin-bottom: 5px;
+      position: relative;
+    }
   }
 }
 .footer_link {
   display: inline-block;
   position: relative;
   z-index: 1;
-
+  text-align: center;
   span {
     display: inline-block;
     padding-top: 0;
@@ -71,10 +85,13 @@
       z-index: -1;
       top: 9px;
       left: -10px;
+      @include media-tablet {
+        left: -15px;
+      }
     }
     .ico_map {
-      top: 6px;
-      left: -24px;
+      top: 13px;
+      left: -15px;
     }
   }
 
@@ -93,9 +110,25 @@
 .footer__wrapper>* {
 
   @include media-tablet {
-    flex-basis: 45%;
+    flex-basis: 50%;
+    }
+    @include media-mini { 
+      flex-basis: 86%;
     }
   @include media-mobile { 
-    flex-basis: 90%;
+    flex-basis: 100%;
+    }
+  }
+  .footer_block.block__two {
+    margin-left: -7px;
+    @include media-tablet {
+      margin-left: 0;
+    }
+  }
+  #footer_link {
+    position: relative;
+    content: "";
+    @include media-tablet {
+    top: -5px;
     }
   }

@@ -6,18 +6,22 @@
   @include media-middle { 
     background-size: auto 40%;
     background-position: 10% 90%;
-    padding-bottom: 25%;
+    padding-bottom: 35%;
   }
   @include media-tablet {
-    background-size: auto 40%;
-    background-position: 50% 90%;
-    padding-bottom: 45%;
+    background-size: auto 39%;
+    background-position: 51% 84%;
+    padding-bottom: 62%;
   }
   @include media-mini { 
       padding-bottom: 65%;
+      background-size: auto 28%;
+      padding-bottom: 72%;
   }
   @include media-mobile { 
-    background-size: auto 20%;
+    background-size: auto 37%;
+    padding-bottom: 102%;
+    background-position: 51% 93%;
   }
   .about_description {
     width: 50%;
@@ -38,12 +42,28 @@
     @include media-mobile { 
       width: 90%;
       margin-left: 0;
+      padding-top: 41px;
     }
   
     h3 {
       letter-spacing: 1.9px;
-      margin-top: 15px;
+      margin-top: -1px;
+      @include media-mini { 
+        margin-top: 0;
+      }
+      @include media-mobile { 
+        text-align: center;
+        letter-spacing: 1.1px;
+        margin-left: 31px;
+        margin-bottom: 34px;
+      }
+      .br {
+        @include media-tablet {
+          display: block;
+          margin-top: 2px;
+      }
     }
+}
     .about_text {
       @include font ($weight: 400, $size: 1.5rem, $height:155%);
     font-family: $font-arial;
@@ -54,9 +74,13 @@
     margin-bottom: 10px;
     @include media-tablet {
       line-height: 160%;
+      margin-top: -12px;
+      width: 75%;
     }
-    @include media-tablet { 
+    @include media-mobile {
+      margin-left: 16px;
       width: 100%;
+      text-align: justify;
     }
    }
   }

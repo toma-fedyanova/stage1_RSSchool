@@ -16,14 +16,16 @@
     background-size: auto 50%;
   }
   @include media-tablet {
-    background-size: auto 50%;
-    background-position: 90% 100%;
+    background-size: auto 56%;
+    background-position: 100% 100%;
   }
   @include media-mini { 
+    padding-top: 150px;
     background-size: auto 35%;
   }
   @include media-mobile {  
-    background-size: auto 30%;
+    background-size: auto 35%;
+    padding-top: 86px;
   }
 }
 .not__only_description {
@@ -38,14 +40,29 @@
   @include media-tablet {
     padding-left: 0;
     width: 100%;
-    padding-bottom: 100%;
+    padding-bottom: 98%;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding-top: 5%;
+    padding-top: 1.5%;
+  }
+  @include media-mobile { 
+    padding-bottom: 126%;
   }
   h2 {
     padding-top: 9%;
+    @include media-tablet {
+      padding-top: 0;
+      margin-left: -7%;
+      width: 58%;
+    }
+    @include media-mobile { 
+      font-size: 2.5rem;
+      width: 210px;
+      margin-left: 10px;
+      text-align: center;
+      letter-spacing: 2px;
+    }
   }
 }
 .not__only_text {
@@ -57,4 +74,14 @@
   text-align: justify;
   padding-top: 5px;
   padding-bottom: 26px;
+  @include media-tablet {
+    width: 65%;
+    padding-top: 0;
+    margin-top: 5px;
+  }
+  @include media-mobile {
+    width: 98%;
+    padding-top: 10px;
+    text-align: center;
+  }
 }

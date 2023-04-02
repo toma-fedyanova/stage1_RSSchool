@@ -14,9 +14,6 @@ h1 {
   font-family: $font-georgia;
   color: $color-brand;
   letter-spacing: 2px;
-  @include media-mini { 
-    letter-spacing: 1px;
-  }
 }
 h2 {
   @include font ($weight: 400, $size: 4.4rem, $height:130%);
@@ -24,8 +21,9 @@ h2 {
   color: $color-light;
   width: 60%;
   @include media-mini { 
-    font-size: 2.5rem;
+    font-size: 2.2rem;
   }
+
 }
 h3 {
   @include font ($weight: 400, $size: 3.5rem, $height:130%);
@@ -59,10 +57,7 @@ li {
 }
 .br {
   display: block;
-  @include media-tablet {
-    display: inline;
-    padding-left: 5px;
-  }
+
 }
 
 

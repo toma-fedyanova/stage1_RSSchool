@@ -413,8 +413,8 @@ li {
 @media (max-width: 768px) {
   .footer__wrapper {
     background-position: 50% 100%;
-    background-size: auto 45%;
-    padding-bottom: 45%;
+    background-size: auto 48.5%;
+    padding-bottom: 48%;
   }
 }
 @media (max-width: 760px) {
@@ -456,6 +456,12 @@ li {
   padding-top: 2px;
   margin-bottom: 19px;
 }
+@media (max-width: 768px) {
+  .footer__wrapper #footer_for_questions {
+    top: -25px;
+    margin-bottom: -4px;
+  }
+}
 
 .footer_link {
   display: inline-block;
@@ -477,6 +483,11 @@ li {
   left: -24px;
 }
 
+#first_block {
+  position: relative;
+  content: "";
+}
+
 #tel {
   padding-top: 20px;
   padding-bottom: 3px;
@@ -488,6 +499,12 @@ li {
   transition: top ease 0.5s;
   position: relative;
   top: 0;
+}
+@media (max-width: 768px) {
+  .maps,
+  .mail {
+    padding-left: 11px;
+  }
 }
 
 @media (max-width: 768px) {

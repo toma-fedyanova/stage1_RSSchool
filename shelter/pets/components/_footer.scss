@@ -17,8 +17,8 @@
   }
   @include media-tablet {
     background-position: 50% 100%;
-    background-size: auto 45%;
-    padding-bottom: 45%;
+    background-size: auto 48.5%;
+    padding-bottom: 48%;
   }
   @include media-mini { 
     background-size: auto 35%;
@@ -53,6 +53,10 @@
   #footer_for_questions {
     padding-top: 2px;
     margin-bottom: 19px;
+    @include media-tablet {
+      top: -25px;
+      margin-bottom: -4px;
+    }
   }
 }
 .footer_link {
@@ -67,6 +71,7 @@
       z-index: -1;
       top: 9px;
       left: -10px;
+  
     }
     .ico_map {
       top: 6px;
@@ -74,6 +79,10 @@
     }
   }
 
+}
+#first_block{
+  position: relative;
+  content: "";
 }
 #tel {
   padding-top: 20px;
@@ -85,7 +94,11 @@
   transition: top ease 0.5s;
   position: relative;
   top: 0;
+  @include media-tablet {
+    padding-left: 11px;
+  }
 }
+
 .footer__wrapper>* {
 
 @include media-tablet {

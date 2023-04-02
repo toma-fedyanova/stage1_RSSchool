@@ -3,6 +3,13 @@
 }
 .our__friends_description {
   padding: 64px 0;
+  @include media-tablet {
+    padding-bottom: 58px;
+  }
+  @include media-mobile {
+    padding-top: 31px;
+    padding-bottom: 0;
+  }
   h3 {
     width: 35%;
     text-align: center;
@@ -11,20 +18,25 @@
     padding-top: 6px;
     @include media-tablet {
       width: 60%;
+      padding-top: 13px;
     }
-  }
+    @include media-tablet {
+      width: 100%;
+    }
+   }
 }
 .our__friends_animals {
   @include layout(28%);
   margin: 60px 60px 0 60px;
   justify-content: space-around;
   @include media-tablet {
-    justify-content: space-between;
-    column-gap: 20px;
+    justify-content: space-around;
+    column-gap: 0;
+    margin-left: 6%;
+    margin-right: 6%;
   }
   @include media-tablet {
-    margin-left: 10px;
-    margin-right: 10px;
+    margin-top: 41px;
   }
   .animal__card {
     background-color: #FAFAFA;
@@ -42,13 +54,14 @@
       @include font ($weight: 400, $size: 2.0rem, $height:100%);
       font-family: $font-georgia;
       color: $color-text;
-      margin-top: 27px;
-      margin-bottom: 29px;
+      margin-top: 31px;
+      margin-bottom: 31px;
     }
     .animal__card_button {
       margin-bottom: 30px;
       .button__bordered {
-        padding: 11px 37px;
+        padding: 11px 43px;
+        padding-top: 16px;
       }
     }
   }
@@ -56,15 +69,20 @@
 .our__friends_button {
   a {
     display: inline-block;
-    margin-left: 39.5%;
+    margin-left: 39%;
     position: relative;
     content: "";
     top: -43px;
+    @include media-tablet { 
+      margin-left: 31%;
+    } 
     @include media-mini { 
       margin-left: 30%;
     }
     @include media-mobile { 
-      margin-left:5%;
+      margin-left:6%;
+      margin-top: 17%;
+
     }
   }
 }
@@ -74,46 +92,74 @@
   cursor: pointer;
 }
 .arrow_left {
-  top: -251px;
-
+  top: -243px;
   @include media-tablet {
-    left: 2%;
+    left: 0%;
   }
   @include media-mini {
     top: 12px;
-    left: 70px;
+    left: 100px;
+  }
+  @include media-mobile {
+    left: 59px;
+    top: 15px;
   }
 }
 .arrow_right {
   left: 95.5%;
-  top: -297px;
+  top: -293px;
+  
+  @include media-middle { 
+    left: 93%;
+  }
   @include media-tablet {
-    left: 88%;
+    left: 92.5%;
+    top: -296px;
   }
   @include media-mini {
     top: -40px;
+    left: 30%;
   }
-  @include media-mini {
-    left: 50%;
+  @include media-mobile { 
+    top: -37px;
+    left: 63%;
+  }
+}
+@media (max-width: 1150px) {
+  .arrow_right {
+    left: 93%;
+  }
+}
+@media (max-width: 758px) {
+  .arrow_right {
+    left: 65%;
   }
 }
 .button__bordered {
   @extend %transition;
+}
+
+.our__friends_animals >* {
+  @include media-tablet { 
+    flex-basis: 45%;
+  }
+
+  @include media-mobile {
+    flex-basis: 90%;
+  }
 }
 .animal__card.card_last {
   @include media-tablet {
     display: none;
   }
 }
-.our__friends_animals >* {
-  @include media-tablet { 
-    flex-basis: 48%;
-  }
-  @include media-mini {
-    flex-basis: 45%;
-  
-  }
+.animal__card.card_mobile {
   @include media-mobile {
-    flex-basis: 90%;
+    display: none;
   }
 }
+
+
+
+
+
