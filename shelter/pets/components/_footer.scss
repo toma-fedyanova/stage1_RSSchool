@@ -75,6 +75,7 @@
   #footer_for_questions {
     padding-top: 2px;
     margin-bottom: 19px;
+  
     @include media-tablet {
       top: -25px;
       margin-bottom: 17px;
@@ -136,7 +137,7 @@
    position: relative;
    content: "";
    left: -37px;
-   width: 310px;
+   
    padding-bottom: 11%;
   }
 }
@@ -151,7 +152,19 @@
 @include media-tablet {
   flex-basis: 50%;
   }
+  @include media-mini { 
+    flex-basis: 80%;
+    }
 @include media-mobile { 
   flex-basis: 90%;
+  }
+}
+.width {
+  display: inline-block;
+  width: 15px;
+}
+.second_line div.footer_link {
+  @include media-mobile { 
+    width: 320px;
   }
 }

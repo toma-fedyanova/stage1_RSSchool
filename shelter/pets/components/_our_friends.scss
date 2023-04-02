@@ -43,6 +43,11 @@
     margin-right: 63px;
     row-gap: 34px;
   }
+  @include media-mini {
+    margin-left: 20px;
+    margin-right: 20px;
+  
+  }
   @include media-mobile { 
     margin-left: 15px;
     margin-right: 0;
