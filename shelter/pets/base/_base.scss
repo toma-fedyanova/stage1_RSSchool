@@ -35,6 +35,12 @@ li {
 .wrapper {
   max-width: $content-width;
   margin: auto;
+  @include media-tablet {
+    max-width: 708px;
+  }
+  @include media-mobile {
+    max-width: 300px;
+  }
 }
 .hidden {
   display: none;
@@ -44,7 +50,7 @@ li {
 }
 .br {
   display: block;
-  @include media-tablet {
+  @include media-mini {
     display: inline;
     padding-left: 5px;
   }

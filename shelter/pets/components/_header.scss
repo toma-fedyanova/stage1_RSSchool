@@ -12,6 +12,10 @@ h1 {
     align-items: center;
     width: 100%;
   }
+  @include media-mobile { 
+    padding-right: 10px;
+    padding-left: 10px;
+  }
 }
 .logo__text {
   text-align: center;
@@ -37,6 +41,9 @@ h1 {
   @include media-mini { 
     display: block;
   }
+  @include media-mobile { 
+    padding-top: 3px;
+  }
 }
 .burger__line {
   height: 2px;
@@ -44,13 +51,14 @@ h1 {
   margin-bottom: 10px;
 }
 .header__navigation {
-  width: 35%;
+  width: 37%;
   padding-top: 2%;
   @include media-middle {
     width: 55%;
   }
   @include media-tablet {
-    width: 65%;
+    width: 62.5%;
+    padding-top: 23px;
     @include media-mini {
       display: none;
     }
@@ -62,10 +70,12 @@ h1 {
       @include font ($weight: 400, $size: 1.5rem, $height:160%);
       font-family: Arial, Helvetica, sans-serif;
       @extend %transition;
+      color: #545454;
     }
     .list-underline {
       border-bottom: 3px solid $color-brand;
       padding-bottom: 5px;
+      color: #292929;
     }
   }
 

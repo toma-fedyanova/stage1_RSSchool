@@ -10,6 +10,7 @@
   background-position: 99% 463%;
   background-size: auto 97%;
   margin-top: -10px;
+  
   @include media-middle {
     padding-bottom: 55%;
     background-size: auto 55%;
@@ -19,25 +20,35 @@
     background-position: 50% 100%;
     background-size: auto 48.5%;
     padding-bottom: 48%;
+    padding-left: 35px;
   }
   @include media-mini { 
     background-size: auto 35%;
     padding-bottom: 55%;
   }
   @include media-mobile { 
-    padding-bottom: 75%;
+    padding-bottom: 100%;
+    background-size: auto 33.5%;
   }
   .footer-block {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    
+
   }
   h3 {
     color: $color-light;
     margin-top: 50px;
     letter-spacing: 2px;
+    @include media-tablet {
+      margin-top: 25px;
+    }
+    @include media-mobile {
+      text-align: center;
+      margin-bottom: 18px;
+      width: 237px;
+    }
   }
   a {
     color: $color-brand;
@@ -46,16 +57,30 @@
     display: inline-block;
     padding-bottom: 7%;
     @extend %transition;
+    @include media-mobile {
+      font-size: 2.0rem;
+      letter-spacing: 0.6px;
+      
+    }
   }
   .footer_title {
     align-self: flex-start;
+    position: relative;
+    content: "";
+    top: 5px;
+    @include media-mobile {
+      margin-bottom: 33px;
+    }
   }
   #footer_for_questions {
     padding-top: 2px;
     margin-bottom: 19px;
     @include media-tablet {
       top: -25px;
-      margin-bottom: -4px;
+      margin-bottom: 17px;
+    }
+    @include media-mobile { 
+      margin-bottom: 29px;
     }
   }
 }
@@ -71,11 +96,16 @@
       z-index: -1;
       top: 9px;
       left: -10px;
-  
+       @include media-mobile {
+        left: -19px;
+       }
     }
     .ico_map {
       top: 6px;
       left: -24px;
+    }
+    .ico_first {
+      top: 20px;
     }
   }
 
@@ -98,11 +128,28 @@
     padding-left: 11px;
   }
 }
-
+.maps {
+  @include media-tablet {
+    margin-left: 15px;
+  }
+  @include media-mobile {
+   position: relative;
+   content: "";
+   left: -37px;
+   width: 310px;
+   padding-bottom: 11%;
+  }
+}
+.maps.footer_link.second_link {
+  position: relative;
+  content: "";
+  top: 7px;
+  display: block;
+}
 .footer__wrapper>* {
 
 @include media-tablet {
-  flex-basis: 45%;
+  flex-basis: 50%;
   }
 @include media-mobile { 
   flex-basis: 90%;
