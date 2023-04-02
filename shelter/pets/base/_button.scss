@@ -20,4 +20,7 @@
   border: 2px solid $color-brand;
   border-radius: 100px;
   @extend %transition;
+  @include media-tablet {
+    padding: 15px 46px;
+  }
 }

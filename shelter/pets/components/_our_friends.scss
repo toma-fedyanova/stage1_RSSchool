@@ -3,20 +3,56 @@
 }
 .our__friends_description {
   padding: 64px 0;
+  @include media-tablet {
+    padding-bottom: 59px;
+    padding-top: 65px;
+  }
   
+  @include media-mobile { 
+    padding-bottom: 41px;
+    padding-top: 26px;
+  }
   h3 {
-    width: 35%;
+    width: 55%;
     text-align: center;
     letter-spacing: 2px;
     margin: auto;
     padding-top: 15px;
     padding-bottom: 14px;
+    @include media-tablet {
+      width: 58%;
+      padding-bottom: 0;
+    } 
+    @include media-mobile { 
+      width: 100%;
+      padding-bottom: 11px;
+    }
+    span.br {
+      display: block;
+    }
+    }
   }
-}
+
 .our__friends_animals {
   @include layout (23%);
   margin-top: 45px;
   justify-content: space-between;
+  @include media-tablet {
+    margin-top: 30px;
+    margin-left: 63px;
+    margin-right: 63px;
+    row-gap: 34px;
+  }
+  @include media-mini {
+    margin-left: 20px;
+    margin-right: 20px;
+  
+  }
+  @include media-mobile { 
+    margin-left: 15px;
+    margin-right: 0;
+    row-gap: 31px;
+  }
   .animal__card {
     background-color: #FAFAFA;
     display: flex;
@@ -25,6 +61,13 @@
     align-items: center;
     @extend %transition;
     overflow: hidden;
+      @include media-tablet {
+      flex-basis: 47%;
+    }
+    @include media-mobile { 
+      flex-basis: 95%;
+    }
+  
     img {
       transition: 1s;
       display: block;
@@ -40,6 +83,9 @@
       margin-bottom: 30px;
       .button__bordered {
         padding: 11px 40px;
+        @include media-mobile {
+          padding: 13px 45px;
+        }
       }
     }
   }
@@ -60,10 +106,43 @@
   width: 31%;
   margin-left: 34.5%;
   padding-bottom: 4%;
+  @include media-middle {
+    width: 65%;
+    margin-left: 18%;
+  }
+  @include media-tablet {
+    width: 52%;
+    margin-left: 24%;
+    margin-top: 6px;
+  }
+  @include media-mini { 
+    width: 87%;
+    margin-left: 8%;
+  }
+  @include media-mobile { 
+    width: 100%;
+    margin-left: 0;
+    margin-top: 24px;
+  }
 }
 .arrow.inactive {
   border: 1px solid $color-inactive;
+  cursor: default;
 }
 #our__friend_second {
   margin-top: 34px;
+  @include media-mobile {
+    display: none;
+  }
+}
+.animal__card.remove {
+ 
+    @include media-tablet { 
+      display: none;
+    }
+  }
+#sophia {
+  @include media-mobile {
+    display: none;
+  }
 }

@@ -1,6 +1,6 @@
 
 
-@font-face {
+/*@font-face {
 	font-family: 'Arial'; 
 	src: local('/shelter/assets/ARIAL.TTF'),
   url('/shelter/assets/ARIAL.TTF') format('truetype');
@@ -13,7 +13,7 @@
   url('/shelter/assets/ARIALI_italic.TTF') format('truetype');
   font-weight: normal;
   font-style: italic;
-}
+}*/
 
 //font
 $font-georgia: 'Georgia', serif;
@@ -32,3 +32,5 @@ $color-button-text: #292929;
 
 //width
 $content-width: 1200px;
+$tablet-width: 708px;
+$mobile-width: 300px;

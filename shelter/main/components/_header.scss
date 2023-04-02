@@ -3,17 +3,32 @@
   justify-content: space-between;
   position: relative;
   z-index: 5;
-  //padding-top:  30px;
 }
-
+h1 {
+  @extend %transition;
+}
+.logo {
+  @include media-mini {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+  @include media-mobile { 
+    width: 80%;
+  }
+}
 .logo__text {
   text-align: center;
   .cozy_text{
     @include font ($weight: 400, $size: 1.3rem, $height:100%);
-    font-family: $font-arial;
+    font-family: Arial, Helvetica, sans-serif;
     color: $color-light;
     margin-top: -9px;
     letter-spacing: 1.3px;
+  }
+  @include media-mobile {
+    padding-left: 5px;
   }
 }
 .link_logo {
@@ -22,31 +37,54 @@
 .burger__menu {
   width: 30px;
   height: 40px;
-  transform: rotate(90deg);
+  @extend %transition;
+  &:active {
+    transform: rotate(90deg);
+  }
+  @include media-mini {
+    display: block;
+    margin-right: 15px;
+  }
+  @include media-mobile {
+    margin-right: -49px;
+    padding-top: 10px;
+  }
 }
 .burger__line {
   height: 2px;
-  background-color: $color-brand;
+  background-color: #F1CDB3;
   margin-bottom: 10px;
 }
 .header__navigation {
   width: 37%;
   padding-top: 2%;
+  @include media-middle { 
+    padding-top: 3.2%;
+    width: 62.5%;
+  }
+
+  @include media-mini { 
+    display: none;
+  }
   .header__list {
     display: flex;
     justify-content: space-between;
     .list {
       @include font ($weight: 400, $size: 1.5rem, $height:160%);
-      font-family: $font-arial;
+      font-family: Arial, Helvetica, sans-serif;
+      @extend %transition;
+      color: $color-inactive
     }
-    .list-underline {
+    .list.list-underline {
       border-bottom: 3px solid $color-brand;
       padding-bottom: 5px;
+      color: #FAFAFA;
     }
   }
 
 }
-.list-underline {
+.list.list-underline {
   color: #FAFAFA;
+  cursor: default;
 }
 

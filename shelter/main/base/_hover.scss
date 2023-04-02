@@ -1,4 +1,7 @@
 @media (hover:hover) {
+  h1:hover {
+    color: $color-inactive;
+  }
   .arrow:hover {
     background-color: $color-hover;
     transform: scale(1.1);
@@ -32,7 +35,7 @@
       transition: 0.5s cubic-bezier(1,  0,  0,  1);
       height: 3px;
       background-color: $color-brand;
-      top: 29px;
+      top: 24px;
     }
     &:hover::before {
       right: 0;
@@ -52,5 +55,10 @@
   .footer__wrapper .footer_link:hover a, 
   .footer__wrapper .footer_link:focus a {
     color: $color-hover;
+    
+  }
+  .maps:hover,
+  .mail:hover {
+    top: -5px;
   }
 }
