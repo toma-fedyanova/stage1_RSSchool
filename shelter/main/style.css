@@ -1252,7 +1252,7 @@ li {
 @media (max-width: 768px) {
   .footer__wrapper #footer_for_questions {
     top: -22px;
-    margin-bottom: 5px;
+    margin-bottom: 0;
     position: relative;
   }
 }
@@ -1260,6 +1260,7 @@ li {
   .footer__wrapper #footer_for_questions {
     text-align: center;
     width: 240px;
+    margin-bottom: 12px;
   }
 }
 
@@ -1303,19 +1304,14 @@ li {
 }
 
 @media (max-width: 320px) {
-  .maps {
-    position: relative;
-    content: "";
-    left: -46px;
-    width: 310px;
-    top: 6px;
-    padding-bottom: 33px;
+  .maps.footer_link {
+    margin-left: -21px;
   }
 }
 
 @media (max-width: 320px) {
   .maps_second {
-    padding-top: 7px;
+    padding-top: 15px;
   }
 }
 
@@ -1347,10 +1343,21 @@ li {
 #footer_link {
   position: relative;
   content: "";
+  letter-spacing: 0.3px;
 }
 @media (max-width: 768px) {
   #footer_link {
     top: -5px;
+  }
+}
+@media (max-width: 320px) {
+  #footer_link {
+    letter-spacing: 1px;
+  }
+}
+@media (max-width: 320px) {
+  #footer_link object {
+    left: -24px;
   }
 }
 
@@ -1362,5 +1369,11 @@ li {
 }
 
 .width {
-  width: 15px;
+  width: 25px;
+}
+
+@media (max-width: 765px) {
+  .text__footer {
+    white-space: nowrap;
+  }
 }/*# sourceMappingURL=style.css.map */

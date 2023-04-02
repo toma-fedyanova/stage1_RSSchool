@@ -672,8 +672,10 @@ li {
   width: 15px;
 }
 
-.text__footer {
-  white-space: nowrap;
+@media (max-width: 766px) {
+  .text__footer {
+    white-space: nowrap;
+  }
 }
 
 @media (max-width: 320px) {

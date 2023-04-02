@@ -159,7 +159,9 @@
   width: 15px;
 }
 .text__footer {
+  @include media-mini {
   white-space: nowrap;
+}
 }
 .second_link {
   @include media-mobile {
