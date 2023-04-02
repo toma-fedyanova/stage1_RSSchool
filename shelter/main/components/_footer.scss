@@ -28,7 +28,8 @@
     padding-bottom: 70%;
   }
   @include media-mobile { 
-    padding-bottom: 75%;
+    padding-bottom: 100%;
+    background-size: auto 33%;
   }
   .footer-block {
     display: flex;
@@ -52,6 +53,11 @@
     @include media-mini { 
       font-size: 2.0rem;
     }
+    @include media-mobile { 
+      padding-left: 3px;
+      letter-spacing: 0.9px;
+      padding-bottom: 6%;
+    }
   }
   .footer_title {
     align-self: flex-start;
@@ -61,6 +67,9 @@
       top: -22px;
       margin-bottom: 10px;
     }
+    @include media-mobile { 
+      text-align: center;
+    }
   }
   #footer_for_questions {
     padding-top: 2px;
@@ -69,6 +78,10 @@
       top: -22px;
       margin-bottom: 5px;
       position: relative;
+    }
+    @include media-mobile { 
+      text-align: center;
+      width: 240px;
     }
   }
 }
@@ -107,6 +120,21 @@
   position: relative;
   top: 0;
 }
+.maps {
+  @include media-mobile { 
+    position: relative;
+    content: "";
+    left: -46px;
+    width: 310px;
+    top: 6px;
+    padding-bottom: 33px;
+  }
+}
+.maps_second {
+  @include media-mobile { 
+    padding-top: 7px;
+  }
+}
 .footer__wrapper>* {
 
   @include media-tablet {
@@ -116,7 +144,7 @@
       flex-basis: 86%;
     }
   @include media-mobile { 
-    flex-basis: 100%;
+    flex-basis: 89%;
     }
   }
   .footer_block.block__two {
@@ -130,5 +158,11 @@
     content: "";
     @include media-tablet {
     top: -5px;
+    }
+  }
+  span.br#br {
+    @include media-mobile { 
+      display: inline;
+      padding-left: 2px;
     }
   }

@@ -18,7 +18,7 @@
   @include media-tablet {
     padding-left: 73px;
     background-position: 47% 79%;
-    background-size: auto 34%;
+    background-size: auto 33%;
   }
   @include media-mini { 
     background-size: auto 30%;
@@ -112,7 +112,7 @@
     padding-bottom: 34.5%;
     width: 84%;
   }
-  @include media-tablet {
+  @include media-mobile {
     width: 97%;
     text-align: justify;
     padding-bottom: 39.5%;

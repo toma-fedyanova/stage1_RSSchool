@@ -524,7 +524,12 @@ li {
 }
 .about__wrapper .about_description h3 {
   letter-spacing: 1.9px;
-  margin-top: -1px;
+  margin-top: 15px;
+}
+@media (max-width: 768px) {
+  .about__wrapper .about_description h3 {
+    margin-top: -1px;
+  }
 }
 @media (max-width: 765px) {
   .about__wrapper .about_description h3 {
@@ -599,13 +604,13 @@ li {
 }
 @media (max-width: 768px) {
   .our__friends_description h3 {
-    width: 60%;
     padding-top: 13px;
+    width: 100%;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 320px) {
   .our__friends_description h3 {
-    width: 100%;
+    padding-bottom: 19px;
   }
 }
 
@@ -616,7 +621,7 @@ li {
   justify-content: space-around;
 }
 .our__friends_animals > * {
-  flex-basis: 28%;
+  flex-basis: 25%;
 }
 @media (max-width: 768px) {
   .our__friends_animals {
@@ -627,9 +632,9 @@ li {
     margin-right: 6%;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 320px) {
   .our__friends_animals {
-    margin-top: 41px;
+    margin-top: 20px;
   }
 }
 .our__friends_animals .animal__card {
@@ -1010,7 +1015,7 @@ li {
   .in__addition__wrapper {
     padding-left: 73px;
     background-position: 47% 79%;
-    background-size: auto 34%;
+    background-size: auto 33%;
   }
 }
 @media (max-width: 765px) {
@@ -1133,7 +1138,7 @@ li {
     width: 84%;
   }
 }
-@media (max-width: 768px) {
+@media (max-width: 320px) {
   .bank_text#arial_text {
     width: 97%;
     text-align: justify;
@@ -1187,7 +1192,8 @@ li {
 }
 @media (max-width: 320px) {
   .footer__wrapper {
-    padding-bottom: 75%;
+    padding-bottom: 100%;
+    background-size: auto 33%;
   }
 }
 .footer__wrapper .footer-block {
@@ -1216,6 +1222,13 @@ li {
     font-size: 2rem;
   }
 }
+@media (max-width: 320px) {
+  .footer__wrapper a {
+    padding-left: 3px;
+    letter-spacing: 0.9px;
+    padding-bottom: 6%;
+  }
+}
 .footer__wrapper .footer_title {
   align-self: flex-start;
   position: relative;
@@ -1227,6 +1240,11 @@ li {
     margin-bottom: 10px;
   }
 }
+@media (max-width: 320px) {
+  .footer__wrapper .footer_title {
+    text-align: center;
+  }
+}
 .footer__wrapper #footer_for_questions {
   padding-top: 2px;
   margin-bottom: 19px;
@@ -1236,6 +1254,12 @@ li {
     top: -22px;
     margin-bottom: 5px;
     position: relative;
+  }
+}
+@media (max-width: 320px) {
+  .footer__wrapper #footer_for_questions {
+    text-align: center;
+    width: 240px;
   }
 }
 
@@ -1278,6 +1302,23 @@ li {
   top: 0;
 }
 
+@media (max-width: 320px) {
+  .maps {
+    position: relative;
+    content: "";
+    left: -46px;
+    width: 310px;
+    top: 6px;
+    padding-bottom: 33px;
+  }
+}
+
+@media (max-width: 320px) {
+  .maps_second {
+    padding-top: 7px;
+  }
+}
+
 @media (max-width: 768px) {
   .footer__wrapper > * {
     flex-basis: 50%;
@@ -1290,7 +1331,7 @@ li {
 }
 @media (max-width: 320px) {
   .footer__wrapper > * {
-    flex-basis: 100%;
+    flex-basis: 89%;
   }
 }
 
@@ -1310,5 +1351,12 @@ li {
 @media (max-width: 768px) {
   #footer_link {
     top: -5px;
+  }
+}
+
+@media (max-width: 320px) {
+  span.br#br {
+    display: inline;
+    padding-left: 2px;
   }
 }/*# sourceMappingURL=style.css.map */

@@ -47,9 +47,13 @@
   
     h3 {
       letter-spacing: 1.9px;
-      margin-top: -1px;
+      margin-top: 15px;
+      @include media-tablet { 
+        margin-top: -1px;
+      }
       @include media-mini { 
         margin-top: 0;
+        
       }
       @include media-mobile { 
         text-align: center;

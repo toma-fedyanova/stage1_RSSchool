@@ -17,16 +17,17 @@
     margin: auto;
     padding-top: 6px;
     @include media-tablet {
-      width: 60%;
       padding-top: 13px;
-    }
-    @include media-tablet {
       width: 100%;
+    
+    }
+    @include media-mobile {
+      padding-bottom: 19px;
     }
    }
 }
 .our__friends_animals {
-  @include layout(28%);
+  @include layout(25%);
   margin: 60px 60px 0 60px;
   justify-content: space-around;
   @include media-tablet {
@@ -35,8 +36,8 @@
     margin-left: 6%;
     margin-right: 6%;
   }
-  @include media-tablet {
-    margin-top: 41px;
+  @include media-mobile {
+    margin-top: 20px;
   }
   .animal__card {
     background-color: #FAFAFA;
