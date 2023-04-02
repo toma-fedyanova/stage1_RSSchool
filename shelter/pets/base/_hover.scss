@@ -1,5 +1,8 @@
 @media (hover:hover) {
-  .arrow:not(.inactive):hover {
+  h1:hover {
+    color: $color-inactive;
+  }
+  .arrow:not(.inactive):not(.page_number):hover {
     background-color: $color-hover;
     transform: scale(1.1);
   }
@@ -46,5 +49,9 @@
   .footer__wrapper .footer_link:hover a, 
   .footer__wrapper .footer_link:focus a {
     color: $color-hover;
+  }
+  .maps:hover,
+  .mail:hover {
+    top: -5px;
   }
 }

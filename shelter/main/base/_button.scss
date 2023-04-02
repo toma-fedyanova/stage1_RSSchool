@@ -6,9 +6,20 @@
   @include font($weight: 400, $size: 1.7rem, $height:130%);
   letter-spacing: 0.06em;
   text-align: center;
-  padding: 15px 50px;
+  padding: 15px 47px;
   border-radius: 100px;
   @extend %transition;
+  letter-spacing: 1.6px;
+  @include media-mini {
+    font-size: 1.5rem;
+    padding: 10px 19px;
+    margin-top: 15px;
+  }
+  @include media-mobile {
+    padding: 15px 47px;
+    font-size: 1.7rem;
+    margin-top: 3px;
+  }
 }
 
 .arrow {
@@ -28,11 +39,21 @@
   @extend %transition;
 }
 .button__bordered {
-  @include font ($weight: 400, $size: 2.2rem, $height:130%);
+  @include font ($weight: 400, $size: 1.7rem, $height:130%);
   font-family: $font-georgia;
   color: $color-button-text;
-  padding: 15px 45px;
+  padding: 15px 39px;
   border: 2px solid $color-brand;
   border-radius: 100px;
   @extend %transition;
+  padding-top: 16px;
+  @include media-mini {
+    font-size: 1.5rem;
+    padding: 10px 19px;
+    
+  }
+  @include media-mobile { 
+    font-size: 1.9rem;
+    padding: 6px 43px;
+  }
 }
