@@ -38,12 +38,12 @@ h1 {
   width: 30px;
   height: 40px;
   @extend %transition;
-  &:active {
-    transform: rotate(90deg);
-  }
   @include media-mini {
     display: block;
     margin-right: 15px;
+    z-index: 10;
+    position: relative;
+    content: "";
   }
   @include media-mobile {
     margin-right: -49px;
@@ -62,18 +62,41 @@ h1 {
     padding-top: 3.2%;
     width: 62.5%;
   }
+  @include media-mini {
+    width: 320px;
+   position: absolute;
+   content: '';
+   height: 100vh;
+    background-color: #292929;
+    margin: -8px;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 220px;
+    right: -320px;
+    top: 0;
+    transform: translateX(100%);
+  	transition: transform 0.8s; 
 
-  @include media-mini { 
-    display: none;
   }
+
   .header__list {
     display: flex;
     justify-content: space-between;
+    @include media-mini {
+      flex-direction: column;
+    }
     .list {
       @include font ($weight: 400, $size: 1.5rem, $height:160%);
       font-family: Arial, Helvetica, sans-serif;
       @extend %transition;
-      color: $color-inactive
+      color: $color-inactive;
+      @include media-mini {
+        font-size: 3.2rem;
+        line-height: 283%;
+      }
     }
     .list.list-underline {
       border-bottom: 3px solid $color-brand;
@@ -88,3 +111,12 @@ h1 {
   cursor: default;
 }
 
+.appier {
+  
+  transform: translateX(-100%);
+  }
+
+.rotate {
+  margin-top: 17px;
+  transform: rotate(-90deg);
+}
