@@ -42,14 +42,9 @@ li {
   list-style: none;
 }
 .wrapper {
-  max-width: $content-width;
+  max-width: 95.5%;
   margin: auto;
-  @include media-tablet {
-    max-width: $tablet-width;
-  }
-  @include media-mobile {
-    max-width: $mobile-width;
-  }
+
 }
 .hidden {
   display: none;

@@ -61,4 +61,9 @@
   .mail:hover {
     top: -5px;
   }
+  .cross:hover, 
+  .cross:active {
+    background-color: $color-brand;
+    cursor: pointer;
+  }
 }

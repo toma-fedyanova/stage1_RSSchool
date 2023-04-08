@@ -3,6 +3,10 @@
   justify-content: space-between;
   position: relative;
   z-index: 1;
+  @include media-middle {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
 h1 {
   @extend %transition;
@@ -59,13 +63,14 @@ h1 {
   width: 37%;
   padding-top: 2%;
   margin: 0;
+
   @include media-middle { 
     padding-top: 3.2%;
     width: 62.5%;
   }
   @include media-mini {
     width: 320px;
-   position: absolute;
+   position: fixed;
    content: '';
    height: 100vh;
     background-color: #292929;
@@ -75,7 +80,7 @@ h1 {
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding-top: 220px;
+    padding-top: 191px;
     right: -320px;
     top: 0;
     transform: translateX(100%);
@@ -113,7 +118,7 @@ h1 {
 }
 
 .appier {
-  
+  margin-right: -8px;
   transform: translateX(-100%);
   }
 
@@ -134,4 +139,81 @@ h1 {
   .overlay {
     display: none;
     position: static;
+  }
+  .none {
+    display: none;
+  }
+  .card_pet_new {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    transition: left 0.5s;
+    left:-150%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    display: flex;
+    z-index: 5;
+    background-color: #FAFAFA;
+    border-radius: 9px;
+   width: 900px;
+   .new_card_title {
+    margin-left: -28px;
+   }
+    .cross {
+      position: relative;
+      padding-left: 18px;
+      padding-top: 16px;
+      content: "";
+      right: -99%;
+      top: -44px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid $color-brand;
+      z-index: 10;
     }
+    img {
+      width: 510px;
+      margin-left: -10%;
+      overflow: hidden;
+    }
+    .title {
+      font-size: 3.5rem;
+      color: #000000;
+      padding-top: 27px;
+      letter-spacing: 0.4rem;
+      margin-bottom: -10px;
+    }
+    .dog {
+      font-size: 2.1rem;
+      padding-bottom: 21px;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+    .description {
+      font-size: 1.7rem;
+      line-height: 123%;
+      width: 350px;
+      padding-bottom: 18px;
+    }
+    .animal_property {
+      margin-left: 10px;
+    }
+    .text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 150%;
+      list-style: disc;
+      color: #F1CDB3;
+      margin-bottom: 6px;
+      span {
+        color: #000000;
+      }
+    }
+    .inner_text {
+      font-weight: 400;
+      display: inline-block;
+      padding-left: 17px;
+    }
+  }
