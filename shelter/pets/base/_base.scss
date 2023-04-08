@@ -34,14 +34,9 @@ li {
   list-style: none;
 }
 .wrapper {
-  max-width: $content-width;
+  max-width: 95.5%;
   margin: auto;
-  @include media-tablet {
-    max-width: 708px;
-  }
-  @include media-mobile {
-    max-width: 300px;
-  }
+
 }
 .hidden {
   display: none;

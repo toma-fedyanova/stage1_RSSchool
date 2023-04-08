@@ -9,8 +9,8 @@ let leftArrow = document.querySelector('.arrow_left');
 let rightArrow = document.querySelector('.arrow_right');
 const mediaQueryMobile = window.matchMedia('(max-width: 320px)');
 const mediaQueryMini = window.matchMedia('(max-width: 767px)');  //for screen less 797px
-const mediaQueryTable = window.matchMedia('(max-width: 767px)');
-
+const mediaQueryTablet = window.matchMedia('(max-width: 768px)');
+const mediaQueryThousent = window.matchMedia('(max-width: 1000px)');
 let wrapper = document.querySelector('.header__wrapper');
 let newCard = document.querySelector('.card_pet_new');
 let cross = document.querySelector('.cross');
@@ -51,7 +51,9 @@ block.addEventListener('click', function() {   //click for not menu close menu
 
 
 //popap
-
+let description = newCard.querySelector('.new_card_title .description');
+let img = newCard.querySelector('.new_img img');
+let imgBlock = newCard.querySelector('.new_img');
 let num;
 async function getInfoInPopap() {                         //change info in popap cfrd
       
@@ -76,20 +78,47 @@ async function getInfoInPopap() {                         //change info in popap
       thirdBlock.textContent = data['pets'][num]["diseases"];
       fourthBlock.textContent = data['pets'][num]["parasites"];
 }
+function changePopapForMobile() {           //change size popap for mobile
+  imgBlock.style.display = 'none';
+  newCard.style.width = '240px';
+  description.style.width = '210px';
+}
 
-function getPopapVisible() {
-   
-  for (let card of cards) {                                            // add listener to cards
+function chengePopapForTablet() {   //change size popap for tablet
+  imgBlock.style.display = 'block';
+  img.style.width = '330px';
+  imgBlock.style.marginLeft = '-20px';
+  let text = newCard.querySelector('.new_card_title .dog');
+  text.style.fontSize = '20px';                                 
+  description.style.fontSize = '13px'; 
+  description.style.width = '260px'; 
+  newCard.style.width = '630px';   
+}
+function chengePopapForComputer() {  //change size popap for computer
+  imgBlock.style.display = 'block';
+  img.style.width = '510px';
+  let text = newCard.querySelector('.new_card_title .dog');
+  text.style.fontSize = '21px';                                 
+  description.style.fontSize = '17px'; 
+  description.style.width = '350px'; 
+  newCard.style.width = '900px'; 
+  imgBlock.style.marginLeft = '-10px';  
+}
+
+function getLocationPopapOverlay() {     //locate popap in window
+  newCard.style.left = '50%';            //appiar card
+  body.style.overflowY = 'hidden';
+  block.classList.remove('overlay');
+}
+function getPopapVisible() {            //add listener for animal card
+  let arr = ["Jennifer", "Sophia", "Woody", "Scarlett", "Katrine", "Timmy", "Freddie", "Charly"];
+  for (let card of cards) { 
     card.addEventListener('click', function func(event) {
-      let arr = ["Jennifer", "Sophia", "Woody", "Scarlett", "Katrine", "Timmy", "Freddie", "Charly"];
       let value = card.querySelector('.animal_name').textContent;       //find index in array
       num = arr.indexOf(value);
-      getInfoInPopap();                                             //create new popap
+      getInfoInPopap(); 
       event.stopPropagation();
-      newCard.style.left = '50%';                                   //appiar card
-      body.style.overflowY = 'hidden';
-      block.classList.remove('overlay');
-      
+      getLocationPopapOverlay()
     })
   }
 }
@@ -102,6 +131,12 @@ function getClosePopap() {                        //close popap
 }
 cross.addEventListener('click', getClosePopap);
 block.addEventListener('click', getClosePopap);
+
+window.addEventListener('resize',function(){   //listener for change size window
+  if (mediaQueryMini.matches) changePopapForMobile();
+  else if (mediaQueryThousent.matches) chengePopapForTablet(); 
+  else chengePopapForComputer();    
+});
 
 
 //Реализация слайдера-карусели на странице Main
