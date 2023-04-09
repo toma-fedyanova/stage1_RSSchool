@@ -3,7 +3,6 @@ let menu = document.querySelector('.header__navigation')
 let links =menu.querySelectorAll('li');
 let main = document.querySelector('main');
 let block = document.querySelector('.overlay');
-
 let petsBlock = document.querySelectorAll('.our__friends_animals');
 let cards = document.querySelectorAll('.animal__card');
 const mediaQueryThousent = window.matchMedia('(max-width: 1000px)');
@@ -14,6 +13,11 @@ const body = document.querySelector('body');
 let wrapper = document.querySelector('.header__wrapper');
 let newCard = document.querySelector('.card_pet_new');
 let cross = document.querySelector('.cross');
+let leftArrow = document.querySelector('.arrow_left');
+let doubleLeftArrow = document.querySelector('.arrow_double_left');
+let rightArrow = document.querySelector('.arrow_right');
+let doubleRightArrow = document.querySelector('.arrow_double_right');
+let pageNumber = document.getElementsByClassName('page_number')[0];
 
 //burger menu exits on the right
 burger.addEventListener('click', function(event) {  //add listener to burger button
@@ -128,3 +132,51 @@ window.addEventListener('resize',function(){   //listener for change size window
   else if (mediaQueryThousent.matches) chengePopapForTablet(); 
   else chengePopapForComputer();    
 });
+
+//пагинация на странице Pets
+let petsLinks = [
+  {
+    "name": "Jennifer",
+    "img": "../assets/pets-jennifer.png" },
+  {
+    "name": "Sophia",
+    "img": "../assets/pets-katrine-black.png"},
+  {
+    "name": "Woody",
+    "img": "../assets/pets-woody.png"},
+  {
+    "name": "Scarlett",
+    "img": "../assets/pets-scarlet.png"},
+  {
+    "name": "Katrine",
+    "img": "../assets/pets-katrine.png"},
+  {
+    "name": "Timmy",
+    "img": "../assets/pets-timmy.png"},
+  {
+    "name": "Freddie",
+    "img": "../assets/cat.png"},
+  {
+    "name": "Charly",
+    "img": "../assets/pets-charly.png"}
+  ]
+function setInactivArrows() {
+  if (pageNumber.textContent == '1') {
+    leftArrow.classList.add('inactive');
+    doubleLeftArrow.classList.add('inactive');
+    rightArrow.classList.remove('inactive');
+    doubleRightArrow.classList.remove('inactive');
+  }
+  else if (pageNumber.textContent > '1' && pageNumber.textContent < '19') {
+    leftArrow.classList.remove('inactive');
+    doubleLeftArrow.classList.remove('inactive');
+    rightArrow.classList.remove('inactive');
+    doubleRightArrow.classList.remove('inactive');
+  }
+  else {
+    leftArrow.classList.remove('inactive');
+    doubleLeftArrow.classList.remove('inactive');
+    rightArrow.classList.add('inactive');
+    doubleRightArrow.classList.add('inactive');
+  }
+}

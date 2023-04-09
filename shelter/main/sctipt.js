@@ -174,8 +174,7 @@ function getRandomNum() {                     //get random number from 0 t0 7
    return index;
 }
 let arrLengthThree = [[4, 0, 2]];
-let arrLengthTwo = [[4, 0]];
-let arrLengthOne = [[4]];
+
 let k = 1;
 function addIndexes(arr) {                   //add unique nambers to array
   arr[k] = [];
@@ -195,7 +194,6 @@ function getNewCollectionCards(i, card) {
   image.src = petsLinks[num]["img"];
   let title = card.querySelector('.animal_name');
   title.textContent = petsLinks[num]["name"];
-  
 }
 
 function getPreviousCollectionCards(i, card) {
@@ -210,7 +208,6 @@ function getPreviousCollectionCards(i, card) {
 
 
 rightArrow.addEventListener('click', function() {    //with right arrow change cards
-
   addIndexes(arrLengthThree);
   let i = 0;
   for (let card of cards) {
@@ -235,6 +232,7 @@ leftArrow.addEventListener('click', function() {    //with right arrow change ca
     k++; 
    } 
    else if (flag == false) {
+    console.log(arrLengthThree);
     addIndexes(arrLengthThree);
     let i = 0;
       for (let card of cards) {
@@ -245,15 +243,15 @@ leftArrow.addEventListener('click', function() {    //with right arrow change ca
    }
    else {
     
-    addIndexes(arrLengthThree);
+    console.log(arrLengthThree);
      let i = 0;
       for (let card of cards) {
-        card.style.animation = 'animateRight 2s';
+      card.style.animation = 'animateRight 2s';
       getPreviousCollectionCards(i, card)
       i++
      }
-     flag = false;
-     k++;
+    // k++;
+    // addIndexes(arrLengthThree);
    }
   
 })
