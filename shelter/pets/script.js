@@ -48,14 +48,14 @@ let imgBlock = newCard.querySelector('.new_img');
 let num;
 async function getInfoInPopap() {                         //change info in popap cfrd
       
-      let img = newCard.querySelector('.new_img img');
-      let title = newCard.querySelector('.new_card_title .title');
-      let breen = newCard.querySelector('.new_card_title .dog');
-      let description = newCard.querySelector('.new_card_title .description');
-      let firstBlock = newCard.querySelector('.new_card_title .property .inner_text_1');
-      let secondBlock = newCard.querySelector('.new_card_title .property .inner_text_2');
-      let thirdBlock = newCard.querySelector('.new_card_title .property .inner_text_3');
-      let fourthBlock = newCard.querySelector('.new_card_title .property .inner_text_4');
+  let img = newCard.getElementsByTagName('img')[0];
+  let title = newCard.getElementsByClassName('title')[0];
+  let breen = newCard.getElementsByClassName('dog')[0];
+  let description = newCard.getElementsByClassName('description')[0];
+  let firstBlock = newCard.getElementsByClassName('inner_text_1')[0];
+  let secondBlock = newCard.getElementsByClassName('inner_text_2')[0];
+  let thirdBlock = newCard.getElementsByClassName('inner_text_3')[0];
+  let fourthBlock = newCard.getElementsByClassName('inner_text_4')[0];
       let pets = "pets.json";
       const res = await fetch(pets);
       const data = await res.json();

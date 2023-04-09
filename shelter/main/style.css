@@ -96,6 +96,26 @@ li {
   display: block;
 }
 
+@keyframes animateLeft {
+  0% {
+    transform: translatex(-15px);
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
+@keyframes animateRight {
+  0% {
+    transform: translatex(15px);
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
 .button__round {
   display: inline-block;
   width: auto;
@@ -407,7 +427,7 @@ li {
   top: 0;
   left: 0;
   transition: left 0.5s;
-  left: -150%;
+  left: -250%;
   top: 50%;
   transform: translate(-50%, -50%);
   display: flex;

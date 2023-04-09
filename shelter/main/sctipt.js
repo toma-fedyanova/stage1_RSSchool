@@ -11,6 +11,7 @@ const mediaQueryMobile = window.matchMedia('(max-width: 320px)');
 const mediaQueryMini = window.matchMedia('(max-width: 767px)');  //for screen less 797px
 const mediaQueryTablet = window.matchMedia('(max-width: 768px)');
 const mediaQueryThousent = window.matchMedia('(max-width: 1000px)');
+
 let wrapper = document.querySelector('.header__wrapper');
 let newCard = document.querySelector('.card_pet_new');
 let cross = document.querySelector('.cross');
@@ -57,14 +58,14 @@ let imgBlock = newCard.querySelector('.new_img');
 let num;
 async function getInfoInPopap() {                         //change info in popap cfrd
       
-      let img = newCard.querySelector('.new_img img');
-      let title = newCard.querySelector('.new_card_title .title');
-      let breen = newCard.querySelector('.new_card_title .dog');
-      let description = newCard.querySelector('.new_card_title .description');
-      let firstBlock = newCard.querySelector('.new_card_title .property .inner_text_1');
-      let secondBlock = newCard.querySelector('.new_card_title .property .inner_text_2');
-      let thirdBlock = newCard.querySelector('.new_card_title .property .inner_text_3');
-      let fourthBlock = newCard.querySelector('.new_card_title .property .inner_text_4');
+      let img = newCard.getElementsByTagName('img')[0];
+      let title = newCard.getElementsByClassName('title')[0];
+      let breen = newCard.getElementsByClassName('dog')[0];
+      let description = newCard.getElementsByClassName('description')[0];
+      let firstBlock = newCard.getElementsByClassName('inner_text_1')[0];
+      let secondBlock = newCard.getElementsByClassName('inner_text_2')[0];
+      let thirdBlock = newCard.getElementsByClassName('inner_text_3')[0];
+      let fourthBlock = newCard.getElementsByClassName('inner_text_4')[0];
       let pets = "pets.json";
       const res = await fetch(pets);
       const data = await res.json();
@@ -140,42 +141,120 @@ window.addEventListener('resize',function(){   //listener for change size window
 
 
 //Реализация слайдера-карусели на странице Main
-/*let num;
+let petsLinks = [
+  {
+    "name": "Jennifer",
+    "img": "../assets/pets-jennifer.png" },
+  {
+    "name": "Sophia",
+    "img": "../assets/pets-katrine-black.png"},
+  {
+    "name": "Woody",
+    "img": "../assets/pets-woody.png"},
+  {
+    "name": "Scarlett",
+    "img": "../assets/pets-scarlet.png"},
+  {
+    "name": "Katrine",
+    "img": "../assets/pets-katrine.png"},
+  {
+    "name": "Timmy",
+    "img": "../assets/pets-timmy.png"},
+  {
+    "name": "Freddie",
+    "img": "../assets/cat.png"},
+  {
+    "name": "Charly",
+    "img": "../assets/pets-charly.png"}
+  ]
+
+let index;
 function getRandomNum() {                     //get random number from 0 t0 7
-   num = Math.floor(Math.random() * (7 + 1));
-   return num;
+   index = Math.floor(Math.random() * (7 + 1));
+   return index;
 }
-
-
-let arr = [[4, 0, 2]]  //location information about card in pets.json;
-
-function getNewNumbers() {
-  getRandomNum();
-  if (res.length == 3) return res;
-  else {
-    if (!(arr.includes(num) || res.includes(num)))
-    res.push(num);
-    res.push(getNewNumbers());
-  }
-}
-console.log(getNewNumbers());
+let arrLengthThree = [[4, 0, 2]];
+let arrLengthTwo = [[4, 0]];
+let arrLengthOne = [[4]];
 let k = 1;
-async function getPetInfo() {                                              //output quotes english text
-  const pet = "../pets.json"; 
-  const res = await fetch(pet);//выполним  запрос. Для этого используется функция fetch, параметром получающая адрес страницы, содержимое которой мы хотим получить
-  const data = await res.json(); 
-   
-  let img = this.querySelector('img');
-  img.setAttribute('src', data["pets"][k]["pets"])
+function addIndexes(arr) {                   //add unique nambers to array
+  arr[k] = [];
+  while (arr[k].length < arr[k - 1].length) {
+    let num = getRandomNum();
+    if (!(arr[k - 1].includes(num) || arr[k].includes(num))) {
+      arr[k].push(num);
+    }
+  }
+  return arr;
+}
+let flag = true;
+function getNewCollectionCards(i, card) {
+  console.log(`k=${k}`);
+  let num = arrLengthThree[arrLengthThree.length - 1][i];
+  let image = card.querySelector('img');
+  image.src = petsLinks[num]["img"];
+  let title = card.querySelector('.animal_name');
+  title.textContent = petsLinks[num]["name"];
   
-  let title = this.querySelector('.animal_name')
-  title.textContent = data["pets"][k]["name"];
-  k++;
 }
 
-function changeCard() {        //привязать контекст функции к карточке животного
-for (let i = 0; i < cards.length; i++) {
-  
-  getPetInfo.call(card);
+function getPreviousCollectionCards(i, card) {
+  let num = arrLengthThree[arrLengthThree.length - 2][i];
+  console.log(num);
+  let image = card.querySelector('img');
+  image.src = petsLinks[num]["img"];
+  let title = card.querySelector('.animal_name');
+  title.textContent = petsLinks[num]["name"];
+  flag = false;
 }
-}*/
+
+
+rightArrow.addEventListener('click', function() {    //with right arrow change cards
+
+  addIndexes(arrLengthThree);
+  let i = 0;
+  for (let card of cards) {
+    card.style.animation = 'animateLeft 2s';
+    getNewCollectionCards(i, card);
+    i++;
+    
+     }
+  k++; 
+  })
+
+leftArrow.addEventListener('click', function() {    //with right arrow change cards
+  if (arrLengthThree.length == 1 ) {
+  addIndexes(arrLengthThree);
+  console.log(arrLengthThree);
+  let i = 0;
+  for (let card of cards) {
+    card.style.animation = 'animateRight 2s';
+    getNewCollectionCards(i, card);
+    i++;
+     }
+    k++; 
+   } 
+   else if (flag == false) {
+    addIndexes(arrLengthThree);
+    let i = 0;
+      for (let card of cards) {
+      getNewCollectionCards(i, card);
+      i++;
+       }
+      k++;
+   }
+   else {
+    
+    addIndexes(arrLengthThree);
+     let i = 0;
+      for (let card of cards) {
+        card.style.animation = 'animateRight 2s';
+      getPreviousCollectionCards(i, card)
+      i++
+     }
+     flag = false;
+     k++;
+   }
+  
+})
+

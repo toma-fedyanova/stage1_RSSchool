@@ -47,6 +47,7 @@
     align-items: center;
     @extend %transition;
     overflow: hidden;
+    
     img {
       transition: 1s;
       display: block;
