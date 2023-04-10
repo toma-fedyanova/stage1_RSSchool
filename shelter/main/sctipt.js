@@ -189,8 +189,9 @@ function addIndexes(arr) {                   //add unique nambers to array
 }
 let flag = true;
 function getNewCollectionCards(i, card) {
-  console.log(`k=${k}`);
+
   let num = arrLengthThree[arrLengthThree.length - 1][i];
+  console.log(num);
   let image = card.querySelector('img');
   image.src = petsLinks[num]["img"];
   let title = card.querySelector('.animal_name');
@@ -204,12 +205,24 @@ function getPreviousCollectionCards(i, card) {
   image.src = petsLinks[num]["img"];
   let title = card.querySelector('.animal_name');
   title.textContent = petsLinks[num]["name"];
-  flag = false;
+  
 }
 
 
 rightArrow.addEventListener('click', function() {    //with right arrow change cards
+  if (flag == false) {
+    flag = true;
+    let i = 0;
+  for (let card of cards) {
+    card.style.animation = 'animateLeft 2s';
+    getNewCollectionCards(i, card);
+    i++;
+     }
+  }
+  else {
+  flag = true;
   addIndexes(arrLengthThree);
+  console.log(addIndexes(arrLengthThree));
   let i = 0;
   for (let card of cards) {
     card.style.animation = 'animateLeft 2s';
@@ -217,11 +230,12 @@ rightArrow.addEventListener('click', function() {    //with right arrow change c
     i++;
     
      }
-  k++; 
+  k++; }
   })
 
 leftArrow.addEventListener('click', function() {    //with right arrow change cards
   if (arrLengthThree.length == 1 ) {
+  flag = true;
   addIndexes(arrLengthThree);
   console.log(arrLengthThree);
   let i = 0;
@@ -233,6 +247,7 @@ leftArrow.addEventListener('click', function() {    //with right arrow change ca
     k++; 
    } 
    else if (flag == false) {
+    flag = true;
     console.log(arrLengthThree);
     addIndexes(arrLengthThree);
     let i = 0;
@@ -243,7 +258,7 @@ leftArrow.addEventListener('click', function() {    //with right arrow change ca
       k++;
    }
    else {
-    
+    flag = false;
     console.log(arrLengthThree);
      let i = 0;
       for (let card of cards) {
