@@ -4,7 +4,7 @@ let links =menu.querySelectorAll('li');
 let main = document.querySelector('main');
 let block = document.querySelector('.overlay');
 let petsBlock = document.querySelectorAll('.our__friends_animals');
-let cards = document.querySelectorAll('.animal__card');
+let cards = document.getElementsByClassName('animal__card');
 const mediaQueryThousent = window.matchMedia('(max-width: 1000px)');
 const mediaQueryMobile = window.matchMedia('(max-width: 320px)');
 const mediaQueryMini = window.matchMedia('(max-width: 767px)');  //for screen less 797px
@@ -13,8 +13,8 @@ const body = document.querySelector('body');
 let wrapper = document.querySelector('.header__wrapper');
 let newCard = document.querySelector('.card_pet_new');
 let cross = document.querySelector('.cross');
-let leftArrow = document.querySelector('.arrow_left');
-let doubleLeftArrow = document.querySelector('.arrow_double_left');
+let doubleLeftArrow = document.querySelector('.arrow_left');
+let leftArrow = document.querySelector('.arrow_double_left');
 let rightArrow = document.querySelector('.arrow_right');
 let doubleRightArrow = document.querySelector('.arrow_double_right');
 let pageNumber = document.getElementsByClassName('page_number')[0];
@@ -167,47 +167,34 @@ function getRandomNum() {                     //get random number from 0 t0 7
    index = Math.floor(Math.random() * (7 + 1));
    return index;
 }
-let petsCards = [];
-function getArray(length, pages) {
-  let i;
-  for (i = 0; i < pages; i++) {
+function getArray(length, pages) {  //get array
+  let petsCards = [];
+  for (let i = 0; i < pages; i++) {
     petsCards[i] = [];
     while (petsCards[i].length < length){
-    let index = 0;
-    let num = getRandomNum();
-     if (!petsCards[i].includes(num)) {
-    
-       if (i == 0) petsCards[i].push(num);
-       else {
-        let flag = false;
-        for (let k = 0; k < i; k++) {
-        if (petsCards[k].indexOf(num) == index) flag = true;
-       }
-         if (flag == false) petsCards[i].push(num);
-         if (index == 7) index = 0;
-         index++;
+      let num = getRandomNum();
+      if (!petsCards[i].includes(num)) {
+        petsCards[i].push(num)
       }
-     }
     }
-   }
+  }
   return petsCards;
 }
-getArray(8, 6);
-console.log(petsCards);
-function setInactivArrows() {
+
+function setInactivArrows(num) {       //get colored buttons
   if (pageNumber.textContent == '1') {
     leftArrow.classList.add('inactive');
     doubleLeftArrow.classList.add('inactive');
     rightArrow.classList.remove('inactive');
     doubleRightArrow.classList.remove('inactive');
   }
-  else if (pageNumber.textContent > '1' && pageNumber.textContent < '19') {
+  else if (pageNumber.textContent > '1' && pageNumber.textContent < num) {
     leftArrow.classList.remove('inactive');
     doubleLeftArrow.classList.remove('inactive');
     rightArrow.classList.remove('inactive');
     doubleRightArrow.classList.remove('inactive');
   }
-  else {
+  else if (pageNumber.textContent == num){
     leftArrow.classList.remove('inactive');
     doubleLeftArrow.classList.remove('inactive');
     rightArrow.classList.add('inactive');
@@ -215,3 +202,247 @@ function setInactivArrows() {
   }
 }
 
+let newCardsArray;
+if (mediaQueryMobile.matches) {
+  newCardsArray = getArray(3, 16);
+}
+else if (mediaQueryTablet.matches) {
+  newCardsArray = getArray(6, 8);
+}
+else {
+  newCardsArray = getArray(8, 6);
+}
+
+let i = 1;
+
+rightArrow.addEventListener('click', function() {  //get change of number of page
+  if (mediaQueryMobile.matches) {
+    if (i == 0) i = 1;
+    if (pageNumber.textContent < 16) {
+      pageNumber.textContent = +pageNumber.textContent + 1;
+    }
+    setInactivArrows('16');
+    let array = newCardsArray;
+     console.log(array);
+    let j = 0;
+    while (i < array.length) {
+    for (let card of cards) {
+      if(!(card.classList.contains('remove')|| card.classList.contains('last_remove'))) {
+        card.querySelector('img').src = petsLinks[newCardsArray[i][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[newCardsArray[i][j]]['name'];
+        j++;
+      }
+    }
+    i++;
+    if (i == 16) i = 15;
+  }
+  }
+  else if (mediaQueryTablet.matches) {   
+    if (i == 0) i = 1;
+    if (pageNumber.textContent < 8) {
+      pageNumber.textContent = +pageNumber.textContent + 1;
+    }
+    setInactivArrows('8');
+    let array = newCardsArray;
+    let j = 0;
+    while (i < array.length) {
+    for (let card of cards) {
+      if(!(card.classList.contains('remove'))) {
+        card.querySelector('img').src = petsLinks[newCardsArray[i][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[newCardsArray[i][j]]['name'];
+        j++;
+      }
+    }
+    i++;
+    if (i == 8) i = 7;
+  }
+  }
+  else {
+    if (i == 0) i = 1;
+  if (pageNumber.textContent < 6) {    
+  pageNumber.textContent = +pageNumber.textContent + 1;
+}
+   setInactivArrows('6');
+   let array = newCardsArray;
+   let j = 0;
+    while (i < array.length) {
+    for (let card of cards) {
+        card.querySelector('img').src = petsLinks[array[i][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[array[i][j]]['name'];
+        j++;
+      }
+    i++;
+    if (i == 6) i = 5;
+  }
+}
+})
+
+doubleRightArrow.addEventListener('click', function() {  //get change of number of page
+  if (mediaQueryMobile.matches) {
+    if (pageNumber.textContent < 16) {
+      pageNumber.textContent = '16';
+    }
+    setInactivArrows('16');
+    let array = newCardsArray;
+      i = 15;
+       let j = 0;
+    for (let card of cards) {
+        card.querySelector('img').src = petsLinks[array[15][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[array[15][j]]['name'];
+        j++;
+      }
+  }
+  else if (mediaQueryTablet.matches) {
+    i = 7;
+    if (pageNumber.textContent < 8) {
+      pageNumber.textContent = '8';
+    }
+    setInactivArrows('8');
+    let array = newCardsArray;
+   let j = 0;
+    for (let card of cards) {
+        card.querySelector('img').src = petsLinks[array[7][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[array[7][j]]['name'];
+        j++;
+      }
+    
+  }
+  else {
+    i = 5;
+  if (pageNumber.textContent< 6 ) {
+  pageNumber.textContent = '6';
+}
+   setInactivArrows('6');
+   let array = newCardsArray;
+   let j = 0;
+    for (let card of cards) {
+        card.querySelector('img').src = petsLinks[array[5][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[array[5][j]]['name'];
+        j++;
+      }
+  }
+})
+
+leftArrow.addEventListener('click', function() {  //get change of number of page
+
+  if (mediaQueryMobile.matches) {
+    if (pageNumber.textContent > '1') {
+      pageNumber.textContent = +pageNumber.textContent - 1;
+    }
+    setInactivArrows('16');
+    let array = newCardsArray;
+    i = i - 1;
+     if (i < 0) i = 0;
+     let j = 0;
+    while (i >= 0) {
+    for (let card of cards) {
+      if(!(card.classList.contains('remove')|| card.classList.contains('last_remove'))) {
+        card.querySelector('img').src = petsLinks[array[i][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[array[i][j]]['name'];
+        j++;
+      }
+    }
+  }
+  }
+  else if (mediaQueryTablet.matches) {
+    if (pageNumber.textContent > '1') {
+      pageNumber.textContent = +pageNumber.textContent - 1;
+    }
+    setInactivArrows('8');
+    let array = newCardsArray;
+    i = i - 1;
+     if (i < 0) i = 0;
+     let j = 0;
+    while (i >= 0) {
+    for (let card of cards) {
+      if(!(card.classList.contains('remove'))) {
+        card.querySelector('img').src = petsLinks[array[i][j]]['img'];
+        card.querySelector('.animal_name').textContent = array[newCardsArray[i][j]]['name'];
+        j++;
+      }
+    }
+  }
+  }
+  else {
+  if (pageNumber.textContent > '1') {
+  pageNumber.textContent = +pageNumber.textContent - 1;
+}
+   setInactivArrows('6');
+   let array = newCardsArray;
+   i = i - 1;
+   if (i < 0) i = 0;
+     let j = 0;
+     while (i >= 0)
+     for (let card of cards) {
+         card.querySelector('img').src = petsLinks[array[i][j]]['img'];
+         card.querySelector('.animal_name').textContent = petsLinks[array[i][j]]['name'];
+         j++;
+       }
+    
+    }
+})
+
+doubleLeftArrow.addEventListener('click', function() {  //get change of number of page
+  if (mediaQueryMobile.matches) {
+    i = 0;
+    if (pageNumber.textContent > '1') {
+      pageNumber.textContent = '1';
+    }
+    setInactivArrows('16');
+    let array = newCardsArray;
+    let j = 0;
+    for (let card of cards) {
+        card.querySelector('img').src = petsLinks[array[0][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[array[0][j]]['name'];
+        j++;
+      }
+  }
+  else if (mediaQueryTablet.matches) {
+    i = 0;
+    if (pageNumber.textContent > '1') {
+      pageNumber.textContent = '1';
+    }
+    setInactivArrows('8');
+    let array = newCardsArray;
+    let j = 0;
+    for (let card of cards) {
+        card.querySelector('img').src = petsLinks[array[0][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[array[0][j]]['name'];
+        j++;
+      }
+  }
+  else {
+    i = 0;
+  if (pageNumber.textContent > '1') {
+  pageNumber.textContent = '1';
+}
+   setInactivArrows('6');
+   let array = newCardsArray;
+    let j = 0;
+    for (let card of cards) {
+        card.querySelector('img').src = petsLinks[array[0][j]]['img'];
+        card.querySelector('.animal_name').textContent = petsLinks[array[0][j]]['name'];
+        j++;
+      }
+  }
+})
+
+window.addEventListener('resize',function(){   //listener for change size window
+  if (mediaQueryMobile.matches) {
+    newCardsArray = getArray(3, 16);
+    setInactivArrows('16');
+    
+  }
+  else if (mediaQueryTablet.matches) {
+    newCardsArray = getArray(6, 8);
+    setInactivArrows('8');
+    if (pageNumber.textContent > 8) pageNumber.textContent = '8';
+    i = 7
+  }
+  else {
+    newCardsArray = getArray(8, 6);
+    setInactivArrows('6');
+    if (pageNumber.textContent > 6) pageNumber.textContent = '6';
+    i = 5;
+  }
+});
