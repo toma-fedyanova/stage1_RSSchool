@@ -180,6 +180,7 @@ function addIndexes(arr) {                   //add unique nambers to array
   arr[k] = [];
   while (arr[k].length < arr[k - 1].length) {
     let num = getRandomNum();
+    
     if (!(arr[k - 1].includes(num) || arr[k].includes(num))) {
       arr[k].push(num);
     }

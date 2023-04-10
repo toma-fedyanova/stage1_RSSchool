@@ -1,15 +1,17 @@
-@font-face {
-  font-family: "Arial";
-  src: local("/shelter/assets/ARIAL.TTF"), url("/shelter/assets/ARIAL.TTF") format("truetype");
+/*@font-face {
+	font-family: 'Arial'; 
+	src: local('/shelter/assets/ARIAL.TTF'),
+  url('/shelter/assets/ARIAL.TTF') format('truetype');
   font-weight: normal;
   font-style: normal;
 }
 @font-face {
-  font-family: "Arial";
-  src: local("/shelter/assets/ARIALI_italic.TTF"), url("/shelter/assets/ARIALI_italic.TTF") format("truetype");
+	font-family: 'Arial'; 
+	src: local('/shelter/assets/ARIALI_italic.TTF'),
+  url('/shelter/assets/ARIALI_italic.TTF') format('truetype');
   font-weight: normal;
   font-style: italic;
-}
+}*/
 .footer__wrapper a, .our__friends_animals .animal__card, .header__navigation .header__list .list, .burger__menu, h1, .button__bordered, .icos__ico, .arrow {
   transition: all 0.8s ease-out;
 }
@@ -85,6 +87,26 @@ li {
   }
 }
 
+@keyframes animateLeft {
+  0% {
+    transform: translatex(-15px);
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
+@keyframes animateRight {
+  0% {
+    transform: translatex(15px);
+    opacity: 0.2;
+  }
+  100% {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
 .arrow {
   width: 52px;
   height: 52px;

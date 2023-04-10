@@ -160,6 +160,40 @@ let petsLinks = [
     "name": "Charly",
     "img": "../assets/pets-charly.png"}
   ]
+
+  
+  let index;
+function getRandomNum() {                     //get random number from 0 t0 7
+   index = Math.floor(Math.random() * (7 + 1));
+   return index;
+}
+let petsCards = [];
+function getArray(length, pages) {
+  let i;
+  for (i = 0; i < pages; i++) {
+    petsCards[i] = [];
+    while (petsCards[i].length < length){
+    let index = 0;
+    let num = getRandomNum();
+     if (!petsCards[i].includes(num)) {
+    
+       if (i == 0) petsCards[i].push(num);
+       else {
+        let flag = false;
+        for (let k = 0; k < i; k++) {
+        if (petsCards[k].indexOf(num) == index) flag = true;
+       }
+         if (flag == false) petsCards[i].push(num);
+         if (index == 7) index = 0;
+         index++;
+      }
+     }
+    }
+   }
+  return petsCards;
+}
+getArray(8, 6);
+console.log(petsCards);
 function setInactivArrows() {
   if (pageNumber.textContent == '1') {
     leftArrow.classList.add('inactive');
@@ -180,3 +214,4 @@ function setInactivArrows() {
     doubleRightArrow.classList.add('inactive');
   }
 }
+
