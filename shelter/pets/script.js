@@ -227,6 +227,7 @@ rightArrow.addEventListener('click', function() {  //get change of number of pag
     let j = 0;
     while (i < array.length) {
     for (let card of cards) {
+      card.style.animation = 'animateLeft 2s';
       if(!(card.classList.contains('remove')|| card.classList.contains('last_remove'))) {
         card.querySelector('img').src = petsLinks[newCardsArray[i][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[newCardsArray[i][j]]['name'];
@@ -247,6 +248,7 @@ rightArrow.addEventListener('click', function() {  //get change of number of pag
     let j = 0;
     while (i < array.length) {
     for (let card of cards) {
+      card.style.animation = 'animateLeft 2s';
       if(!(card.classList.contains('remove'))) {
         card.querySelector('img').src = petsLinks[newCardsArray[i][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[newCardsArray[i][j]]['name'];
@@ -267,6 +269,7 @@ rightArrow.addEventListener('click', function() {  //get change of number of pag
    let j = 0;
     while (i < array.length) {
     for (let card of cards) {
+      card.style.animation = 'animateLeft 2s';
         card.querySelector('img').src = petsLinks[array[i][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[array[i][j]]['name'];
         j++;
@@ -287,6 +290,7 @@ doubleRightArrow.addEventListener('click', function() {  //get change of number 
       i = 15;
        let j = 0;
     for (let card of cards) {
+      card.style.animation = 'animateLeft 2s';
         card.querySelector('img').src = petsLinks[array[15][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[array[15][j]]['name'];
         j++;
@@ -301,6 +305,7 @@ doubleRightArrow.addEventListener('click', function() {  //get change of number 
     let array = newCardsArray;
    let j = 0;
     for (let card of cards) {
+      card.style.animation = 'animateLeft 2s';
         card.querySelector('img').src = petsLinks[array[7][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[array[7][j]]['name'];
         j++;
@@ -316,6 +321,7 @@ doubleRightArrow.addEventListener('click', function() {  //get change of number 
    let array = newCardsArray;
    let j = 0;
     for (let card of cards) {
+      card.style.animation = 'animateLeft 2s';
         card.querySelector('img').src = petsLinks[array[5][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[array[5][j]]['name'];
         j++;
@@ -336,6 +342,7 @@ leftArrow.addEventListener('click', function() {  //get change of number of page
      let j = 0;
     while (i >= 0) {
     for (let card of cards) {
+      card.style.animation = 'animateRight 2s';
       if(!(card.classList.contains('remove')|| card.classList.contains('last_remove'))) {
         card.querySelector('img').src = petsLinks[array[i][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[array[i][j]]['name'];
@@ -356,6 +363,7 @@ leftArrow.addEventListener('click', function() {  //get change of number of page
     while (i >= 0) {
     for (let card of cards) {
       if(!(card.classList.contains('remove'))) {
+        card.style.animation = 'animateRight 2s';
         card.querySelector('img').src = petsLinks[array[i][j]]['img'];
         card.querySelector('.animal_name').textContent = array[newCardsArray[i][j]]['name'];
         j++;
@@ -374,6 +382,7 @@ leftArrow.addEventListener('click', function() {  //get change of number of page
      let j = 0;
      while (i >= 0)
      for (let card of cards) {
+      card.style.animation = 'animateRight 2s';
          card.querySelector('img').src = petsLinks[array[i][j]]['img'];
          card.querySelector('.animal_name').textContent = petsLinks[array[i][j]]['name'];
          j++;
@@ -392,6 +401,7 @@ doubleLeftArrow.addEventListener('click', function() {  //get change of number o
     let array = newCardsArray;
     let j = 0;
     for (let card of cards) {
+       card.style.animation = 'animateRight 2s';
         card.querySelector('img').src = petsLinks[array[0][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[array[0][j]]['name'];
         j++;
@@ -406,6 +416,7 @@ doubleLeftArrow.addEventListener('click', function() {  //get change of number o
     let array = newCardsArray;
     let j = 0;
     for (let card of cards) {
+      card.style.animation = 'animateRight 2s';
         card.querySelector('img').src = petsLinks[array[0][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[array[0][j]]['name'];
         j++;
@@ -420,6 +431,7 @@ doubleLeftArrow.addEventListener('click', function() {  //get change of number o
    let array = newCardsArray;
     let j = 0;
     for (let card of cards) {
+      card.style.animation = 'animateRight 2s';
         card.querySelector('img').src = petsLinks[array[0][j]]['img'];
         card.querySelector('.animal_name').textContent = petsLinks[array[0][j]]['name'];
         j++;
