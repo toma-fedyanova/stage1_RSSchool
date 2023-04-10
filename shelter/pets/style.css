@@ -1,17 +1,3 @@
-/*@font-face {
-	font-family: 'Arial'; 
-	src: local('/shelter/assets/ARIAL.TTF'),
-  url('/shelter/assets/ARIAL.TTF') format('truetype');
-  font-weight: normal;
-  font-style: normal;
-}
-@font-face {
-	font-family: 'Arial'; 
-	src: local('/shelter/assets/ARIALI_italic.TTF'),
-  url('/shelter/assets/ARIALI_italic.TTF') format('truetype');
-  font-weight: normal;
-  font-style: italic;
-}*/
 .footer__wrapper a, .our__friends_animals .animal__card, .header__navigation .header__list .list, .burger__menu, h1, .button__bordered, .icos__ico, .arrow {
   transition: all 0.8s ease-out;
 }
@@ -603,6 +589,7 @@ li {
 .arrow.inactive {
   border: 1px solid #CDCDCD;
   cursor: default;
+  opacity: 0.5;
 }
 
 #our__friend_second {
