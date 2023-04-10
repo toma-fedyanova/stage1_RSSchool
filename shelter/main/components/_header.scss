@@ -2,7 +2,11 @@
   display: flex;
   justify-content: space-between;
   position: relative;
-  z-index: 5;
+  z-index: 1;
+  @include media-middle {
+    padding-right: 20px;
+    padding-left: 20px;
+  }
 }
 h1 {
   @extend %transition;
@@ -38,12 +42,12 @@ h1 {
   width: 30px;
   height: 40px;
   @extend %transition;
-  &:active {
-    transform: rotate(90deg);
-  }
   @include media-mini {
     display: block;
     margin-right: 15px;
+    z-index: 100;
+    position: relative;
+    content: "";
   }
   @include media-mobile {
     margin-right: -49px;
@@ -58,22 +62,47 @@ h1 {
 .header__navigation {
   width: 37%;
   padding-top: 2%;
+  margin: 0;
+
   @include media-middle { 
     padding-top: 3.2%;
     width: 62.5%;
   }
+  @include media-mini {
+    width: 320px;
+   position: fixed;
+   content: '';
+   height: 100vh;
+    background-color: #292929;
+    z-index: 30;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding-top: 191px;
+    right: -320px;
+    top: 0;
+    transform: translateX(100%);
+  	transition: transform 0.8s; 
 
-  @include media-mini { 
-    display: none;
   }
+
   .header__list {
     display: flex;
     justify-content: space-between;
+    @include media-mini {
+      flex-direction: column;
+    }
     .list {
       @include font ($weight: 400, $size: 1.5rem, $height:160%);
       font-family: Arial, Helvetica, sans-serif;
       @extend %transition;
-      color: $color-inactive
+      color: $color-inactive;
+      @include media-mini {
+        font-size: 3.2rem;
+        line-height: 283%;
+      }
     }
     .list.list-underline {
       border-bottom: 3px solid $color-brand;
@@ -88,3 +117,103 @@ h1 {
   cursor: default;
 }
 
+.appier {
+  margin-right: -8px;
+  transform: translateX(-100%);
+  }
+
+.rotate {
+  margin-top: 17px;
+  transform: rotate(-90deg);
+}
+.fade {
+  display: block;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  top: 0;
+  left: 0;
+
+  }
+  .overlay {
+    display: none;
+    position: static;
+  }
+  .none {
+    display: none;
+  }
+  .card_pet_new {
+    position: fixed;
+    content: "";
+    top: 0;
+    left: 0;
+    transition: left 0.5s;
+    left:-250%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    display: flex;
+    z-index: 5;
+    background-color: #FAFAFA;
+    border-radius: 9px;
+   width: 900px;
+   .new_card_title {
+    margin-left: -28px;
+   }
+    .cross {
+      position: relative;
+      padding-left: 18px;
+      padding-top: 16px;
+      content: "";
+      right: -99%;
+      top: -44px;
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      border: 1px solid $color-brand;
+      z-index: 10;
+    }
+    img {
+      width: 510px;
+      margin-left: -10%;
+      overflow: hidden;
+    }
+    .title {
+      font-size: 3.5rem;
+      color: #000000;
+      padding-top: 27px;
+      letter-spacing: 0.4rem;
+      margin-bottom: -10px;
+    }
+    .dog {
+      font-size: 2.1rem;
+      padding-bottom: 21px;
+      letter-spacing: 0.5px;
+      font-weight: 600;
+    }
+    .description {
+      font-size: 1.7rem;
+      line-height: 123%;
+      width: 350px;
+      padding-bottom: 18px;
+    }
+    .animal_property {
+      margin-left: 10px;
+    }
+    .text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      line-height: 150%;
+      list-style: disc;
+      color: #F1CDB3;
+      margin-bottom: 6px;
+      span {
+        color: #000000;
+      }
+    }
+    .inner_text {
+      font-weight: 400;
+      display: inline-block;
+      padding-left: 17px;
+    }
+  }

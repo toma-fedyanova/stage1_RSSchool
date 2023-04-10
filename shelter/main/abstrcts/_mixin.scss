@@ -24,7 +24,7 @@
   @media (max-width: 768px) {@content;}
 }
 @mixin media-mini {
-  @media (max-width: 765px) {@content;}
+  @media (max-width: 767px) {@content;}
 }
 @mixin media-mobile {
   @media (max-width: 320px) {@content;}
