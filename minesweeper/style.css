@@ -9,8 +9,17 @@ h1 {
 .field {
   margin: 0 auto;
   margin-top: 5%;
+  width: 45%;
 }
 .button {
-  height: 45px;
+  height: 40px;
   background-color: #656a65;
+}
+@media (max-width: 1000px) {
+  .field {
+    width: 60%;
+  }
+  .button {
+    height: 28px;
+  }
 }

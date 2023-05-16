@@ -2,8 +2,8 @@
 // npm install eslint-plugin-import --save-dev  npm i eslint eslint-config-airbnb-base
 
 getStart();
-function getStart() {
-  let element = new Creator(10);
+function getStart(num = 10) {
+  let element = new Creator(num);
   element.getTitle();
   element.getField();
   element.setButtons();

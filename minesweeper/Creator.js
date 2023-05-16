@@ -10,7 +10,6 @@ class Creator {
   getField() {
     let elem  = document.createElement('section');
     elem.setAttribute('class', 'field')
-    elem.style.width = '45%';
     elem.style.display = 'grid';
     elem.style.gridTemplateColumns = `repeat(${this.count}, 1fr)`;
     document.body.append(elem);
