@@ -5,7 +5,8 @@
   "main": "main.js",
   "scripts": {
     "lint": "npm run main.js",
-    "build": "webpack"
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development"
   },
   "repository": {
     "type": "git",
@@ -18,9 +19,11 @@
   },
   "homepage": "https://github.com/rolling-scopes-school/toma-fedyanova-JSFE2023Q1#readme",
   "devDependencies": {
+    "css-loader": "^6.7.3",
     "eslint": "^8.40.0",
     "eslint-plugin-import": "^2.27.5",
     "html-webpack-plugin": "^5.5.1",
+    "style-loader": "^3.3.2",
     "webpack": "^5.82.1",
     "webpack-cli": "^5.1.1"
   },

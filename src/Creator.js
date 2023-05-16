@@ -1,4 +1,4 @@
-class Creator {
+export default class Creator {
   constructor(count) {
     this.count = count;
   }
