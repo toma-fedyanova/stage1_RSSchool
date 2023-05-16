@@ -1,0 +1,26 @@
+{
+  "name": "toma-fedyanova-jsfe2023q1",
+  "version": "1.0.0",
+  "description": "Private repository for @toma-fedyanova",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rolling-scopes-school/toma-fedyanova-JSFE2023Q1.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rolling-scopes-school/toma-fedyanova-JSFE2023Q1/issues"
+  },
+  "homepage": "https://github.com/rolling-scopes-school/toma-fedyanova-JSFE2023Q1#readme",
+  "devDependencies": {
+    "eslint": "^8.40.0",
+    "eslint-plugin-import": "^2.27.5"
+  },
+  "dependencies": {
+    "eslint-config-airbnb-base": "^15.0.0"
+  }
+}
