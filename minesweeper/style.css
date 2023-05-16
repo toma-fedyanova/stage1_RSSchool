@@ -1,0 +1,16 @@
+body {
+  margin: 0 auto;
+  background-color: #8ff598;
+  text-align: center;
+}
+h1 {
+  color: #0ea02d;
+}
+.field {
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.button {
+  height: 45px;
+  background-color: #656a65;
+}
