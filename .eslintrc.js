@@ -11,7 +11,7 @@ module.exports = {
         "sourceType": "module"
     },
     "rules": {
-        'max-len': ['error', { code: 150 }],
+        'max-len': 'off',
          'no-undef': 'off'
     }
 }

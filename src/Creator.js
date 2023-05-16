@@ -18,7 +18,8 @@ class Creator {
     let field = document.getElementsByClassName('field')[0];
     let num = this.count ** 2;
     for (let i = 0; i < num; i++) {
-      field.insertAdjacentHTML('beforeEnd', '<button class="button"></button>');
+      field.insertAdjacentHTML('beforeEnd', '<button class="button button_closed"></button>');
     }
+    console.log(field.getElementsByTagName('BUTTON'));
   }
 }
