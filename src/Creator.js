@@ -14,11 +14,11 @@ export default class Creator {
     parent.append(elem);
   }
   getField() {
-    let elem  = document.createElement('section');
-    elem.setAttribute('class', 'field')
-    elem.style.display = 'grid';
-    elem.style.gridTemplateColumns = `repeat(${this.count}, 1fr)`;
-    document.body.append(elem);
+      let elem  = document.createElement('section');
+      elem.setAttribute('class', 'field');
+      elem.style.display = 'grid';
+      elem.style.gridTemplateColumns = `repeat(${this.count}, 1fr)`;
+      document.body.append(elem);
   }
   setButtons() {
     let field = document.getElementsByClassName('field')[0];
@@ -26,5 +26,8 @@ export default class Creator {
     for (let i = 0; i < num; i++) {
       field.insertAdjacentHTML('beforeEnd', '<button class="button button_closed"></button>');
     }
+  }
+  clearElement(block) {
+    return block.innerHTML = '';
   }
 }

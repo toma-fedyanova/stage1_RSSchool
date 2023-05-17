@@ -2,12 +2,13 @@ body {
   margin: 0 auto;
   background-color: #8ff598;
   text-align: center;
+  font-family: 'Roboto', sans-serif;
 }
 h1 {
   color: #0ea02d;
 }
 .info {
-  margin: 10px auto;
+  margin: 20px auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -25,6 +26,27 @@ h1 {
 .button {
   height: 40px;
   background-color: #656a65;
+}
+.info__button {
+  padding: 10px 20px;
+  border: 1px solid #656a65;
+  border-radius: 50px;
+}
+.mine {
+  background-image: url("./assets/mine.png");
+  background-size: cover;
+  margin: 0 auto;
+}
+.flag {
+  background-image: url("./assets/flag.png");
+  background-size: cover;
+  margin: 0 auto;
+}
+.info_footer {
+  padding-top: 20px;
+}
+.colored {
+  background-color:  #0ea02d;
 }
 @media (max-width: 1000px) {
   .field {

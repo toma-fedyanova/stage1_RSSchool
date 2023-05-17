@@ -12,8 +12,19 @@ import cry from './assets/cry.png';
 let body = document.body;
 let infoBlock = ['div', body, 'info'];
 let counter = 0;
+let size = 10;
+let countMine = 10;
+let arrayMines;
+let infoFooter;
+let field;
+let buttons;
+let score;
 
-getStart();
+
+window.addEventListener('load', function() {
+  getStart();
+  changeMines('.button_closed');
+});
 
 function getStart(num = 10) {
   let element = new Creator(num);
@@ -31,15 +42,36 @@ function getStart(num = 10) {
   element.getBlockInfo(...infoTime);
 
   element.getField();
+  field = document.querySelector('.field');
+  score = document.querySelector('.info__text');
+  field.addEventListener('click', function (event) {
+  if (event.target.closest('.button_closed')) {
+    counter ++;
+    score.textContent = counter;
+  }
+})
   element.setButtons();
-
-  element.getBlockInfo(...infoBlock);
-  let infoFooter = document.getElementsByClassName('info')[1];
-  element.getBlockInfo('button', infoFooter, 'button1', 'easy 10 x 10');
-  element.getBlockInfo('button', infoFooter, 'button2', 'medium 15 x 15');
-  element.getBlockInfo('button', infoFooter, 'button3', 'hard 25 x 25');
+  buttons = field.getElementsByTagName('BUTTON');
+  element.getBlockInfo('div', body, 'info_footer');
+  infoFooter = document.querySelector('.info_footer');
+  infoFooter.addEventListener('click', function (event) {
+    let target = event.target.closest('.info__button');
+    if (target.classList.contains('button1')) setSizeField(10);
+    else if (target.classList.contains('button2')) setSizeField(15);
+    else if (target.classList.contains('button3')) setSizeField(25);
+  })
+  element.getBlockInfo('button', infoFooter, 'info__button button1', 'easy 10 x 10');
+  element.getBlockInfo('button', infoFooter, 'info__button button2', 'medium 15 x 15');
+  element.getBlockInfo('button', infoFooter, 'info__button button3', 'hard 25 x 25');
   element.getBlockInfo('div', infoFooter, 'info__mines');
-  infoFooter.insertAdjacentHTML('beforeEnd', '<input type="range" id="volume" name="volume" min="10" max="99"><label for="volume">10</label>');
+  infoFooter.insertAdjacentHTML('beforeEnd', '<input type="range" value ="0" id="volume" name="volume" min="10" max="99"><label for="volume">10</label><span>mines</span>');
+  let range = document.getElementById('volume');
+  let label = document.getElementsByTagName('label')[0];
+  range.addEventListener('change', () => {
+    label.textContent = range.value;
+    countMine = Number(range.value);
+    changeMines('.button_closed');
+  });
 }
 
 function renderSmile () {
@@ -51,17 +83,44 @@ function renderSmile () {
   img.alt = 'smile';
 }
 
+// set size for field
+function setSizeField(num) {
+  counter = 0;
+  score.textContent = counter;
+  let element = new Creator(num);
+  element.clearElement(field);
+  field.style.gridTemplateColumns = `repeat(${num}, 1fr)`;
+  element.setButtons();
+}
 
-let field = document.getElementsByClassName('field')[0];
-field.addEventListener('click', function (event) {
-  if (event.target.matches('button_closed')) {
-    counter += 1;
+//set mines
+function getArrayMines(num) {
+  arrayMines = [];
+  for (let i = 0; i < num * num; i++) {
+    arrayMines.push(i);
   }
-})
+  return arrayMines;
+}
+function setMines() {
+  let array = getArrayMines(size);
+  let getRandomArr = array.sort(() => Math.random() - 0.5);
+  let minesArray = getRandomArr.slice(0, countMine);
+  return minesArray;
+}
 
-let range = document.getElementsByTagName('input')[0];
-let label = document.getElementsByTagName('label')[0];
-range.addEventListener('change', function() {
-  label.textContent = range.value;
-})
-console.log(range.value);
+function isButtonMine(elems, arr) {
+  elems.forEach((elem, index) => {
+    elem.removeAttribute('data-num');
+    if (arr.includes(index)) {
+      elem.setAttribute('data-num', '0');
+    }
+  })
+}
+
+function changeMines(selector) {
+  let array = setMines();
+  let elems = document.querySelectorAll(selector);
+  isButtonMine(elems, array);
+}
+
+
