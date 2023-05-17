@@ -6,6 +6,17 @@ body {
 h1 {
   color: #0ea02d;
 }
+.info {
+  margin: 10px auto;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+}
+.info__text {
+  font-size: 20px;
+  color: #a0500e;
+}
 .field {
   margin: 0 auto;
   margin-top: 5%;

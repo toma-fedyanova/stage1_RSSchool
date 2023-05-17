@@ -7,6 +7,12 @@ export default class Creator {
     elem.textContent = 'Minesweeper';
     document.body.prepend(elem);
   }
+  getBlockInfo(child, parent, nameAttr, text) {
+    let elem = document.createElement(child);
+    elem.setAttribute('class', nameAttr);
+    if (text) elem.textContent = text;
+    parent.append(elem);
+  }
   getField() {
     let elem  = document.createElement('section');
     elem.setAttribute('class', 'field')
@@ -20,6 +26,5 @@ export default class Creator {
     for (let i = 0; i < num; i++) {
       field.insertAdjacentHTML('beforeEnd', '<button class="button button_closed"></button>');
     }
-    console.log(field.getElementsByTagName('BUTTON'));
   }
 }
