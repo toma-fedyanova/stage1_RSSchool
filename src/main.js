@@ -25,6 +25,7 @@ window.addEventListener('load', function() {
   getStart();
   setHover(buttonsFooter[0]);
   changeMines('.button_closed');
+  getNumber();
 });
 
 function getStart(num = 10) {
@@ -54,8 +55,11 @@ function getStart(num = 10) {
     event.target.classList.remove('button_closed');
     event.target.classList.add('button__opened');
     if (event.target.getAttribute('data-num') == 0) {
-      event.target.classList.add('mine');         //todo 
+      event.target.classList.add('mine');
       theEnd();
+    }
+    else if (event.target.getAttribute('data-num') > 1) {
+      event.target.textContent = (event.target.getAttribute('data-num') - 1); //todo add class to color text
     }
   }
 })
@@ -80,24 +84,21 @@ function getStart(num = 10) {
       setHover(event.target.closest('.button1'));
       size = 10;
       changeMines('.button_closed');
-      console.log(field);
-      console.log(buttons.length);
+      getNumber()
     }
     else if (event.target.closest('.button2')) {
       setSizeField(15);
       setHover(event.target.closest('.button2'));
       size = 15;
       changeMines('.button_closed');
-      console.log(field);
-      console.log(buttons.length);
+      getNumber()
     }
     else if (event.target.closest('.button3')) {
       setSizeField(25);
       setHover(event.target.closest('.button3'));
       size = 25;
       changeMines('.button_closed');
-      console.log(field);
-      console.log(buttons.length);
+      getNumber()
     }
   })
   element.getBlockInfo('button', infoFooter, 'info__button button1', 'easy 10 x 10');
@@ -116,16 +117,16 @@ function getStart(num = 10) {
     buttons.forEach(elem => {
       if (elem.classList.contains('button__opened')) isNewGame = false;
     })
-    console.log(isNewGame);
+    console.log(isNewGame+'isNewGame');
     if (isNewGame) {
     label.textContent = range.value;
     countMine = Number(range.value);
     changeMines('.button_closed');
+    getNumber()
   }
   });
-  window.module = {field, buttons}
 }
-console.log(field);
+
 function renderSmile (width = '50px') {
   let img = document.getElementsByClassName('ico')[0];
   if (img.src == smile) img.src = cry;
@@ -189,26 +190,62 @@ for (let elem of elems) {
 function theEnd() {
   field = document.getElementsByClassName('field')[0]; 
   buttons = field.querySelectorAll('button'); 
-  console.log(field);
-  console.log(buttons.length);
   buttons.forEach(elem => {           //todo открыть остальные кнопки
     if (elem.getAttribute('data-num') == '0') {
       elem.classList.add('mine');
-      console.log(elem);
-      console.log('elem');
     }
   })
   renderSmile ('80px');
   setTimeout(function() {
-    console.log('the end')
     buttons.forEach(elem => {
         elem.setAttribute('class', 'button button_closed');
-        
+        elem.textContent = '';
     })
     changeMines('.button_closed');
+    getNumber();
     renderSmile ();
     counter = 0;
     score.textContent = counter;
   }, 2000)
- 
 }
+
+//set numbers to textContent cells near the mines
+function getNumber() {
+  field = document.getElementsByClassName('field')[0]; 
+  buttons = field.querySelectorAll('button');
+  for (let i = 0; i < buttons.length; i++) {
+  if (!(buttons[i].dataset.num == 0)) {
+      buttons[i].setAttribute('data-num', '1');
+    }
+  }
+    for (let i = 0; i < buttons.length; i++) {
+    let num = 1;
+    if (!(buttons[i].dataset.num == 0)) {
+        if ((i % size) == 0) {
+     if (buttons[i + 1].dataset.num == '0') num++;
+      if (((i + size)< buttons.length) && buttons[i + size].dataset.num == '0') num++;
+      if (((i + size + 1)< buttons.length) && buttons[i + size + 1].dataset.num == '0') num++;
+      if (((i - size)>= 0) && buttons[i - size].dataset.num == '0') num++;
+      if (((i - size)>= 0) && buttons[i - size + 1].dataset.num == '0') num++;
+     }
+     else if (((i + 1) % size) == 0) {
+      if (buttons[i - 1].dataset.num == '0') num++;
+      if (((i + size)< buttons.length) && buttons[i + size].dataset.num == '0') num++;
+      if (((i + size - 1)< buttons.length) && buttons[i + size - 1].dataset.num == '0') num++;
+      if (((i - size)>= 0) && buttons[i - size].dataset.num == '0') num++;
+      if (((i - size)>= 0) && buttons[i - size - 1].dataset.num == '0') num++;
+     }
+     else {
+      if (buttons[i - 1].dataset.num == '0') num++;
+      if (buttons[i + 1].dataset.num == '0') num++;
+      if (((i + size)< buttons.length) && buttons[i + size].dataset.num == '0') num++;
+      if (((i + size - 1)< buttons.length) && buttons[i + size - 1].dataset.num == '0') num++;
+      if (((i + size + 1)< buttons.length) && buttons[i + size + 1].dataset.num == '0') num++;
+      if (((i - size)>= 0) && buttons[i - size].dataset.num == '0') num++;
+      if (((i - size)>= 0) && buttons[i - size - 1].dataset.num == '0') num++;
+      if (((i - size)>= 0) && buttons[i - size + 1].dataset.num == '0') num++;
+        }
+     }
+     (num != 1) && (buttons[i].setAttribute('data-num', num));
+    }
+  }
