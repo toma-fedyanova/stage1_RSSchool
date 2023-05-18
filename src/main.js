@@ -11,6 +11,7 @@ import cry from './assets/cry.png';
 // npm install -D file-loader
 let body = document.body;
 let infoBlock = ['div', body, 'info'];
+let colors = [0, '#800080', '#000080', '#a52a2a', '#00008b', '	#006400', '#8b008b', '#9932cc', '#2f4f4f', '#ff1493'];
 let counter = 0;
 let size = 10;
 let countMine = 10;
@@ -59,7 +60,9 @@ function getStart(num = 10) {
       theEnd();
     }
     else if (event.target.getAttribute('data-num') > 1) {
-      event.target.textContent = (event.target.getAttribute('data-num') - 1); //todo add class to color text
+      let num = (event.target.getAttribute('data-num') - 1);
+      setColors.call(event.target, num);
+      event.target.textContent = num;                      //todo add empty
     }
   }
 })
@@ -248,4 +251,9 @@ function getNumber() {
      }
      (num != 1) && (buttons[i].setAttribute('data-num', num));
     }
+  }
+
+  //set color
+  function setColors(num) {
+    this.style.color = colors[num];
   }

@@ -34,6 +34,7 @@ h1 {
 }
 .button__opened {
   background-color: #9c9e9c;
+  font-weight: 600;
 }
 .mine {
   background-image: url("./assets/mine.png");
