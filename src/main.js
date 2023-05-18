@@ -18,17 +18,19 @@ let arrayMines;
 let infoFooter;
 let field;
 let buttons;
+let buttonsFooter;
 let score;
-
 
 window.addEventListener('load', function() {
   getStart();
+  setHover(buttonsFooter[0]);
   changeMines('.button_closed');
 });
 
 function getStart(num = 10) {
   let element = new Creator(num);
 
+  // create title, block info
   element.getTitle();
   element.getBlockInfo(...infoBlock);
 
@@ -41,45 +43,95 @@ function getStart(num = 10) {
   renderSmile ();
   element.getBlockInfo(...infoTime);
 
+  // create play fiels, listener to field
   element.getField();
-  field = document.querySelector('.field');
-  score = document.querySelector('.info__text');
-  field.addEventListener('click', function (event) {
+  field = document.getElementsByClassName('field')[0];          /////////
+  score = document.getElementsByClassName('info__text')[0];
+  field.addEventListener('click', function game(event) {
   if (event.target.closest('.button_closed')) {
     counter ++;
     score.textContent = counter;
+    event.target.classList.remove('button_closed');
+    event.target.classList.add('button__opened');
+    if (event.target.getAttribute('data-num') == 0) {
+      event.target.classList.add('mine');         //todo 
+      theEnd();
+    }
   }
 })
+  field.addEventListener('contextmenu', function (event) {
+    if (event.target.closest('.button_closed')) {
+      event.target.classList.add('flag');
+    }
+    else if (event.target.closest('.flag')) {
+      event.target.setAttribute('class', 'button button_closed');
+    }
+  })
   element.setButtons();
-  buttons = field.getElementsByTagName('BUTTON');
+  buttons = field.querySelectorAll('button');            /////
+
+  //add block info footer, listenet to button for change size of field
   element.getBlockInfo('div', body, 'info_footer');
   infoFooter = document.querySelector('.info_footer');
   infoFooter.addEventListener('click', function (event) {
-    let target = event.target.closest('.info__button');
-    if (target.classList.contains('button1')) setSizeField(10);
-    else if (target.classList.contains('button2')) setSizeField(15);
-    else if (target.classList.contains('button3')) setSizeField(25);
+    removeClass(buttonsFooter, 'colored');
+    if (event.target.closest('.button1')) {
+      setSizeField(10);
+      setHover(event.target.closest('.button1'));
+      size = 10;
+      changeMines('.button_closed');
+      console.log(field);
+      console.log(buttons.length);
+    }
+    else if (event.target.closest('.button2')) {
+      setSizeField(15);
+      setHover(event.target.closest('.button2'));
+      size = 15;
+      changeMines('.button_closed');
+      console.log(field);
+      console.log(buttons.length);
+    }
+    else if (event.target.closest('.button3')) {
+      setSizeField(25);
+      setHover(event.target.closest('.button3'));
+      size = 25;
+      changeMines('.button_closed');
+      console.log(field);
+      console.log(buttons.length);
+    }
   })
   element.getBlockInfo('button', infoFooter, 'info__button button1', 'easy 10 x 10');
   element.getBlockInfo('button', infoFooter, 'info__button button2', 'medium 15 x 15');
   element.getBlockInfo('button', infoFooter, 'info__button button3', 'hard 25 x 25');
+  buttons = field.getElementsByClassName('button');
   element.getBlockInfo('div', infoFooter, 'info__mines');
+  buttonsFooter = infoFooter.querySelectorAll('button');
+
+  //create range fo mines, listenet to input
   infoFooter.insertAdjacentHTML('beforeEnd', '<input type="range" value ="0" id="volume" name="volume" min="10" max="99"><label for="volume">10</label><span>mines</span>');
   let range = document.getElementById('volume');
   let label = document.getElementsByTagName('label')[0];
   range.addEventListener('change', () => {
+    let isNewGame = true;
+    buttons.forEach(elem => {
+      if (elem.classList.contains('button__opened')) isNewGame = false;
+    })
+    console.log(isNewGame);
+    if (isNewGame) {
     label.textContent = range.value;
     countMine = Number(range.value);
     changeMines('.button_closed');
+  }
   });
+  window.module = {field, buttons}
 }
-
-function renderSmile () {
+console.log(field);
+function renderSmile (width = '50px') {
   let img = document.getElementsByClassName('ico')[0];
   if (img.src == smile) img.src = cry;
   else img.src = smile;
   img.style.height = '50px';
-  img.style.width = '50px';
+  img.style.width = width;
   img.alt = 'smile';
 }
 
@@ -123,4 +175,40 @@ function changeMines(selector) {
   isButtonMine(elems, array);
 }
 
-
+//add hover effect
+function setHover(elem) {
+  elem.classList.add('colored');
+}
+//remove hover
+function removeClass(elems, classNam) {
+for (let elem of elems) {
+  elem.classList.remove(classNam);
+ }
+}
+//add finish of game
+function theEnd() {
+  field = document.getElementsByClassName('field')[0]; 
+  buttons = field.querySelectorAll('button'); 
+  console.log(field);
+  console.log(buttons.length);
+  buttons.forEach(elem => {           //todo открыть остальные кнопки
+    if (elem.getAttribute('data-num') == '0') {
+      elem.classList.add('mine');
+      console.log(elem);
+      console.log('elem');
+    }
+  })
+  renderSmile ('80px');
+  setTimeout(function() {
+    console.log('the end')
+    buttons.forEach(elem => {
+        elem.setAttribute('class', 'button button_closed');
+        
+    })
+    changeMines('.button_closed');
+    renderSmile ();
+    counter = 0;
+    score.textContent = counter;
+  }, 2000)
+ 
+}

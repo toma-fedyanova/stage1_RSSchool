@@ -30,4 +30,5 @@ export default class Creator {
   clearElement(block) {
     return block.innerHTML = '';
   }
+
 }

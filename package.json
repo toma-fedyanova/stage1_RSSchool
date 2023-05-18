@@ -30,6 +30,7 @@
     "webpack-cli": "^5.1.1"
   },
   "dependencies": {
+    "clean-webpack-plugin": "^4.0.0",
     "eslint-config-airbnb-base": "^15.0.0"
   }
 }
