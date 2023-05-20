@@ -68,6 +68,7 @@ function getStart(num = 10) {
 })
   field.addEventListener('contextmenu', function (event) {
     if (event.target.closest('.button_closed')) {
+      event.target.classList.remove('button_closed');
       event.target.classList.add('flag');
     }
     else if (event.target.closest('.flag')) {
@@ -195,6 +196,7 @@ function theEnd() {
   buttons = field.querySelectorAll('button'); 
   buttons.forEach(elem => {           //todo открыть остальные кнопки
     if (elem.getAttribute('data-num') == '0') {
+      elem.classList.remove('flag');
       elem.classList.add('mine');
     }
   })
