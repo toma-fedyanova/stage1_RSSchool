@@ -22,7 +22,9 @@ let buttons;
 let buttonsFooter;
 let score;
 let lastFlag;
-let counterToWin = 0;;
+let counterToWin = 0;
+let timer;
+let timerId;
 
 window.addEventListener('load', function() {
   getStart();
@@ -79,10 +81,13 @@ function getStart(num = 10) {
     getEmptyCell(numberInd);
   }
   }
+
   buttons = field.querySelectorAll('button');
+  console.log(counterToWin);
     for (let i = 0; i < buttons.length; i++) {
-      if (buttons[i].getAttribute('class') == 'buttons__opened');
-      counterToWin++;
+      if (buttons[i].classList.contains('button__opened')){
+        counterToWin++;
+      }
     }
     console.log(counterToWin);
   if ((size * size) - counterToWin == countMine) {
@@ -92,14 +97,12 @@ function getStart(num = 10) {
   field.addEventListener('contextmenu', function (event) {
     let elem = document.getElementsByClassName('info__flag')[0];
     if (event.target.closest('flag')) {
-      console.log('two')
     event.target.setAttribute('class', 'button button_closed');
     lastFlag++;
     elem.textContent = `${lastFlag} flags lasts`;
     }
     else if (event.target.closest('.button_closed')) {
         if (lastFlag !== 0) {
-          console.log('one')
       event.target.classList.remove('button_closet');
       event.target.classList.add('flag');
       lastFlag--;
@@ -178,7 +181,7 @@ function renderSmile (width = '50px') {
   img.style.width = width;
   img.alt = 'smile';
 }
-
+timerFun();
 // set size for field
 function setSizeField(num) {
   counter = 0;
@@ -233,6 +236,9 @@ for (let elem of elems) {
 function theEnd() {
   field = document.getElementsByClassName('field')[0]; 
   buttons = field.querySelectorAll('button'); 
+  clearInterval(timerId);
+  timer = document.getElementsByClassName('info__text')[1];
+  timer.textContent = `00:00`;
   buttons.forEach(elem => {           //todo открыть остальные кнопки
     if (elem.getAttribute('data-num') == '0') {
       elem.classList.add('mine');
@@ -337,7 +343,6 @@ function checkFlag() {
     if (index % size == 0) array = [(index + 1), (index + size), (index + size + 1), (index - size), (index - size + 1)];
     else if ((index + 1) % size == 0) array = [(index - 1), (index + size), (index + size - 1), (index - size), (index - size - 1)];
     else {array = [(index + 1), (index - 1), (index + size), (index + size + 1), (index + size - 1), (index - size), (index - size + 1), (index - size - 1)];}
-    console.log(array);
     for (let elem of array) {
       let num = Number(buttons[elem].getAttribute('data-num'))
     if (elem >= 0 && elem < (size ** 2) && buttons[elem].classList.contains('button_closed')) {
@@ -351,14 +356,25 @@ function checkFlag() {
 
   //finish and win
   function getWin() {
-    alert('you won!!!!');
-    theEnd();
+    clearInterval(timerId);
+    timer = document.getElementsByClassName('info__text')[1];
+    timer.textContent = `00:00`;
     counterToWin = 0;
+    alert('you won!!!!');
     setTimeout(function() {
-      getStart();
-      setHover(buttonsFooter[0]);
+      setSizeField(size);
       changeMines('.button_closed');
       getNumber();
       checkFlag();
     }, 2000)
   }
+  
+  // timer
+  function timerFun() {
+    let num = 1;
+    timerId = setInterval(function start() {
+      timer = document.getElementsByClassName('info__text')[1];
+      timer.textContent = `${num}seconds`;
+      num++;
+    }, 1000)
+}
