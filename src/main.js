@@ -81,18 +81,18 @@ function getStart(num = 10) {
     getEmptyCell(numberInd);
   }
   }
-
   buttons = field.querySelectorAll('button');
-  console.log(counterToWin);
+  let count = 0;
     for (let i = 0; i < buttons.length; i++) {
       if (buttons[i].classList.contains('button__opened')){
-        counterToWin++;
+        console.log(buttons[i]);
+        count++;
       }
     }
-    console.log(counterToWin);
-  if ((size * size) - counterToWin == countMine) {
+    console.log(count);
+  /*if ((size * size) - counterToWin == countMine) {
     getWin();
-  }
+  }*/
 })
   field.addEventListener('contextmenu', function (event) {
     let elem = document.getElementsByClassName('info__flag')[0];
@@ -126,6 +126,7 @@ function getStart(num = 10) {
       getNumber();
       checkFlag();
       counterToWin = 0;
+      newStartTimer()
     }
     else if (event.target.closest('.button2')) {
       setSizeField(15);
@@ -135,6 +136,7 @@ function getStart(num = 10) {
       getNumber();
       checkFlag();
       counterToWin = 0;
+      newStartTimer()
     }
     else if (event.target.closest('.button3')) {
       setSizeField(25);
@@ -144,6 +146,7 @@ function getStart(num = 10) {
       getNumber();
       checkFlag();
       counterToWin = 0;
+      newStartTimer()
     }
   })
   element.getBlockInfo('button', infoFooter, 'info__button button1', 'easy 10 x 10');
@@ -236,9 +239,7 @@ for (let elem of elems) {
 function theEnd() {
   field = document.getElementsByClassName('field')[0]; 
   buttons = field.querySelectorAll('button'); 
-  clearInterval(timerId);
-  timer = document.getElementsByClassName('info__text')[1];
-  timer.textContent = `00:00`;
+  newStartTimer();
   buttons.forEach(elem => {           //todo открыть остальные кнопки
     if (elem.getAttribute('data-num') == '0') {
       elem.classList.add('mine');
@@ -344,7 +345,7 @@ function checkFlag() {
     else if ((index + 1) % size == 0) array = [(index - 1), (index + size), (index + size - 1), (index - size), (index - size - 1)];
     else {array = [(index + 1), (index - 1), (index + size), (index + size + 1), (index + size - 1), (index - size), (index - size + 1), (index - size - 1)];}
     for (let elem of array) {
-      let num = Number(buttons[elem].getAttribute('data-num'))
+      let num = +buttons[elem].getAttribute('data-num');
     if (elem >= 0 && elem < (size ** 2) && buttons[elem].classList.contains('button_closed')) {
         if (num > 1) {
           openCell(buttons[elem]);
@@ -356,9 +357,7 @@ function checkFlag() {
 
   //finish and win
   function getWin() {
-    clearInterval(timerId);
-    timer = document.getElementsByClassName('info__text')[1];
-    timer.textContent = `00:00`;
+    newStartTimer();
     counterToWin = 0;
     alert('you won!!!!');
     setTimeout(function() {
@@ -377,4 +376,10 @@ function checkFlag() {
       timer.textContent = `${num}seconds`;
       num++;
     }, 1000)
+}
+function newStartTimer() {
+  clearInterval(timerId);
+  timer = document.getElementsByClassName('info__text')[1];
+  timer.textContent = `00:00`;
+//  timerFun();
 }
