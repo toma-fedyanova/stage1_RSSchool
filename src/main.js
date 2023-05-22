@@ -22,7 +22,6 @@ let buttons;
 let buttonsFooter;
 let score;
 let lastFlag;
-let counterToWin = 0;
 let timer;
 let timerId;
 
@@ -89,15 +88,29 @@ function getStart(num = 10) {
         count++;
       }
     }
-    console.log(count);
-  /*if ((size * size) - counterToWin == countMine) {
+  if ((size * size) - count == countMine) {
     getWin();
-  }*/
+  }
 })
   field.addEventListener('contextmenu', function (event) {
     let elem = document.getElementsByClassName('info__flag')[0];
-    if (event.target.closest('flag')) {
-    event.target.setAttribute('class', 'button button_closed');
+    if (event.target.closest('.button_closed')) {
+      console.log('hello');
+      if (event.target.getAttribute('data-flag')) {
+        event.target.classList.remove('flag');
+        event.target.removeAttribute('data-flag');
+        lastFlag--;
+        elem.textContent = `${lastFlag} flags lasts`;
+      }
+      else {
+        event.target.classList.add('flag');
+        event.target.setAttribute('data-flag', 'true');
+        lastFlag++;
+        elem.textContent = `${lastFlag} flags lasts`;
+      }
+
+
+    /*event.target.setAttribute('data-flag', 'true');
     lastFlag++;
     elem.textContent = `${lastFlag} flags lasts`;
     }
@@ -107,7 +120,7 @@ function getStart(num = 10) {
       event.target.classList.add('flag');
       lastFlag--;
       elem.textContent = `${lastFlag} flags lasts`;
-    }
+    }*/
   }
   })
   element.setButtons();
