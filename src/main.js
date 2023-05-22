@@ -24,6 +24,7 @@ let score;
 let lastFlag;
 let timer;
 let timerId;
+let isNewGame;
 
 window.addEventListener('load', function() {
   getStart();
@@ -56,6 +57,7 @@ function getStart(num = 10) {
   score = document.getElementsByClassName('info__text')[0];
   field.addEventListener('click', function game(event) {
  if (event.target.closest('.button_closed')) {
+  getCheckStart();
   if (event.target.classList.contains('flag')) return;
     counter ++;
     score.textContent = counter;
@@ -79,7 +81,6 @@ function getStart(num = 10) {
     let numberInd = Number(index);
     getEmptyCell(numberInd);
   }
-  }
   buttons = field.querySelectorAll('button');
   let count = 0;
     for (let i = 0; i < buttons.length; i++) {
@@ -88,8 +89,11 @@ function getStart(num = 10) {
         count++;
       }
     }
-  if (count == countMine) {
-    getWin();
+    console.log(count);
+    console.log(countMine);
+    if (count == countMine) {
+      getWin();
+    }
   }
 })
   field.addEventListener('contextmenu', function (event) {
@@ -99,13 +103,13 @@ function getStart(num = 10) {
       if (event.target.getAttribute('data-flag')) {
         event.target.classList.remove('flag');
         event.target.removeAttribute('data-flag');
-        lastFlag--;
+        lastFlag++;
         elem.textContent = `${lastFlag} flags lasts`;
       }
       else {
         event.target.classList.add('flag');
         event.target.setAttribute('data-flag', 'true');
-        lastFlag++;
+        lastFlag--;
         elem.textContent = `${lastFlag} flags lasts`;
       }
   }
@@ -161,7 +165,7 @@ function getStart(num = 10) {
   let range = document.getElementById('volume');
   let label = document.getElementsByTagName('label')[0];
   range.addEventListener('change', () => {
-    let isNewGame = true;
+    isNewGame = true;
     buttons.forEach(elem => {
       if (elem.classList.contains('button__opened')) isNewGame = false;
     })
@@ -307,11 +311,12 @@ function getNumber() {
   }
 
   //check first opened cell                  //todo
-function getCheck() {
+function getCheckStart() {
     if (isNewGame) {
       if (this.getAttribute('data-num') == 0) {
         changeMines('.button_closed');
         getNumber();
+        checkFlag();
       }
     }
   }
@@ -360,7 +365,6 @@ function checkFlag() {
   //finish and win
   function getWin() {
     newStartTimer();
-    counterToWin = 0;
     alert('you won!!!!');
     setTimeout(function() {
       setSizeField(size);
