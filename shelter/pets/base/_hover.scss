@@ -1,0 +1,62 @@
+@media (hover:hover) {
+  h1:hover {
+    color: $color-inactive;
+  }
+  .arrow:not(.inactive):not(.page_number):hover {
+    background-color: $color-hover;
+    transform: scale(1.1);
+  }
+  .icos__ico:not(.ico_inactive):hover,
+  .icos__ico:not(.ico_inactive):focus {
+    filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(346deg) brightness(104%) contrast(97%);
+    cursor: pointer;
+    
+  }
+  .button__bordered:hover {
+    cursor: pointer;
+    background-color: $color-hover;
+  }
+  .header__list a:not(.list-underline) {
+    display: inline-block;
+    position: relative;
+    color: $color-inactive;
+    &:hover {
+      color: $color-button-text;;
+    }
+    content: "";
+    &::before {
+      position: absolute;
+      content: "";
+      width: 0;
+      right: -80px;
+      transition: 0.5s cubic-bezier(1,  0,  0,  1);
+      height: 3px;
+      background-color: $color-brand;
+      top: 25px;
+    }
+    &:hover::before {
+      right: 0;
+      width: 100%;
+    }
+  }
+  .animal__card:hover .button__bordered {
+    cursor: pointer;
+    background-color: $color-hover;
+  }
+  .animal__card:hover .animal__img>img {
+    transform: scale(1.2);
+  }
+  .footer__wrapper .footer_link:hover a, 
+  .footer__wrapper .footer_link:focus a {
+    color: $color-hover;
+  }
+  .maps:hover,
+  .mail:hover {
+    top: -5px;
+  }
+  .cross:hover, 
+  .cross:active {
+    background-color: $color-brand;
+    cursor: pointer;
+  }
+}

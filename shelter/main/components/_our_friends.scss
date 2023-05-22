@@ -1,0 +1,167 @@
+.our__friends {
+  background-color: #F6F6F6;
+}
+.our__friends_description {
+  padding: 64px 0;
+  @include media-tablet {
+    padding-bottom: 58px;
+  }
+  @include media-mobile {
+    padding-top: 31px;
+    padding-bottom: 0;
+  }
+  h3 {
+    width: 35%;
+    text-align: center;
+    letter-spacing: 2px;
+    margin: auto;
+    padding-top: 6px;
+    @include media-tablet {
+      padding-top: 13px;
+      width: 100%;
+    
+    }
+    @include media-mobile {
+      padding-bottom: 19px;
+    }
+   }
+}
+.our__friends_animals {
+  @include layout(25%);
+  margin: 60px 60px 0 60px;
+  justify-content: space-around;
+  @include media-tablet {
+    justify-content: space-around;
+    column-gap: 0;
+    margin-left: 6%;
+    margin-right: 6%;
+  }
+  @include media-mobile {
+    margin-top: 20px;
+  }
+  .animal__card {
+    background-color: #FAFAFA;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @extend %transition;
+    overflow: hidden;
+    
+    img {
+      transition: 1s;
+      display: block;
+    }
+    .animal_name {
+      @include font ($weight: 400, $size: 2.0rem, $height:100%);
+      font-family: $font-georgia;
+      color: $color-text;
+      margin-top: 31px;
+      margin-bottom: 31px;
+    }
+    .animal__card_button {
+      margin-bottom: 30px;
+      .button__bordered {
+        padding: 11px 43px;
+        padding-top: 16px;
+      }
+    }
+  }
+}
+.our__friends_button {
+  a {
+    display: inline-block;
+    margin-left: 39%;
+    position: relative;
+    content: "";
+    top: -43px;
+    @include media-tablet { 
+      margin-left: 31%;
+    } 
+    @include media-mini { 
+      margin-left: 30%;
+    }
+    @include media-mobile { 
+      margin-left:6%;
+      margin-top: 17%;
+
+    }
+  }
+}
+.arrow {
+  position: relative;
+  content: '';
+  cursor: pointer;
+}
+.arrow_left {
+  top: -243px;
+  @include media-tablet {
+    left: 0%;
+  }
+  @include media-mini {
+    top: 12px;
+    left: 100px;
+  }
+  @include media-mobile {
+    left: 59px;
+    top: 15px;
+  }
+}
+.arrow_right {
+  left: 95.5%;
+  top: -293px;
+  
+  @include media-middle { 
+    left: 93%;
+  }
+  @include media-tablet {
+    left: 92.5%;
+    top: -296px;
+  }
+  @include media-mini {
+    top: -40px;
+    left: 30%;
+  }
+  @include media-mobile { 
+    top: -37px;
+    left: 63%;
+  }
+}
+@media (max-width: 1150px) {
+  .arrow_right {
+    left: 93%;
+  }
+}
+@media (max-width: 758px) {
+  .arrow_right {
+    left: 65%;
+  }
+}
+.button__bordered {
+  @extend %transition;
+}
+
+.our__friends_animals >* {
+  @include media-tablet { 
+    flex-basis: 45%;
+  }
+
+  @include media-mobile {
+    flex-basis: 90%;
+  }
+}
+.animal__card.card_last {
+  @include media-tablet {
+    display: none;
+  }
+}
+.animal__card.card_mobile {
+  @include media-mobile {
+    display: none;
+  }
+}
+
+
+
+
+

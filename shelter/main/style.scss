@@ -1,0 +1,17 @@
+@import "./abstrcts/constants";
+@import "./abstrcts/mixin";
+@import "./abstrcts/placeholder";
+
+//base
+@import "./base/base";
+@import "./base/button";
+@import "./base/hover";
+
+//components
+@import "./components/header";
+@import "./components/not__only";
+@import "./components/about";
+@import "./components/our_friends";
+@import "./components/help";
+@import "./components/in__addition";
+@import "./components/footer";
