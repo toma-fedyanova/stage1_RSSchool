@@ -2,12 +2,12 @@
   "name": "toma-fedyanova-jsfe2023q1",
   "version": "1.0.0",
   "description": "Private repository for @toma-fedyanova",
-  "main": "main.js",
+  "private": "true",
   "scripts": {
     "lint": "npm run main.js",
     "build": "webpack --mode production",
     "dev": "webpack --mode development",
-    "watch": "webpack --watch"
+    "watch": "webpack --mode development--watch"
   },
   "repository": {
     "type": "git",
@@ -23,6 +23,8 @@
     "css-loader": "^6.7.3",
     "eslint": "^8.40.0",
     "eslint-plugin-import": "^2.27.5",
+    "favicons": "^7.1.2",
+    "favicons-webpack-plugin": "^6.0.0",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.5.1",
     "style-loader": "^3.3.2",

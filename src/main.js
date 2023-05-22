@@ -21,12 +21,15 @@ let field;
 let buttons;
 let buttonsFooter;
 let score;
+let lastFlag;
+
 
 window.addEventListener('load', function() {
   getStart();
   setHover(buttonsFooter[0]);
   changeMines('.button_closed');
   getNumber();
+  checkFlag();
 });
 
 function getStart(num = 10) {
@@ -44,6 +47,7 @@ function getStart(num = 10) {
   element.getBlockInfo(...ico);
   renderSmile ();
   element.getBlockInfo(...infoTime);
+  element.getBlockInfo('p', info, 'info__flag', 'last flags');
 
   // create play fiels, listener to field
   element.getField();
@@ -68,11 +72,18 @@ function getStart(num = 10) {
 })
   field.addEventListener('contextmenu', function (event) {
     if (event.target.closest('.button_closed')) {
-      event.target.classList.remove('button_closed');
+      if (lastFlag !== 0) {
       event.target.classList.add('flag');
+      lastFlag--;
+      let elem = document.getElementsByClassName('info__flag')[0];
+      elem.textContent = `${lastFlag} flags lasts`;
+    }
     }
     else if (event.target.closest('.flag')) {
       event.target.setAttribute('class', 'button button_closed');
+      lastFlag++;
+      let elem = document.getElementsByClassName('info__flag')[0];
+      elem.textContent = `${lastFlag} flags lasts`;
     }
   })
   element.setButtons();
@@ -88,21 +99,24 @@ function getStart(num = 10) {
       setHover(event.target.closest('.button1'));
       size = 10;
       changeMines('.button_closed');
-      getNumber()
+      getNumber();
+      checkFlag()
     }
     else if (event.target.closest('.button2')) {
       setSizeField(15);
       setHover(event.target.closest('.button2'));
       size = 15;
       changeMines('.button_closed');
-      getNumber()
+      getNumber();
+      checkFlag();
     }
     else if (event.target.closest('.button3')) {
       setSizeField(25);
       setHover(event.target.closest('.button3'));
       size = 25;
       changeMines('.button_closed');
-      getNumber()
+      getNumber();
+      checkFlag();
     }
   })
   element.getBlockInfo('button', infoFooter, 'info__button button1', 'easy 10 x 10');
@@ -126,7 +140,8 @@ function getStart(num = 10) {
     label.textContent = range.value;
     countMine = Number(range.value);
     changeMines('.button_closed');
-    getNumber()
+    getNumber();
+    checkFlag();
   }
   });
 }
@@ -196,7 +211,6 @@ function theEnd() {
   buttons = field.querySelectorAll('button'); 
   buttons.forEach(elem => {           //todo открыть остальные кнопки
     if (elem.getAttribute('data-num') == '0') {
-      elem.classList.remove('flag');
       elem.classList.add('mine');
     }
   })
@@ -259,3 +273,21 @@ function getNumber() {
   function setColors(num) {
     this.style.color = colors[num];
   }
+
+  //check first opened cell
+function getCheck() {
+    if (isNewGame) {
+      if (this.getAttribute('data-num') == 0) {
+        changeMines('.button_closed');
+        getNumber();
+      }
+    }
+  }
+
+function checkFlag() {
+  let elem = document.getElementsByClassName('info__flag')[0];
+  console.log(elem);
+  let num = countMine;
+  lastFlag = num;
+  elem.textContent = `${lastFlag} flags lasts`;
+}

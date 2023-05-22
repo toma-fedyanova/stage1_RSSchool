@@ -8,7 +8,7 @@ h1 {
   color: #0ea02d;
 }
 .info {
-  margin: 20px auto;
+  margin: 0 auto;
   display: flex;
   justify-content: space-around;
   align-items: center;
