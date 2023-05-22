@@ -22,7 +22,7 @@ let buttons;
 let buttonsFooter;
 let score;
 let lastFlag;
-
+let counterToWin = 0;;
 
 window.addEventListener('load', function() {
   getStart();
@@ -54,7 +54,8 @@ function getStart(num = 10) {
   field = document.getElementsByClassName('field')[0];          /////////
   score = document.getElementsByClassName('info__text')[0];
   field.addEventListener('click', function game(event) {
-  if (event.target.closest('.button_closed')) {
+ if (event.target.closest('.button_closed')) {
+  if (event.target.classList.contains('flag')) return;
     counter ++;
     score.textContent = counter;
     event.target.classList.remove('button_closed');
@@ -66,25 +67,45 @@ function getStart(num = 10) {
     else if (event.target.getAttribute('data-num') > 1) {
       let num = (event.target.getAttribute('data-num') - 1);
       setColors.call(event.target, num);
-      event.target.textContent = num;                      //todo add empty
+      event.target.textContent = num;
     }
+    else if (event.target.getAttribute('data-num') == 1) {
+    buttons = field.querySelectorAll('button');
+    for (let i = 0; i < buttons.length; i++) {
+      buttons[i].setAttribute('data-index', i);
+    }
+    let index = event.target.getAttribute('data-index');
+    let numberInd = Number(index);
+    getEmptyCell(numberInd);
+  }
+  }
+  buttons = field.querySelectorAll('button');
+    for (let i = 0; i < buttons.length; i++) {
+      if (buttons[i].getAttribute('class') == 'buttons__opened');
+      counterToWin++;
+    }
+    console.log(counterToWin);
+  if ((size * size) - counterToWin == countMine) {
+    getWin();
   }
 })
   field.addEventListener('contextmenu', function (event) {
-    if (event.target.closest('.button_closed')) {
-      if (lastFlag !== 0) {
+    let elem = document.getElementsByClassName('info__flag')[0];
+    if (event.target.closest('flag')) {
+      console.log('two')
+    event.target.setAttribute('class', 'button button_closed');
+    lastFlag++;
+    elem.textContent = `${lastFlag} flags lasts`;
+    }
+    else if (event.target.closest('.button_closed')) {
+        if (lastFlag !== 0) {
+          console.log('one')
+      event.target.classList.remove('button_closet');
       event.target.classList.add('flag');
       lastFlag--;
-      let elem = document.getElementsByClassName('info__flag')[0];
       elem.textContent = `${lastFlag} flags lasts`;
     }
-    }
-    else if (event.target.closest('.flag')) {
-      event.target.setAttribute('class', 'button button_closed');
-      lastFlag++;
-      let elem = document.getElementsByClassName('info__flag')[0];
-      elem.textContent = `${lastFlag} flags lasts`;
-    }
+  }
   })
   element.setButtons();
   buttons = field.querySelectorAll('button');            /////
@@ -100,7 +121,8 @@ function getStart(num = 10) {
       size = 10;
       changeMines('.button_closed');
       getNumber();
-      checkFlag()
+      checkFlag();
+      counterToWin = 0;
     }
     else if (event.target.closest('.button2')) {
       setSizeField(15);
@@ -109,6 +131,7 @@ function getStart(num = 10) {
       changeMines('.button_closed');
       getNumber();
       checkFlag();
+      counterToWin = 0;
     }
     else if (event.target.closest('.button3')) {
       setSizeField(25);
@@ -117,6 +140,7 @@ function getStart(num = 10) {
       changeMines('.button_closed');
       getNumber();
       checkFlag();
+      counterToWin = 0;
     }
   })
   element.getBlockInfo('button', infoFooter, 'info__button button1', 'easy 10 x 10');
@@ -226,6 +250,7 @@ function theEnd() {
     counter = 0;
     score.textContent = counter;
   }, 2000)
+  counterToWin = 0;
 }
 
 //set numbers to textContent cells near the mines
@@ -274,7 +299,7 @@ function getNumber() {
     this.style.color = colors[num];
   }
 
-  //check first opened cell
+  //check first opened cell                  //todo
 function getCheck() {
     if (isNewGame) {
       if (this.getAttribute('data-num') == 0) {
@@ -291,3 +316,49 @@ function checkFlag() {
   lastFlag = num;
   elem.textContent = `${lastFlag} flags lasts`;
 }
+
+  //case if open empty cell
+  function openCell(elem) {
+    if (!elem.classList.contains('flag')) {
+    elem.classList.remove('button_closed');
+    elem.classList.add('button__opened');
+    if (elem.getAttribute('data-num') > 1) {
+      let num = (elem.getAttribute('data-num') - 1);
+      setColors.call(elem, num);
+      elem.textContent = num;
+    }
+  }
+}
+  function getEmptyCell(index) {
+    field = document.getElementsByClassName('field')[0]; 
+    buttons = field.querySelectorAll('button');
+    openCell(buttons[index]);
+    let array;
+    if (index % size == 0) array = [(index + 1), (index + size), (index + size + 1), (index - size), (index - size + 1)];
+    else if ((index + 1) % size == 0) array = [(index - 1), (index + size), (index + size - 1), (index - size), (index - size - 1)];
+    else {array = [(index + 1), (index - 1), (index + size), (index + size + 1), (index + size - 1), (index - size), (index - size + 1), (index - size - 1)];}
+    console.log(array);
+    for (let elem of array) {
+      let num = Number(buttons[elem].getAttribute('data-num'))
+    if (elem >= 0 && elem < (size ** 2) && buttons[elem].classList.contains('button_closed')) {
+        if (num > 1) {
+          openCell(buttons[elem]);
+        }
+        else if (num == 1) getEmptyCell(elem);
+      }
+    }
+  }
+
+  //finish and win
+  function getWin() {
+    alert('you won!!!!');
+    theEnd();
+    counterToWin = 0;
+    setTimeout(function() {
+      getStart();
+      setHover(buttonsFooter[0]);
+      changeMines('.button_closed');
+      getNumber();
+      checkFlag();
+    }, 2000)
+  }
