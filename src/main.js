@@ -83,12 +83,12 @@ function getStart(num = 10) {
   buttons = field.querySelectorAll('button');
   let count = 0;
     for (let i = 0; i < buttons.length; i++) {
-      if (buttons[i].classList.contains('button__opened')){
+      if (buttons[i].classList.contains('button_closed')){
         console.log(buttons[i]);
         count++;
       }
     }
-  if ((size * size) - count == countMine) {
+  if (count == countMine) {
     getWin();
   }
 })
@@ -108,19 +108,6 @@ function getStart(num = 10) {
         lastFlag++;
         elem.textContent = `${lastFlag} flags lasts`;
       }
-
-
-    /*event.target.setAttribute('data-flag', 'true');
-    lastFlag++;
-    elem.textContent = `${lastFlag} flags lasts`;
-    }
-    else if (event.target.closest('.button_closed')) {
-        if (lastFlag !== 0) {
-      event.target.classList.remove('button_closet');
-      event.target.classList.add('flag');
-      lastFlag--;
-      elem.textContent = `${lastFlag} flags lasts`;
-    }*/
   }
   })
   element.setButtons();
@@ -358,12 +345,14 @@ function checkFlag() {
     else if ((index + 1) % size == 0) array = [(index - 1), (index + size), (index + size - 1), (index - size), (index - size - 1)];
     else {array = [(index + 1), (index - 1), (index + size), (index + size + 1), (index + size - 1), (index - size), (index - size + 1), (index - size - 1)];}
     for (let elem of array) {
-      let num = +buttons[elem].getAttribute('data-num');
-    if (elem >= 0 && elem < (size ** 2) && buttons[elem].classList.contains('button_closed')) {
-        if (num > 1) {
-          openCell(buttons[elem]);
-        }
-        else if (num == 1) getEmptyCell(elem);
+      if (elem >= 0 && elem < (size ** 2)) {
+        let num = +(buttons[elem].getAttribute('data-num'));
+        if (buttons[elem].classList.contains('button_closed')) {
+            if (num > 1) {
+              openCell(buttons[elem]);
+            }
+            else if (num == 1) getEmptyCell(elem);
+          }
       }
     }
   }
