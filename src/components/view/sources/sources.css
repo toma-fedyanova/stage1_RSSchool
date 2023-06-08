@@ -1,13 +1,18 @@
 .sources {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    justify-content: center;
     width: 100%;
-    height: 120px;
+    height: 220px;
     overflow: auto;
     align-items: center;
     font: 300 1em 'Fira Sans', sans-serif;
+    scrollbar-color: #4d7fff #ddd;
 }
-
+.sources::-webkit-scrollbar-thumb {
+    background-color: #d4aa70;
+    border-radius: 100px;
+}
 .source__item {
     background: none;
     border: 2px solid #30c5ff;

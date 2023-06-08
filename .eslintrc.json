@@ -1,5 +1,6 @@
 {
     "parser": "@typescript-eslint/parser",
+    "ignorePatterns": ["webpack.config.js"],
     "plugins": ["prettier", "import", "@typescript-eslint"],
     "extends": [
         "plugin:prettier/recommended",
