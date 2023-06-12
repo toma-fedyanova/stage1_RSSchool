@@ -1,21 +1,21 @@
 import './sources.css';
-import { NewsData } from '../../../types/index';
 
+interface NewsIdName {
+    name: string;
+    id: string;
+}
 class Sources {
-    draw(data: NewsData[]) {
+    draw(data: NewsIdName[]) {
         const fragment = document.createDocumentFragment();
         const sourceItemTemp = document.querySelector('#sourceItemTemp') as HTMLTemplateElement;
 
-        data.forEach((item: NewsData) => {
+        data.forEach((item: NewsIdName) => {
             if (sourceItemTemp instanceof HTMLTemplateElement) {
-                const sourceClone = sourceItemTemp.content.cloneNode(true) as HTMLElement;
-                if (!(sourceItemTemp instanceof DocumentFragment)) {
-                    throw new Error();
-                }
+                const sourceClone = sourceItemTemp.content.cloneNode(true) as Element;
                 const span = sourceClone.querySelector('.source__item-name') as HTMLSpanElement;
-                span.textContent = item.sourse.name;
+                span.textContent = item.name;
                 const block_button = sourceClone.querySelector('.source__item') as HTMLDivElement;
-                block_button.setAttribute('data-source-id', item.sourse.id);
+                block_button.setAttribute('data-source-id', item.id);
 
                 fragment.append(sourceClone);
             }

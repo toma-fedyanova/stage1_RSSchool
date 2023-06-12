@@ -4,10 +4,8 @@ export interface NewsData {
     description: string | null;
     url: string;
     urlToImage: string;
-    sourse: {
-        name: string;
-        id: string;
-    };
+    name: string;
+    id: string;
     publishedAt: string;
     content: string;
 }
