@@ -18,6 +18,7 @@ footer {
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
 }
 footer .copyright {
     font-size: 14px;
@@ -32,4 +33,12 @@ footer .copyright a:hover {
 }
 footer .copyright:before {
     content: '©';
+}
+.github_info {
+    color: #857f7f;
+    text-decoration: none;
+}
+.ico {
+    background-color: rgb(44, 10, 231);
+    margin-top: 15px;
 }
