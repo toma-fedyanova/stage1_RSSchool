@@ -5,7 +5,11 @@
   "main": "webpack.config.js",
   "devDependencies": {
     "@typescript-eslint/parser": "^5.59.9",
+    "babel-eslint": "^10.1.0",
     "css-loader": "^6.8.1",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-webpack-plugin": "^4.0.1",
     "file-loader": "^6.2.0",
@@ -19,7 +23,8 @@
   "scripts": {
     "start": "webpack serve --open --config ./webpack.config.js --env mode=dev",
     "build": "webpack --config ./webpack.config.js --env mode=prod",
-    "lint": "eslint . --ext .ts"
+    "lint": "eslint . --ext .ts",
+    "prettier": "prettier  — write \"src/**/*.ts\""
   },
   "repository": {
     "type": "git",
