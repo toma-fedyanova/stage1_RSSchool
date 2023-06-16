@@ -1,0 +1,64 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+
+}
+:root {
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  background-color: rgb(44 16 158);
+}
+header {
+  height: 5vh;
+}
+main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.game {
+  perspective: 1000px;
+  overflow: hidden;
+  margin: 0;
+  width: 60%;
+
+}
+.game__image {
+  height: 95vh;
+  transform-style: preserve-3d;
+  transform: rotateX(var(--change-Y)) rotateY(var(--change-x));
+}
+.game__item {
+  position: absolute;
+  top: -2vw;
+  left: -2vw;
+  right: -2vw;
+  bottom: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% auto;
+}
+.game__item_1 {
+  background-image: url('image/backgrd.png');
+  transform: translateZ(-30px) scale(1.08);
+}
+.game__item_2 {
+  background-image: url('image/miami_0006_car.png');
+  transform: translateZ(40px);
+  background-size: 95% auto;
+}
+.game__item_3 {
+  transform: translateZ(70px) scale (0.8);
+}
+.game__item_5 {
+  background-image: url('image/group.png');
+  transform: translateZ(480px);
+  background-size: 60% auto;
+}
+
+
+
