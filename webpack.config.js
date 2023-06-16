@@ -8,7 +8,7 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const baseConfig = {
   mode: 'development',
-  entry: path.resolve(__dirname, 'src'),
+  entry: path.resolve(__dirname, './src/index.ts'),
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist')
@@ -22,23 +22,26 @@ const baseConfig = {
     new CleanWebpackPlugin(),
     new EslingPlugin({ extensions: 'ts' }),
     new MiniCssExtractPlugin({
-      filename: "[name].[contenthash].css",
+      filename: "style.css",
     }),
   ], 
   module: {
     rules: [
       {
         test: /\.css$/,
-        include: path.join(__dirname, './src'),
         use: [
-          {loader: 'style-loader'}, 
-          {loader:'css-loader', 
-          options: {
-          modules: true,
-          sourceMap: true
-          }},
-          {loader: 'typings-for-css-modules-loader'}
-       ],
+          'style-loader',
+          MiniCssExtractPlugin.loader,
+          {
+            loader: 'css-loader',
+            options: {
+              sourceMap: true
+            }
+          }, {
+            loader: 'postcss-loader',
+            options: { sourceMap: true, config: { path: './postcss.config.js' } }
+          }
+        ]
       },
       {
       test: /\.(png|svg|jpg|jpeg|gif)$/i,
@@ -50,11 +53,7 @@ const baseConfig = {
       test: /\.ts$/i, 
       use: 'ts-loader'
     },
-    {
-      test: /\.css$/i,
-      use: [MiniCssExtractPlugin.loader, "css-loader"],
-    }
-   ]
+  ]
   },
   resolve: {
     extensions: ['.ts', '.js', '.json'],
