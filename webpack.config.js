@@ -39,7 +39,7 @@ const baseConfig = {
             }
           }, {
             loader: 'postcss-loader',
-            options: { sourceMap: true, config: { path: './postcss.config.js' } }
+            options: { sourceMap: true, postcssOptions: { path: './webpack.config.js' } }
           }
         ]
       },

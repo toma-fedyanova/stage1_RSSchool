@@ -3,22 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" href="image/nature-plant-tree-svgrepo-com.svg"><!--https://image.online-convert.com/ru/convert-to-ico-->
-  <link rel="stylesheet" href="style.css">
+  <!-- <link rel="icon" href="image/nature-plant-tree-svgrepo-com.svg">https://image.online-convert.com/ru/convert-to-ico -->
   <title>RSS-CSS-Selector</title>
 </head>
 <body>
   <header class="header">
-    <section class="wrapper">
-      <nav class="header__nuv">
-        <div class="logo">
-        </div>
-        <div class="burger">
-          <div class="one"></div>
-          <div class="two"></div>
-          <div class="three"></div>
-        </div>
-      </nav>
+    <section class="wrapper header__wrapper">
+      <h1 class="logo">RSS-CSS-Selector</h1>
+      <div class="header__button">
+        <button class="button_bordered">Начать сначала</button>
+      </div>
     </section>
   </header>
   <main>
@@ -26,14 +20,29 @@
        <div class="game__image">
         <div class="game__item game__item_1"></div>
         <div class="game__item game__item_2"></div>
-        <div class="game__item game__item_3 change__item">
-          <button class="button_start">Начать сначала</button>
-        </div>
+        <div class="game__item game__item_3 change__item"></div>
         <div class="game__item game__item_5"></div>
       </div>
     </section>
     <section class="game__rules">
-      <h1 class="titlr">RSS-CSS Selector</h1>
+      <div class="game__buttons">
+        <button class="button_bordered" data-num = "0">Уровень 1</button>
+        <button class="button_bordered" data-num = "1">Уровень 2</button>
+        <button class="button_bordered" data-num = "2">Уровень 3</button>
+        <button class="button_bordered" data-num = "3">Уровень 4</button>
+        <button class="button_bordered" data-num = "4">Уровень 5</button>
+        <button class="button_bordered" data-num = "5">Уровень 6</button>
+        <button class="button_bordered" data-num = "6">Уровень 7</button>
+        <button class="button_bordered" data-num = "7">Уровень 8</button>
+        <button class="button_bordered" data-num = "8">Уровень 9</button>
+        <button class="button_bordered" data-num = "9">Уровень 10</button>
+      </div>
+      <div class="game__info">
+        <p class="game_paragraph" data-ident="title"></p>
+        <p class="game_paragraph" data-ident="context"></p>
+        <p class="game_paragraph" data-ident="example"></p>
+        <p class="game_paragraph" data-ident="task"></p>
+      </div>
     </section>
   </main>
   <script src="./index.ts"></script>

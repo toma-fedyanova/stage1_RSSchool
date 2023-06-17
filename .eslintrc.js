@@ -27,6 +27,7 @@ module.exports = {
         "@typescript-eslint/no-explicit-any": 'error',
         "@typescript-eslint/explicit-function-return-type": 'error',
         //"@typescript-eslint/no-unnecessary-type-assention": 'error',
-        "max-lines-per-function": ['error', 40]
+        "max-lines-per-function": ['error', 40],
+        "@typescript-eslint/no-unused-vars": "off"
     }
 }

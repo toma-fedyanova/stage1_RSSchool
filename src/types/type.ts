@@ -1,6 +1,7 @@
 export interface InfoTask{
   title: string,
   contecst: string,
+  example?: string,
   task: string,
 }
 
