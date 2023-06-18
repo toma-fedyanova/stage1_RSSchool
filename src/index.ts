@@ -1,9 +1,9 @@
 import './style.css';
 import { getAnimation } from './components/animation';
-import { getRenderBlockOne } from './app/app';
+import { getRenderBlocks } from './app/app';
 
 function getSrtart():void {
 getAnimation();
-getRenderBlockOne();
+getRenderBlocks();
 }
 getSrtart();

@@ -5,8 +5,7 @@ const taskText: Record<string, InfoTask> = {
   title: 'Универсальный селектор',
   context: 'Он применяет стили ко всем элементам страницы и обозначается символом * (звёздочка).',
   example: 
-  `* {
-    margin: 0;
+  `* {\nmargin: 0;
     box-sizing: border-box;
   }`,
   task: 'Задание: выберите всех животных на машине.'},
