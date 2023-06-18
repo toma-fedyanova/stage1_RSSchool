@@ -1,7 +1,7 @@
 import taskText from '../components/blockTask';
 import { InfoTask } from '../types/type';
 
-class RenderBlock {
+export class RenderBlock {
   public text = '';
   public obj: Record<string, InfoTask> = taskText;
   constructor (public num: number | undefined, public selector: string, public parent: HTMLElement, public level: string | null, public classes?: string) {}

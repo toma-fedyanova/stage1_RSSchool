@@ -90,7 +90,7 @@ main {
   pointer-events: none;
 }
 .game__rules {
-  width: 39%;
+  width: 32%;
 }
 .game__buttons {
   display: flex;
@@ -98,9 +98,18 @@ main {
   justify-content: space-between;
   padding: 25px 25px;
   gap: 15px;
-
 }
-
+.game__info p {
+  font-size: 2.0rem;
+  line-height: 1.8rem;
+  margin-bottom: 10px;
+}
+.example_code {
+  width: 50%;
+  background-color: rgb(104 102 102);
+  padding: 15px;
+  margin-left: 0;
+}
 .button_bordered:hover{
   background-color: #cdccc8;
   color: white;

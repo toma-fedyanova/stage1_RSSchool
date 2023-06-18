@@ -6,3 +6,5 @@ function getValueLocalStorage():string | undefined {
  function setValueLocalStorage(value: string):void {
   localStorage.setItem(`level`, value);
 } 
+
+export { getValueLocalStorage, setValueLocalStorage};
