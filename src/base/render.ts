@@ -11,17 +11,18 @@ class RenderBlock {
       return element;
   }
 
-  cleartextElem(this: RenderBlock) : void {
+  cleartextElem() : void {
       const element = this.getElement();
       if (element) element.textContent = "";
   }
 
-  addText(this: RenderBlock) : void {
+  addText() : void {
     const element = this.getElement();
-    const value: string | null = element.getAttribute('data-ident');
+    const value = element.getAttribute('data-ident') as keyof InfoTask;
     if (value){
-      const text = this.obj[(this.num || '1')][value]
-      element.textContent = text;
+      const number = String(this.num);
+      const text: string | undefined= this.obj[(number || '1')][value];
+      element.textContent = text as string;
     }
   }
 }
