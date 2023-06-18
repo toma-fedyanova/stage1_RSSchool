@@ -1,5 +1,5 @@
 import { InfoTask } from '../types/type';
-export 
+
 const taskText: Record<string, InfoTask> = {
   '1': {
   title: 'Универсальный селектор',
@@ -68,7 +68,7 @@ const taskText: Record<string, InfoTask> = {
   ` [class$="primary"] {
 		font-weight: bold;
 	 }`,
-  task: 'Задание: выберите всех котиков с именем, заканчивающимся на "мар".'}, //алекс, бакс
+  task: 'Задание: выберите всех котиков с именем, заканчивающимся на "акс".'}, //макс, бакс
   '9': {
   title: 'Псевдоклассы.',
   context: 'Псевдокласс выбирает элементы, находящиеся в определённом состоянии или положении в иерархии DOM.',
@@ -84,5 +84,6 @@ const taskText: Record<string, InfoTask> = {
   ` ul:not([class]) li {
     text-decoration: none
   }`,
-  task: 'Задание: выберите животного, не собаку.'},
+  task: 'Задание: выберите животного, не собаку.'}, //car :not(dog) 
 }
+export  default taskText;
