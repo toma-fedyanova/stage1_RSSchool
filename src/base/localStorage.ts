@@ -1,10 +1,17 @@
+import { level } from '../app/listener';
+
 function getValueLocalStorage():string | undefined {
   const value: string | null = localStorage.getItem(`level`);
-  if (value) return value;
+  if (value) {
+    let str = level;
+    str = value;
+    return str;
+  }
 }
 
- function setValueLocalStorage(value: string):void {
-  localStorage.setItem(`level`, value);
+ function setValueLocalStorage():void {
+  const value: string = level;
+  if (value) localStorage.setItem(`level`, value);
 } 
 
 export { getValueLocalStorage, setValueLocalStorage};

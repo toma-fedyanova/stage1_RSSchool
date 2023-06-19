@@ -1,8 +1,7 @@
 import RenderBlock from '../base/render';
 import { getValueLocalStorage } from '../base/localStorage';
 
-export function getRenderBlocks():void {
-  const level: string | undefined = getValueLocalStorage();
+export function getRenderBlocks(level: string):void {
   const blockTask = new RenderBlock(level, '.paragraph_title')
   blockTask.cleartextElem();
   blockTask.addText();
