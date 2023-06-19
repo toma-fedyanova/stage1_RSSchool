@@ -1,7 +1,7 @@
 import './style.css';
 import { getAnimation } from './components/animation';
 import { getRenderBlocks } from './app/app';
-import { level, listenerButtonsLevel } from './app/listener';
+import { listenerButtonsLevel } from './app/listener';
 import { getValueLocalStorage, setValueLocalStorage } from './base/localStorage';
 
 function getSrtart():void {
