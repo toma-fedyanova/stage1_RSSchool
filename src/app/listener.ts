@@ -7,7 +7,6 @@ function listenerButtonsLevel():void {
     button.addEventListener('click', () => {
      const str: string | null = button.getAttribute('data-num');
      if (str) level = str;
-     console.log(level + 'button');
      getRenderBlocks(level);
     })
   }
