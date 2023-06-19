@@ -20,3 +20,15 @@ export enum LevelsCount {
   nine = 9,
   ten = 10
 }
+export enum Answers {
+  one = '*',
+  two = 'cat',
+  three = '#bird',
+  four = '.dog',
+  five = 'cat > fish', 
+  six = '[name="пушок"]',
+  seven = '[name^="мар"]',
+  eight = '[name$="акс"]',
+  nine = 'cat:hover',
+  ten = 'car :not(dog)'
+}
