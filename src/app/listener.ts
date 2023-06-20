@@ -8,6 +8,10 @@ function listenerButtonsLevel():void {
      const str: string | null = button.getAttribute('data-num');
      if (str) level = str;
      getRenderBlocks(level);
+     buttons.forEach(button => {
+        button.classList.remove('selected');
+     })
+     button.classList.add('selected');
     })
   }
 

@@ -81,6 +81,6 @@ const taskText: Record<string, InfoTask> = {
   ` ul:not([class]) li {
     text-decoration: none
   }`,
-  task: 'Задание: выберите животного, не собаку.'}, //car :not(dog) 
+  task: 'Задание: выберите животного, не собаку, используя конструкцию :not.'}, //car :not(dog) 
 }
 export  default taskText;

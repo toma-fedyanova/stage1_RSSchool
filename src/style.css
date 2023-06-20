@@ -59,6 +59,12 @@ main {
   height: 95vh;
   transform-style: preserve-3d;
   transform: rotateX(var(--change-Y)) rotateY(var(--change-x));
+  will-change: transform;
+  min-height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
 }
 .game__item {
   position: absolute;
@@ -78,15 +84,43 @@ main {
   background-image: url('image/miami_0006_car.png');
   transform: translateZ(40px);
   background-size: 95% auto;
+  left: -1000%;
 }
 .game__item_3 {
   transform: translateZ(70px);
+  display: flex;
 }
 .game__item_5 {
   background-image: url('image/group.png');
   transform: translateZ(480px);
   background-size: 60% auto;
   pointer-events: none;
+}
+.hero__images {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: 40%;
+  width: 63%;
+}
+.image {
+width: 32%;
+height: 400px; 
+background-repeat: no-repeat;
+background-size: 100% auto;
+/* position: relative; */
+}
+.image1 {
+  background-image: url('./image/dog.png');
+}
+.image2 {
+  background-image: url('./image/cat.png');
+  /* left: -90px; */
+}
+.image3 {
+  background-image: url('./image/bird.png');
+  /* left: -145px; */
 }
 .game__rules {
   width: 32%;
@@ -118,10 +152,7 @@ main {
 .paragraph_task {
   font-weight: 600;
 }
-.colored {
-  background-image: linear-gradient(45deg, #6ab1d7 0%, #33d9de 50%, #002878 100%);
-  font-weight: 600;
-}
+
 .game__code {
   width: 80%;
 }
@@ -144,6 +175,13 @@ main {
   line-height: 38px;
 }
 
+.colored {
+  background-image: linear-gradient(45deg, #6ab1d7 0%, #33d9de 50%, #002878 100%);
+  font-weight: 600;
+}
+.selected {
+  background-color: #cdccc8;
+}
 @media (max-width: 1160px) {
   main {
     flex-direction: column;
@@ -154,6 +192,9 @@ main {
   }
   .game {
     margin: 5%;
+  }
+  .hero__images {
+    top: 10%;
   }
 }
 

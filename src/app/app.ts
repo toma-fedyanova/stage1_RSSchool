@@ -25,4 +25,7 @@ export function getRenderBlocks(level: string):void {
     }
   }
 
+  const textarea = document.querySelector('textarea') as HTMLTextAreaElement;
+  textarea.value = '';
+
 }
