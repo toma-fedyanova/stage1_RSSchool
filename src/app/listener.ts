@@ -1,5 +1,6 @@
 import { getRenderBlocks } from './app';
 import { changeImages } from '../app/changeImg';
+import { getMargin } from '../app/hoverCode';
 
 let level: string;
 function listenerButtonsLevel():void {
@@ -14,6 +15,7 @@ function listenerButtonsLevel():void {
         button.classList.remove('selected');
      })
      button.classList.add('selected');
+     getMargin(level);
     })
   }
 

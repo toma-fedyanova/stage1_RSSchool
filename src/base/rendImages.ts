@@ -20,12 +20,15 @@ export default class CreatorImage {
   element.style.backgroundImage = link;
   }
 
-  additionPicture(parent:HTMLDivElement, topSize: string, leftSize: string):void {
+  additionPicture(parent:HTMLDivElement, link: string):void {
+    
     const element = document.createElement('div') as HTMLDivElement;
-    element.classList.add('image');
+    element.style.width = '100%';
+    element.style.height = '40px';
+    element.style.marginTop = '100px';
+    element.style.backgroundImage = link;
     element.style.position = 'relative';
-    element.style.top = topSize;
-    element.style.left = leftSize;
+    console.log(element);
     parent.append(element);
   }
 

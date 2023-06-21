@@ -101,7 +101,7 @@ main {
   justify-content: center;
   align-items: center;
   position: relative;
-  top: 40%;
+  top: 44%;
   width: 63%;
 }
 .image {
@@ -156,7 +156,10 @@ background-size: 100% auto;
 .game__code {
   width: 80%;
 }
-
+.line1,
+.line5 {
+  margin-left: -10px;
+}
 .game__field {
   padding-top: 50px;
   font-size: 2.2rem;

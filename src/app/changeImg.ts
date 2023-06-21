@@ -18,4 +18,9 @@ export function changeImages(level: string): void {
     block.cearBackground(selector);
     block.changeLink(selector, arrayLinks[i]);
   }
+  if (level === '5') {
+    const parent = document.querySelector('.image2') as HTMLDivElement;
+    const link = 'url("images/fish.png")';
+    block.additionPicture(parent, link);
+  }
 }
