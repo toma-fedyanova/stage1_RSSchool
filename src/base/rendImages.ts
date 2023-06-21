@@ -14,7 +14,7 @@ class CreatorImage {
 
 export default Creator;*/
 
-class CreatorImage {
+export default class CreatorImage {
   changeLink(selector: string, link: string):void {
   const element = document.querySelector(selector) as HTMLDivElement;
   element.style.backgroundImage = link;
