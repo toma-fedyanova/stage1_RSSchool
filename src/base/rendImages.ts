@@ -23,6 +23,7 @@ export default class CreatorImage {
   additionPicture(parent:HTMLDivElement, link: string):void {
     
     const element = document.createElement('div') as HTMLDivElement;
+    element.classList.add('addition__block');
     element.style.width = '100%';
     element.style.height = '40px';
     element.style.marginTop = '100px';
@@ -32,8 +33,10 @@ export default class CreatorImage {
     parent.append(element);
   }
 
-  cearBackground(selector:string):void {
+  clearBackground(selector:string):void {
     const element = document.querySelector(selector) as HTMLDivElement;
     element.style.backgroundImage = '';
+    const addition = document.getElementsByClassName('addition__block')[0];
+    if (addition) addition.remove();
   }
 }

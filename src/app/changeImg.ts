@@ -15,7 +15,7 @@ export function changeImages(level: string): void {
   const block = new CreatorImage;
   for (let i = 0; i < divs.length; i++) {
     const selector: string = '.' + divs[i].classList[1];
-    block.cearBackground(selector);
+    block.clearBackground(selector);
     block.changeLink(selector, arrayLinks[i]);
   }
   if (level === '5') {
