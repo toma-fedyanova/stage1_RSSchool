@@ -56,7 +56,7 @@ main {
  
 }
 .game__image {
-  height: 95vh;
+  height: 900px;
   transform-style: preserve-3d;
   transform: rotateX(var(--change-Y)) rotateY(var(--change-x));
   will-change: transform;
@@ -80,47 +80,44 @@ main {
   background-image: url('image/backgrd.png');
   transform: translateZ(-30px) scale(1.08);
 }
-.game__item_2 {
+/* .game__item_2 {
   background-image: url('image/miami_0006_car.png');
   transform: translateZ(40px);
   background-size: 95% auto;
   left: -1000%;
-}
+} */
 .game__item_3 {
   transform: translateZ(70px);
   display: flex;
 }
 .game__item_5 {
   background-image: url('image/group.png');
-  transform: translateZ(480px);
+  transform: translateZ(250px);
   background-size: 60% auto;
   pointer-events: none;
 }
 .hero__images {
   display: flex;
   justify-content: center;
-  align-items: center;
-  position: relative;
-  top: 44%;
+  align-items: end;
   width: 63%;
 }
 .image {
 width: 32%;
-height: 400px; 
+height: 300px; 
 background-repeat: no-repeat;
 background-size: 100% auto;
-/* position: relative; */
 }
 .image1 {
   background-image: url('./image/dog.png');
 }
+
 .image2 {
   background-image: url('./image/cat.png');
-  /* left: -90px; */
+
 }
 .image3 {
   background-image: url('./image/bird.png');
-  /* left: -145px; */
 }
 .game__rules {
   width: 32%;
@@ -160,6 +157,9 @@ background-size: 100% auto;
 .line5 {
   margin-left: -10px;
 }
+.code_line:hover {
+  color: rgb(228, 132, 84);
+}
 .game__field {
   padding-top: 50px;
   font-size: 2.2rem;
@@ -189,6 +189,9 @@ background-size: 100% auto;
   main {
     flex-direction: column;
   }
+  .game__image {
+    height: 778px;
+  }
   .game__rules,
   .game {
     width: 90%;
@@ -196,9 +199,42 @@ background-size: 100% auto;
   .game {
     margin: 5%;
   }
+  .image {
+    width: 28%;
+    height: 214px;
+  }
   .hero__images {
     top: 10%;
   }
 }
 
+@media (max-width: 900px) {
+  .game__image {
+    height: 734px;
+  }
+  .image {
+    height: 225px;
+  }
+}
+@media (max-width: 785px) {
+  .game__image {
+    height: 560px;
+  }
+  .image {
+    height: 157px;
+  }
+}
+@media (max-width: 670px) {
+  .game__image {
+    height: 501px;
+  }
+  .image {
+    height: 148px;
+  }
+}
+@media (max-width: 550px) {
+  .image {
+    height: 166px;
+  }
+}
 

@@ -2,7 +2,6 @@ export { level } from '../app/listener';
 
 export function getColoredElements(): void {
   const codeBlock: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.code_line');
-  
 }
 
 export function getMargin(level: string) : void {
