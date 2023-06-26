@@ -17,7 +17,7 @@ export function changeImages(level: string): void {
     const selector: string = '.' + divs[i].classList[1];
     block.clearBackground(selector);
     block.changeLink(selector, arrayLinks[i]);
-    const img = divs[i].firstElementChild as HTMLImageElement;
+    const img = divs[i].querySelector('img') as HTMLImageElement;
     if (img) img.remove();
   }
   if (level === '5') {

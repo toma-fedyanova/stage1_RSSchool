@@ -3,7 +3,7 @@ import { getAnimation } from './components/animation';
 import { getRenderBlocks } from './app/app';
 import { listenerButtonsLevel } from './app/listener';
 import { changeImages } from './app/changeImg';
-import { getMargin } from './app/hoverCode';
+import { getMargin, getColoredElements } from './app/hoverCode';
 import { getValueLocalStorage, setValueLocalStorage } from './base/localStorage';
 
 function getSrtart():void {
@@ -15,7 +15,11 @@ window.addEventListener('load', () => {
   getRenderBlocks(str);
   changeImages(str);
   getMargin(str);
-  } else getRenderBlocks('1');
+  getColoredElements(str);
+  } else {
+    getRenderBlocks('1');
+    getColoredElements('1');
+  }
 });
 listenerButtonsLevel();
 window.addEventListener('beforeunload', setValueLocalStorage);

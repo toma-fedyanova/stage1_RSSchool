@@ -1,7 +1,6 @@
 
 export function getColoredElements(level: string): void {
   const codeBlock: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.code_line');
-  console.log(codeBlock[6]);
   const imagesBlock: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
   const changeColor = (element: HTMLElement, color: string): string => element.style.color = color;
   if (level !== '5') {
@@ -10,16 +9,15 @@ export function getColoredElements(level: string): void {
       imagesBlock[i].addEventListener('mouseout', () => changeColor (codeBlock[i + 1], 'white'));
     }
   } else {
-    const image = imagesBlock[1].firstElementChild as HTMLElement;
+    const image = imagesBlock[1].querySelector('img') as HTMLElement;
     image.addEventListener('mouseover', function(e) {
       e.preventDefault();
         for (let j = 3; j <= 5; j++) {
         changeColor (codeBlock[j], 'rgb(228, 132, 84)');
       }
     })
-    image.addEventListener('mouseout', function(e) {
-      e.preventDefault();
-      for (let j = 3; j <= 5; j++) {
+    image.addEventListener('mouseout', function() {
+        for (let j = 3; j <= 5; j++) {
         changeColor (codeBlock[j], 'white');
       }
     })
@@ -37,6 +35,11 @@ export function getColoredElements(level: string): void {
         changeColor (codeBlock[6], 'white');
       })
   }
+}
+
+export function getImageTitle(level: string): void {
+  const codeBlock: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.code_line');
+  const imagesBlock: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
 }
 
 

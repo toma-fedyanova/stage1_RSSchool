@@ -120,6 +120,10 @@ background-size: 100% auto;
 .image3 {
   background-image: url('./image/bird.png');
 }
+.span {
+  background-color: white;
+  font-size: 1.6rem;
+}
 .game__rules {
   width: 32%;
 }
@@ -211,6 +215,8 @@ background-size: 100% auto;
   .game__item_3 {
     height: 560px;
   }
-
+  .image {
+    height: 165px;
+  }
 }
 
