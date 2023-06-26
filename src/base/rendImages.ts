@@ -22,11 +22,9 @@ export default class CreatorImage {
 
   additionPicture(parent:HTMLDivElement, link: string):void {
     const element = document.createElement('img') as HTMLImageElement;
+    element.classList.add('addition_image');
     element.src = link;
     element.alt = 'fish';
-    element.style.width = '130px';
-    element.style.marginTop = '60px';
-    element.style.marginTop = '40px';
     parent.append(element);
   }
 

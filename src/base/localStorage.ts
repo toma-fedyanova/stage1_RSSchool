@@ -3,8 +3,7 @@ import { level } from '../app/listener';
 function getValueLocalStorage():string | undefined {
   const value: string | null = localStorage.getItem(`level`);
   if (value) {
-    let str = level;
-    str = value;
+    const str = value;
     return str;
   }
 }

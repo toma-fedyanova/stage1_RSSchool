@@ -178,7 +178,11 @@ background-size: 100% auto;
   padding-left: 100px;
   line-height: 38px;
 }
-
+.addition_image {
+  width: 230px;
+  margin-top: 80px;
+  margin-bottom: 30px;
+}
 .colored {
   background-image: linear-gradient(45deg, #6ab1d7 0%, #33d9de 50%, #002878 100%);
   font-weight: 600;
