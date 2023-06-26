@@ -17,10 +17,12 @@ export function changeImages(level: string): void {
     const selector: string = '.' + divs[i].classList[1];
     block.clearBackground(selector);
     block.changeLink(selector, arrayLinks[i]);
+    const img = divs[i].firstElementChild as HTMLImageElement;
+    if (img) img.remove();
   }
   if (level === '5') {
     const parent = document.querySelector('.image2') as HTMLDivElement;
-    const link = 'url("images/fish.png")';
+    const link = "images/fish.png";
     block.additionPicture(parent, link);
   }
 }

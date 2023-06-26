@@ -21,15 +21,12 @@ export default class CreatorImage {
   }
 
   additionPicture(parent:HTMLDivElement, link: string):void {
-    
-    const element = document.createElement('div') as HTMLDivElement;
-    element.classList.add('addition__block');
-    element.style.width = '100%';
-    element.style.height = '40px';
-    element.style.marginTop = '100px';
-    element.style.backgroundImage = link;
-    element.style.position = 'relative';
-    console.log(element);
+    const element = document.createElement('img') as HTMLImageElement;
+    element.src = link;
+    element.alt = 'fish';
+    element.style.width = '130px';
+    element.style.marginTop = '60px';
+    element.style.marginTop = '40px';
     parent.append(element);
   }
 
