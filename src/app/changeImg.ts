@@ -6,9 +6,10 @@ import img2 from '../image/dog2.png';
 import img3 from '../image/dog3.png';
 import img4 from '../image/dog4.png';
 import img5 from '../image/fish.png';
+import img6 from '../image/cat_gray.png';
 
 export function changeImages(level: string): void {
-  img; img1; img2; img3; img4; img5;
+  img; img1; img2; img3; img4; img5; img6;
   const divs: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
   const num: number = +level - 1;
   const arrayLinks: string[] = Links[num];
