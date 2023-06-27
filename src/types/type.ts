@@ -29,6 +29,6 @@ export enum Answers {
   six = '[name="пушок"]',
   seven = '[name^="мар"]',
   eight = '[name$="акс"]',
-  nine = 'cat:hover',
+  nine = 'cat:disabled',
   ten = 'car :not(dog)'
 }

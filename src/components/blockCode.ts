@@ -9,6 +9,6 @@ export const CodeText: arrayString = [
   ['<road>', '<dog></dog>', '<cat name="пушок"></cat>', '<dog></dog>', '</road>', ' ', ' ', ' ', ' '],
   ['<road>', '<dog name="маркиз"></dog>', '<dog name="пушок"></dog>', '<dog name="мартин"></dog>', '</road>', ' ', ' ', ' ', ' '],
   ['<road>', '<cat name="макс"></dog>', '<dog name="бакс"></dog>', '<bird></bird>', '</road>', ' ', ' ', ' ', ' '],
-  ['<road>', '<cat></cat>', '<dog></dog>', '<bird></bird>', '</road>', ' ', ' ', ' ', ' '],
+  ['<road>', '<cat></cat>', '<cat></cat>', '<bird></bird>', '</road>', ' ', ' ', ' ', ' '],
   ['<road>', '<cat></cat>', '<dog></dog>', '<dog></dog>', '</road>', ' ', ' ', ' ', ' '],
 ]

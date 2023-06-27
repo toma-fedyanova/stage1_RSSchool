@@ -1,6 +1,6 @@
 import { getRenderBlocks } from './app';
 import { changeImages } from '../app/changeImg';
-import { getMargin, getColoredElements } from '../app/hoverCode';
+import { getMargin, getColoredElements, getImageTitle } from '../app/hoverCode';
 
 let level: string;
 function listenerButtonsLevel():void {
@@ -11,12 +11,14 @@ function listenerButtonsLevel():void {
      if (str) level = str;
      getRenderBlocks(level);
      changeImages(level);
-     buttons.forEach(button => {
+      buttons.forEach(button => {
         button.classList.remove('selected');
      })
      button.classList.add('selected');
      getMargin(level);
      getColoredElements(level);
+     getImageTitle();
+  
     })
   }
 
