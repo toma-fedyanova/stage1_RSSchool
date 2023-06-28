@@ -3,6 +3,7 @@ import { getAnimation } from './components/animation';
 import { getRenderBlocks } from './app/app';
 import { listenerButtonsLevel } from './app/listener';
 import { changeImages } from './app/changeImg';
+import { getAnswer } from './app/textarea';
 import { getMargin, getColoredElements, getImageTitle } from './app/hoverCode';
 import { getValueLocalStorage, setValueLocalStorage } from './base/localStorage';
 
@@ -16,12 +17,13 @@ window.addEventListener('load', () => {
   changeImages(str);
   getMargin(str);
   getColoredElements(str);
-  getImageTitle()
+  getImageTitle();
   } else {
     getRenderBlocks('1');
     getColoredElements('1');
-    getImageTitle()
+    getImageTitle();
   }
+  getAnswer();
 });
 listenerButtonsLevel();
 window.addEventListener('beforeunload', setValueLocalStorage);

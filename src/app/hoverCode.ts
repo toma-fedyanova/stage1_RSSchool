@@ -1,4 +1,4 @@
-
+// TODO уровень 5 hover text & right title
 export function getColoredElements(level: string): void {
   const codeBlock: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.code_line');
   const imagesBlock: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
@@ -62,7 +62,6 @@ export function getImageTitle(): void {
   }
 }
 
-
 export function getMargin(level: string) : void {
   const codeBlock: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.code_line');
  if (level === '5') {
@@ -76,15 +75,3 @@ export function getMargin(level: string) : void {
   codeBlock[5].style.marginLeft = '0';
  }
 }
-  // imagesBlock[2].addEventListener('mouseover', () => changeColor (codeBlock[7], 'rgb(228, 132, 84)'));
-      // imagesBlock[2].addEventListener('mouseover', () => changeColor (codeBlock[3], 'white'));
-      // imagesBlock[2].addEventListener('mouseout', () => changeColor (codeBlock[7], 'white'));
-      // imagesBlock[1].addEventListener('mouseover', function() {
-      // changeColor (codeBlock[2], 'rgb(228, 132, 84)');
-      // changeColor (codeBlock[6], 'rgb(228, 132, 84)');
-      // })
-      // imagesBlock[1].addEventListener('mouseout', function() {
-      //   changeColor (codeBlock[2], 'white');
-      //   changeColor (codeBlock[6], 'white');
-      // })
-  
