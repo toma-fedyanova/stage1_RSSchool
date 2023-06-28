@@ -211,6 +211,9 @@ background-size: 100% auto;
 .selected {
   background-color: #cdccc8;
 }
+.textarea_animation {
+  animation: textarea-shake 0.3s 4;
+}
 @media (max-width: 1160px) {
   main {
     flex-direction: column;
