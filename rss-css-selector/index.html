@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap" rel="stylesheet">
+  <!-- <link rel="icon" href="image/nature-plant-tree-svgrepo-com.svg">https://image.online-convert.com/ru/convert-to-ico -->
+  <title>RSS-CSS-Selector</title>
+<link rel="icon" href="assets/favicon.svg"><script defer src="bundle.js"></script><link href="style.css" rel="stylesheet"></head>
+<body>
+  <header class="header">
+    <section class="wrapper header__wrapper">
+      <h1 class="logo">RSS-CSS-Selector</h1>
+      <div class="header__button">
+        <button class="button_bordered button_reset">Начать сначала</button>
+        <button lang="en" class="button_bordered button_help">Help</button>
+      </div>
+    </section>
+  </header>
+  <main>
+    <section class="game">
+       <div class="game__image">
+        <div class="game__item game__item_1"></div>
+        <!-- <div class="game__item game__item_2"></div> -->
+        <div class="game__item game__item_3 change__item">
+          <div class="hero__images">
+            <div class="image image1"><span class="span"></span></div>
+            <div class="image image2"><span class="span"></span></div>
+            <div class="image image3"><span class="span"></span></div>
+          </div>
+        </div>
+        <div class="game__item game__item_5"></div>
+      </div>
+    </section>
+    <section class="game__rules">
+      <div class="game__buttons">
+        <button class="button_bordered button_level" data-num = "1">Уровень 1</button>
+        <button class="button_bordered button_level" data-num = "2">Уровень 2</button>
+        <button class="button_bordered button_level" data-num = "3">Уровень 3</button>
+        <button class="button_bordered button_level" data-num = "4">Уровень 4</button>
+        <button class="button_bordered button_level" data-num = "5">Уровень 5</button>
+        <button class="button_bordered button_level" data-num = "6">Уровень 6</button>
+        <button class="button_bordered button_level" data-num = "7">Уровень 7</button>
+        <button class="button_bordered button_level" data-num = "8">Уровень 8</button>
+        <button class="button_bordered button_level" data-num = "9">Уровень 9</button>
+        <button class="button_bordered button_level" data-num = "10">Уровень 10</button>
+      </div>
+      <div class="game__info">
+        <p class="game_paragraph paragraph_title" data-ident="title">title</p>
+        <p class="game_paragraph paragraph_context" data-ident="context">cjntext</p>
+        <p class="game_paragraph example_code" data-ident="example">exp</p>
+        <p class="game_paragraph paragraph_task" data-ident="task">task</p>
+      </div>
+      <div class="game__field">
+        <div class="game__code">
+          <p class="code">INDEX.HTML</p>
+          <p class="code code_line line1"></p>
+          <p class="code code_line line2"></p>
+          <p class="code code_line line3"></p>
+          <p class="code code_line line4"></p>
+          <p class="code code_line line5"></p>
+          <p class="code code_line line6"></p>
+          <p class="code code_line line7"></p>
+          <p class="code code_line line8"></p>
+          <p class="code code_line line9"></p>
+        </div>
+        <div class="game_textarea">
+          <p class="taxtarea_text">style.css</p>
+          <textarea name="field" id="textarea" cols="20" rows="5" placeholder="Напишите ответ" autofocus></textarea>
+          <button class="button_bordered textarea_button">Enter</button>
+        </div>
+      </div>
+    </section>
+  </main>
+  <script src="./index.ts"></script>
+</body>
+</html>
