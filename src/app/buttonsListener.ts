@@ -1,7 +1,7 @@
 import { getRenderBlocks } from './app';
-import { changeImages } from '../app/changeImg';
-import { getAnswer } from '../app/textarea';
-import { getMargin, getColoredElements, getImageTitle } from '../app/hoverCode';
+import { changeImages } from './changeImg';
+import { getAnswer } from './textarea';
+import { getMargin, getColoredElements, getImageTitle } from './hoverCode';
 
 let level: string;
 function listenerButtonsLevel():void {
