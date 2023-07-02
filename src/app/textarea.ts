@@ -1,6 +1,6 @@
 
 export function getAnswer(): void {
-  const answers: string[] = ['*', 'cat', '#bird', '.dog', 'cat > fish', '[name="пушок"]', '[name^="мар"]', '[name$="акс"]', 'cat:disabled', 'road :not(dog)'];
+  const answers: string[] = ['*', 'cat', '#bird', '.dog', 'cat>fish', '[name="пушок"]', '[name^="мар"]', '[name$="акс"]', 'cat:disabled', 'road:not(dog)'];
   const textarea = document.querySelector('#textarea') as HTMLTextAreaElement;
   const button = document.querySelector('.textarea_button') as HTMLButtonElement;
   const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.button_level');
@@ -12,6 +12,7 @@ export function getAnswer(): void {
 }
   function getValue():void {
     const answer = getNumberLevel();
+    console.log(answer);
     const value = textarea.value;
     textarea.value = '';
     if (value.split('\n').join('') == answer) {

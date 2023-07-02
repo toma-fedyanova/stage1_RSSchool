@@ -60,4 +60,27 @@ function removeButtonsClasses(): void {
 
   })
 }
-export { level, listenerButtonsLevel, setButtonsClass, setClassFirstButton, removeButtonsClasses };
+
+function getHelpButton():void {
+  const button = document.querySelector('.button_help') as HTMLButtonElement;
+  const textarea = document.querySelector('#textarea') as HTMLTextAreaElement;
+  const answers: string[] = ['*', 'cat', '#bird', '.dog', 'cat > fish', '[name="пушок"]', '[name^="мар"]', '[name$="акс"]', 'cat:disabled', 'road :not(dog)'];
+  button.addEventListener('click', function() {
+    console.log('hello');
+    const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.button_level');
+    buttons.forEach(elem => {
+      if (elem.classList.contains('selected')) {
+        if (!elem.classList.contains('colored')) {
+          console.log(elem);
+          // textarea.value = '';
+          // const value: string | null = elem.getAttribute('data-num');
+          // if (value) {
+          //   const num = Number(+value - 1);
+          //   textarea.value = answers[num];
+          // }
+        }
+      }
+    })
+  })
+}
+export { level, listenerButtonsLevel, setButtonsClass, setClassFirstButton, removeButtonsClasses, getHelpButton };

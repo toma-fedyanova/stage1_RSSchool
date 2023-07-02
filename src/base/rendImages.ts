@@ -25,7 +25,13 @@ export default class CreatorImage {
     element.classList.add('addition_image');
     element.src = link;
     element.alt = 'fish';
-    parent.append(element);
+    element.addEventListener('load', () => {
+      parent.append(element);
+    })
+    element.addEventListener('error', () => {
+      console.error('ошибка закгрузки');
+    })
+  
   }
 
   clearBackground(selector:string):void {

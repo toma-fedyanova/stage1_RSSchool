@@ -1,14 +1,13 @@
-import style from './style.css';
+import './style.css';
 import { getAnimation } from './components/animation';
 import { getRenderBlocks } from './app/app';
-import { listenerButtonsLevel, setButtonsClass, setClassFirstButton, removeButtonsClasses } from './app/buttonsListener';
+import { listenerButtonsLevel, setButtonsClass, setClassFirstButton, removeButtonsClasses, getHelpButton } from './app/buttonsListener';
 import { changeImages } from './app/changeImg';
 import { getAnswer } from './app/textarea';
 import { getMargin, getColoredElements, getImageTitle } from './app/hoverCode';
 import { getValueLocalStorage, setValueLocalStorage, getButtonsClass } from './base/localStorage';
 
 function getSrtart():void {
-style;
 getAnimation();
 window.addEventListener('load', () => {
   for (let i = 1; i <= 10; i++) {
@@ -33,6 +32,7 @@ window.addEventListener('load', () => {
 });
 listenerButtonsLevel();
 removeButtonsClasses();
+getHelpButton();
 window.addEventListener('beforeunload', setValueLocalStorage);
 }
 getSrtart();
