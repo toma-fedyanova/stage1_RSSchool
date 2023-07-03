@@ -2,7 +2,7 @@ import './style.css';
 import { getAnimation } from './components/animation';
 import { getRenderBlocks } from './app/app';
 import { listenerButtonsLevel, setButtonsClass, setClassFirstButton, removeButtonsClasses, getHelpButton } from './app/buttonsListener';
-import { changeImages } from './app/changeImg';
+import { changeImages, imgAnimation } from './app/changeImg';
 import { getAnswer } from './app/textarea';
 import { getMargin, getColoredElements, getImageTitle } from './app/hoverCode';
 import { getValueLocalStorage, setValueLocalStorage, getButtonsClass } from './base/localStorage';
@@ -20,16 +20,17 @@ window.addEventListener('load', () => {
   if (str) {
   getRenderBlocks(str);
   changeImages(str);
+  imgAnimation(str);
   getMargin(str);
   getColoredElements(str);
   getImageTitle();
   } else {
     getRenderBlocks('1');
     getColoredElements('1');
+    imgAnimation('1');
     getImageTitle();
   }
   getAnswer();
-
 });
 listenerButtonsLevel();
 removeButtonsClasses();

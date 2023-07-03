@@ -1,5 +1,5 @@
 import { getRenderBlocks } from './app';
-import { changeImages } from './changeImg';
+import { changeImages, imgAnimation } from './changeImg';
 import { getAnswer } from './textarea';
 import { getMargin, getColoredElements, getImageTitle } from './hoverCode';
 
@@ -12,6 +12,7 @@ function listenerButtonsLevel():void {
      if (str) level = str;
      getRenderBlocks(level);
      changeImages(level);
+     imgAnimation(level);
       buttons.forEach(button => {
         button.classList.remove('selected');
      })

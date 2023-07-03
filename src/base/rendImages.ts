@@ -23,6 +23,7 @@ export default class CreatorImage {
   additionPicture(parent:HTMLDivElement, link: string):void {
     const element = document.createElement('img') as HTMLImageElement;
     element.classList.add('addition_image');
+    element.classList.add('img_animation');
     element.src = link;
     element.alt = 'fish';
     element.addEventListener('load', () => {

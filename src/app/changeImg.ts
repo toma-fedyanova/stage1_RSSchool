@@ -8,7 +8,7 @@ import img4 from '../image/dog4.png';
 import img5 from '../image/fish.png';
 import img6 from '../image/cat_gray.png';
 
-export function changeImages(level: string): void {
+function changeImages(level: string): void {
   img; img1; img2; img3; img4; img5; img6;
   const divs: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
   const num: number = +level - 1;
@@ -27,3 +27,21 @@ export function changeImages(level: string): void {
     block.additionPicture(parent, link);
   }
 }
+
+function imgAnimation(level: string): void {
+  const divs: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
+  console.log(level);
+  divs.forEach(img => img.classList.remove('img_animation'));
+  if (level === '1') divs.forEach(img => img.classList.add('img_animation'));
+  if (level === '2' || level === '8') divs.forEach((img, index: number) => {
+    if (index === 0 || index === 1) img.classList.add('img_animation');
+  });
+  if (level === '3' || level === '9' || level === '10') divs[0].classList.add('img_animation');
+  if (level === '4' || level === '7') {
+    divs[0].classList.add('img_animation');
+    divs[2].classList.add('img_animation');
+  }
+  if (level === '6') divs[1].classList.add('img_animation');
+}
+
+export { changeImages, imgAnimation};

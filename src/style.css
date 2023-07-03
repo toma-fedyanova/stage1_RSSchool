@@ -221,6 +221,9 @@ background-size: 100% auto;
 .textarea_animation {
   animation: textarea-shake 0.3s 4;
 }
+.img_animation {
+  animation: move-image 1s infinite;
+}
 @media (max-width: 1160px) {
   main {
     flex-direction: column;
