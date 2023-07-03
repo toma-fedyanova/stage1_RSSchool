@@ -3,22 +3,26 @@ export function getColoredElements(level: string): void {
   const codeBlock: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.code_line');
   const imagesBlock: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
   const changeColor = (element: HTMLElement, color: string): string => element.style.color = color;
-    for (let i = 0; i <imagesBlock.length; i++ ) {
+  if (level !== '5') { 
+  for (let i = 0; i <imagesBlock.length; i++ ) {
       imagesBlock[i].addEventListener('mouseover', () => changeColor (codeBlock[i + 1], 'rgb(228, 132, 84)'));
       imagesBlock[i].addEventListener('mouseout', () => changeColor (codeBlock[i + 1], 'white'));
-    }
+    }}
     if (level === '5') {
-      const image = imagesBlock[1].querySelector('img') as HTMLElement;
-      image.addEventListener('mouseover', function() {
+      const elemAddition: HTMLCollectionOf<Element> | null= document.getElementsByClassName('addition_image');
+      const fish = elemAddition[0];
+      console.log(fish + 'fish')
+     if (fish){
+      fish.addEventListener('mouseover', function() {
         for (let j = 3; j <= 5; j++) {
         changeColor (codeBlock[j], 'rgb(228, 132, 84)');
       }
     })
-      image.addEventListener('mouseout', function() {
+       fish.addEventListener('mouseout', function() {
         for (let j = 3; j <= 5; j++) {
         changeColor (codeBlock[j], 'white');
       }
-    });
+    });}
         imagesBlock[1].addEventListener('mouseover', function getColor() {
         changeColor (codeBlock[2], 'rgb(228, 132, 84)');
         changeColor (codeBlock[6], 'rgb(228, 132, 84)');
@@ -28,7 +32,6 @@ export function getColoredElements(level: string): void {
           changeColor (codeBlock[2], 'white');
           changeColor (codeBlock[6], 'white');
           console.log('hhh');
-          
         })
         imagesBlock[2].addEventListener('mouseover', () => changeColor (codeBlock[7], 'rgb(228, 132, 84)'));
         imagesBlock[2].addEventListener('mouseout', () => changeColor (codeBlock[7], 'white'));

@@ -32,16 +32,37 @@ function imgAnimation(level: string): void {
   const divs: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
   console.log(level);
   divs.forEach(img => img.classList.remove('img_animation'));
-  if (level === '1') divs.forEach(img => img.classList.add('img_animation'));
-  if (level === '2' || level === '8') divs.forEach((img, index: number) => {
-    if (index === 0 || index === 1) img.classList.add('img_animation');
-  });
-  if (level === '3' || level === '9' || level === '10') divs[0].classList.add('img_animation');
-  if (level === '4' || level === '7') {
-    divs[0].classList.add('img_animation');
-    divs[2].classList.add('img_animation');
+  divs.forEach(img => img.removeAttribute('data-img'));
+  if (level === '1') {
+    divs.forEach(img => {
+      img.classList.add('img_animation');
+      img.setAttribute('data-img', 'true');
+    });
   }
-  if (level === '6') divs[1].classList.add('img_animation');
+  if (level === '2' || level === '8') {
+    divs.forEach((img, index: number) => {
+    if (index === 0 || index === 1) {
+      img.classList.add('img_animation');
+      img.setAttribute('data-img', 'true');
+    }
+  });
+}
+  if (level === '3' || level === '9' || level === '10') {
+    divs[0].classList.add('img_animation');
+    divs[0].setAttribute('data-img', 'true');
+  }
+  if (level === '4' || level === '7') {
+    divs.forEach((img, index: number) => {
+      if (index === 0 || index === 2) {
+        img.classList.add('img_animation');
+        img.setAttribute('data-img', 'true');
+      }
+    });
+  }
+  if (level === '6') {
+    divs[1].classList.add('img_animation');
+    divs[1].setAttribute('data-img', 'true');
+  }
 }
 
 export { changeImages, imgAnimation};
