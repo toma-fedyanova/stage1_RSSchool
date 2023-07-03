@@ -13,9 +13,10 @@ export function getAnswer(): void {
   function getValue():void {
     const answer = getNumberLevel();
     console.log(answer);
-    const value = textarea.value;
+    const value = textarea.value.replace(/`|'/g, '"');
     textarea.value = '';
     if (value.split('\n').join('') == answer) {
+    textarea.classList.remove('textarea_animation');
     buttons.forEach(button => {
         if (button.classList.contains('selected')) {
         button.classList.remove('selected');
@@ -32,6 +33,7 @@ export function getAnswer(): void {
     textarea.classList.remove('textarea_animation');
     if (e.key === 'Enter') getValue()});
   button.addEventListener('click', function() {
+  
      getValue();
     })
 }

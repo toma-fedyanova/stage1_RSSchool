@@ -16,6 +16,7 @@ window.addEventListener('load', () => {
   }
   setClassFirstButton();
   const str = getValueLocalStorage();
+  console.log(str);
   if (str) {
   getRenderBlocks(str);
   changeImages(str);

@@ -241,6 +241,7 @@ background-size: 100% auto;
   }
   .textarea_button {
     bottom: 40px;
+    left: -80px;
   }
 }
 @media (max-width: 785px) {
