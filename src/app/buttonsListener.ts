@@ -52,6 +52,9 @@ function removeButtonsClasses(): void {
     buttons.forEach(button => {
       button.classList.remove('selected');
       button.classList.remove('colored');
+      const text = button.textContent;
+      const str = text?.replace(/(⁉)/g, '');
+      if (str) button.textContent = str;
     })
     buttons[0].classList.add('selected');
     getRenderBlocks('1');
@@ -85,9 +88,10 @@ function getHelpButton():void {
         if (!elem.classList.contains('colored')) {
           const num: string | null = elem.getAttribute('data-num');
           if (num) {
-            textarea.focus();
             printLetter(answers, (+num - 1));
+            textarea.focus();
           }
+           elem.textContent += ' ⁉';
         }
       }
     })
