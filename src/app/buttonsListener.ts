@@ -66,12 +66,18 @@ function removeButtonsClasses(): void {
 }
 function printLetter(arr: string[], index: number):void {
   const textarea: HTMLTextAreaElement | null = document.querySelector('#textarea');
+  textarea?.blur();
+  if (textarea) textarea.disabled = true;
   const word = arr[index];
   if (textarea) {
     textarea.value = '';
     let count = 0;
   const timerId = setInterval(function() {
-    if (word.length === textarea.value.length) clearInterval(timerId);
+    if (word.length === textarea.value.length) {
+      textarea.disabled = false;
+      textarea.focus();
+      clearInterval(timerId);
+    }
     else textarea.value += word[count++];
   }, 500)
   }
@@ -81,16 +87,14 @@ function getHelpButton():void {
   const textarea = document.querySelector('#textarea') as HTMLTextAreaElement;
   const answers: string[] = ['*', 'cat', '#bird', '.dog', 'cat>fish', '[name="пушок"]', '[name^="мар"]', '[name$="акс"]', 'cat:disabled', 'road:not(dog)'];
   button.addEventListener('click', function() {
-    console.log('hello');
     const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.button_level');
     buttons.forEach(elem => {
       if (elem.classList.contains('selected')) {
         if (!elem.classList.contains('colored')) {
           const num: string | null = elem.getAttribute('data-num');
           if (num) {
-            printLetter(answers, (+num - 1));
-            textarea.focus();
-          }
+             printLetter(answers, (+num - 1));
+            }
            elem.textContent += ' ⁉';
         }
       }
