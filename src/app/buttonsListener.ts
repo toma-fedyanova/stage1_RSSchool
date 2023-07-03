@@ -4,6 +4,12 @@ import { getAnswer } from './textarea';
 import { getMargin, getColoredElements, getImageTitle } from './hoverCode';
 
 let level: string;
+  function changeValueLevel(str: string): string {
+  level = str;
+  console.log(level + 'level');
+  return level;
+}
+
 function listenerButtonsLevel():void {
   const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.button_level');
   for (const button of buttons) {
@@ -62,6 +68,7 @@ function removeButtonsClasses(): void {
      getMargin('1');
      getColoredElements('1');
      level = '1';
+     imgAnimation('1');
   })
 }
 function printLetter(arr: string[], index: number):void {
@@ -101,4 +108,4 @@ function getHelpButton():void {
     })
   })
 }
-export { level, listenerButtonsLevel, setButtonsClass, setClassFirstButton, removeButtonsClasses, getHelpButton };
+export { level, listenerButtonsLevel, setButtonsClass, setClassFirstButton, removeButtonsClasses, getHelpButton, changeValueLevel};
