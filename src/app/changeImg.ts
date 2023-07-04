@@ -8,6 +8,22 @@ import img4 from '../image/dog4.png';
 import img5 from '../image/fish.png';
 import img6 from '../image/cat_gray.png';
 
+function getColoredText():void {
+  const img = document.getElementsByClassName('addition_image')[0]
+  const codeBlock: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.code_line');
+    if (img) { img.addEventListener('mouseover', function() {
+        for (let j = 3; j <= 5; j++) {
+          codeBlock[j].style.color = 'rgb(228, 132, 84)';
+        }
+      })
+       img.addEventListener('mouseout', function() {
+        for (let j = 3; j <= 5; j++) {
+          codeBlock[j].style.color = 'white';
+        }
+       })}
+  }
+
+
 function changeImages(level: string): void {
   img; img1; img2; img3; img4; img5; img6;
   const divs: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
@@ -25,6 +41,7 @@ function changeImages(level: string): void {
     const parent = document.querySelector('.image2') as HTMLDivElement;
     const link = "images/fish.png";
     block.additionPicture(parent, link);
+    getColoredText();
   }
 }
 

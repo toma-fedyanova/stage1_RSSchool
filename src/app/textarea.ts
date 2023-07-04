@@ -16,7 +16,11 @@ function checkButtons():string[] {
 function renderWinMess():void {
   const div:HTMLDivElement = document.createElement('div');
   div.classList.add('popap');
-  const mess = document.createElement('p');
+  const mess: HTMLParagraphElement = document.createElement('p');
+  const span: HTMLSpanElement = document.createElement('span');
+  span.textContent = 'X';
+  span.style.border = '1px solid black';
+  mess.prepend(span);
   mess.classList.add('mess');
   mess.textContent = 'Вы победили!';
   mess.addEventListener('click', () => {

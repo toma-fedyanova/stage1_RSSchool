@@ -9,12 +9,27 @@ let level: string;
   console.log(level + 'level');
   return level;
 }
-
+//todo
+function getColoredText():void {
+  const img = document.getElementsByClassName('addition_image')[0]
+  const codeBlock: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.code_line');
+    if (img) { img.addEventListener('mouseover', function() {
+        for (let j = 3; j <= 5; j++) {
+          codeBlock[j].style.color = 'rgb(228, 132, 84)';
+        }
+      })
+       img.addEventListener('mouseout', function() {
+        for (let j = 3; j <= 5; j++) {
+          codeBlock[j].style.color = 'white';
+        }
+       })}
+  }
 function listenerButtonsLevel():void {
   const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.button_level');
   for (const button of buttons) {
-    button.addEventListener('click', () => {
-     const str: string | null = button.getAttribute('data-num');
+      button.addEventListener('click', () => {
+        console.log(document.getElementsByClassName('addition_image'));
+      const str: string | null = button.getAttribute('data-num');
      if (str) level = str;
      getRenderBlocks(level);
      changeImages(level);
@@ -80,17 +95,8 @@ function printLetter(arr: string[], index: number):void {
     textarea.value = '';
     let count = 0;
   const timerId = setInterval(function func():void {
-    console.log(word + 'word');
-    console.log( textarea.value+ 'text');
-    // if (textarea.value.indexOf('undefined') !== -1) {
-    //   clearInterval(timerId);
-    //   textarea.value = '';
-    //   throw new Error('значение введено не полностью');
-    // }
     if (count !== 0) {
       if (textarea.value[count - 1] !== word[count - 1]) {
-        console.log(textarea.value[count - 1]);
-        console.log(word[count - 1]);
         clearInterval(timerId);
         textarea.value = '';
         throw new Error('значение введено не полностью');

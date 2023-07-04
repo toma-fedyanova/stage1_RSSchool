@@ -41,4 +41,9 @@ export default class CreatorImage {
     const addition = document.getElementsByClassName('addition__block')[0];
     if (addition) addition.remove();
   }
+  
+  getImg(): HTMLImageElement {
+    const elem = document.getElementsByClassName('addition_image')[0] as HTMLImageElement;
+    return elem;
+  }
 }
