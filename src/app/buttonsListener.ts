@@ -79,14 +79,21 @@ function printLetter(arr: string[], index: number):void {
   if (textarea) {
     textarea.value = '';
     let count = 0;
-  const timerId = setInterval(function() {
+  const timerId = setInterval(function func():void {
+    console.log(word + 'word');
+    console.log( textarea.value+ 'text');
+    if (textarea.value.indexOf('undefined') !== -1) {
+      clearInterval(timerId);
+      textarea.value = '';
+      throw new Error('значение введено не полностью');
+    }
     if (word.length === textarea.value.length) {
       textarea.disabled = false;
       textarea.focus();
       clearInterval(timerId);
     }
     else textarea.value += word[count++];
-  }, 500)
+  }, 300)
   }
 }
 function getHelpButton():void {
