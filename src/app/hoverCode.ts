@@ -1,4 +1,3 @@
-import CreatorImage from '../base/rendImages';
 
 export function getColoredElements(level: string): void {
   const codeBlock: NodeListOf<HTMLParagraphElement> = document.querySelectorAll('.code_line');

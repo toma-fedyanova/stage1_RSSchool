@@ -7,6 +7,7 @@ import { getAnswer } from './app/textarea';
 import { getMargin, getColoredElements, getImageTitle } from './app/hoverCode';
 import { getValueLocalStorage, setValueLocalStorage, getButtonsClass } from './base/localStorage';
 
+
 function getSrtart():void {
 getAnimation();
 window.addEventListener('load', () => {
