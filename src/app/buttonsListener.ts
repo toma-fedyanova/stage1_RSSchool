@@ -82,10 +82,19 @@ function printLetter(arr: string[], index: number):void {
   const timerId = setInterval(function func():void {
     console.log(word + 'word');
     console.log( textarea.value+ 'text');
-    if (textarea.value.indexOf('undefined') !== -1) {
-      clearInterval(timerId);
-      textarea.value = '';
-      throw new Error('значение введено не полностью');
+    // if (textarea.value.indexOf('undefined') !== -1) {
+    //   clearInterval(timerId);
+    //   textarea.value = '';
+    //   throw new Error('значение введено не полностью');
+    // }
+    if (count !== 0) {
+      if (textarea.value[count - 1] !== word[count - 1]) {
+        console.log(textarea.value[count - 1]);
+        console.log(word[count - 1]);
+        clearInterval(timerId);
+        textarea.value = '';
+        throw new Error('значение введено не полностью');
+      }
     }
     if (word.length === textarea.value.length) {
       textarea.disabled = false;
