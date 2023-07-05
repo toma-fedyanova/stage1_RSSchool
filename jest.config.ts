@@ -1,14 +1,7 @@
-import type {Config} from '@jest/types';
+import { Config } from '@jest/types';
 
-// Sync object
-const config: Config.InitialOptions = {
+const config: Config = {
   verbose: true,
 };
-export default config;
 
-// Or async function
-export default async (): Promise<Config.InitialOptions> => {
-  return {
-    verbose: true,
-  };
-};
+export default config;

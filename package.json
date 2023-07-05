@@ -1,5 +1,8 @@
 {
   "name": "toma-fedyanova-jsfe2023q1",
+  "jest": {
+    "verbose": true
+  },
   "version": "1.0.0",
   "main": "webpack.config.js",
   "scripts": {
