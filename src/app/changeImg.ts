@@ -1,6 +1,6 @@
 import CreatorImage from '../base/rendImages';
 import { Links } from '../components/blockPicture';
-import img from '../image/bird2.png';
+import img0 from '../image/bird2.png';
 import img1 from '../image/cat2.png';
 import img2 from '../image/dog2.png';
 import img3 from '../image/dog3.png';
@@ -10,7 +10,7 @@ import img6 from '../image/cat_gray.png';
 
 
 function changeImages(level: string): void {
-  img; img1; img2; img3; img4; img5; img6;
+  img0; img1; img2; img3; img4; img5; img6;
   const divs: NodeListOf<HTMLDivElement> = document.querySelectorAll('.image');
   const num: number = +level - 1;
   const arrayLinks: string[] = Links[num];
