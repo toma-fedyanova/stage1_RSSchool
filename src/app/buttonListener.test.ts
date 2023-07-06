@@ -58,5 +58,10 @@ test('Check change class list of buttons levels', () => {
   </div>
     `;
   expect(setButtonsClass('1', 'colored')).toBe('<button class="button_bordered button_level colored" data-num = "1">Уровень 1</button>');
+  expect(setButtonsClass('1', 'colored')).not.toBe('<button class="button_bordered button_level" data-num = "1">Уровень 1</button>');
+  expect(setButtonsClass('2', '')).toBe('<button class="button_bordered button_level" data-num = "2">Уровень 2</button>');
+  expect(setButtonsClass('2', 'selected')).toBe('<button class="button_bordered button_level selected" data-num = "2">Уровень 2</button>');
+  expect(setButtonsClass('2', 'undefined')).toBeUndefined();
+  expect(setButtonsClass('13', 'colored')).toBeUndefined();
 
 });
