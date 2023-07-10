@@ -7,7 +7,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development',
-  entry: './src/index.ts',
+  entry: './index.ts',
   resolve: {
     extensions: ['.ts', '.js', '.json'],
   },
@@ -24,7 +24,7 @@ module.exports = {
       template: path.join(__dirname, 'src', 'index.html'),
       filename: 'index.html',
     }),
-    new FaviconsWebpackPlugin(path.join(__dirname, 'src', 'assets', 'carblueicon_98532')),
+    new FaviconsWebpackPlugin(path.join(__dirname, 'src', 'assets', 'favicon.ico')),
     new EslingPlugin({ extensions: 'ts' }),
     new MiniCssExtractPlugin({
       filename: "style.css",
