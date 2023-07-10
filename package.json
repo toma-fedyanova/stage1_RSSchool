@@ -4,7 +4,11 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest --coverage",
+    "lint": "eslint . --ext .ts",
+    "build": "webpack --mode production",
+     "dev": "webpack --mode development",
+     "watch": "webpack --mode development--watch"
   },
   "repository": {
     "type": "git",

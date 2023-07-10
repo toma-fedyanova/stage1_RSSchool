@@ -24,7 +24,7 @@ module.exports = {
       template: path.join(__dirname, 'src', 'index.html'),
       filename: 'index.html',
     }),
-    new FaviconsWebpackPlugin(path.join(__dirname, 'src', 'assets', 'bomb.ico')),
+    new FaviconsWebpackPlugin(path.join(__dirname, 'src', 'assets', 'carblueicon_98532')),
     new EslingPlugin({ extensions: 'ts' }),
     new MiniCssExtractPlugin({
       filename: "style.css",
