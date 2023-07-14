@@ -1,5 +1,5 @@
 export interface CarWeiv {
-  id: number,
+  name: string,
   color: string,
-  tradeMarck: string
+  id: number
 }
