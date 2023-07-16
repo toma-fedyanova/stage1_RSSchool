@@ -1,7 +1,7 @@
 // const jsdom = require("jsdom");
 // const { JSDOM } = jsdom;
 // const dom = new JSDOM(`<!DOCTYPE html><body></body>`);
-import { RenderPages } from '../pages/garage';
+import { RenderPages } from '../pages/page';
 
 describe("Test of Garage", function() {
   it('should return HTML Element', function() {

@@ -13,3 +13,20 @@ body {
   background-color: black;
   color: white;
 }
+
+.button__bordered {
+  color: white;
+  border: 1px solid white;
+  padding: 5px 15px;
+  font-size: 1.6rem;
+  margin-left: 15px;
+  background-color: black;
+  margin-top: 15px;
+  text-transform: uppercase;
+}
+.selected {
+  background-color: rgb(122, 122, 214);
+}
+button:hover {
+  cursor: pointer;
+}
