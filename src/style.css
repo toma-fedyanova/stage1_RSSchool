@@ -24,9 +24,46 @@ body {
   margin-top: 15px;
   text-transform: uppercase;
 }
+.button_colored {
+ background-color: rgb(163, 163, 164);
+ color: black;
+ border: 1px solid white;
+ padding: 5px 15px;
+ font-size: 1.2rem;
+ margin-left: 15px;
+ text-transform: uppercase;
+}
 .selected {
   background-color: rgb(122, 122, 214);
 }
 button:hover {
   cursor: pointer;
+}
+#section_main {
+  padding: 10px;
+}
+.title_winners {
+  font-size: 3.6 rem;
+}
+.title_winners,
+.winners_page {
+  color: white;
+  margin-top: 15px;
+}
+
+.table {
+  width: 80%;
+  border: none;
+  margin-left: 15px;
+}
+.thead,
+.td_head {
+  border: 1px solid rgb(148, 234, 42);
+}
+.thead,
+.tr,
+.td {
+  color: white;
+  text-align: center;
+  height: 25px;
 }

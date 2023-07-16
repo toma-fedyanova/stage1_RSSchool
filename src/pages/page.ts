@@ -2,12 +2,6 @@
 
 export class RenderPages {
   
-  renderElement(value: string, parent:HTMLElement, classNam?: string, ids?: string): void {
-    const element = document.createElement(value);
-    if (classNam) element.classList.add(classNam);
-    if (ids)element.id = ids;
-    parent.append(element)
-  }
   createElement(value: string, classNam: string, id?: string, text?: string):HTMLElement {
     const element = document.createElement(value);
     if (classNam) element.classList.add(classNam);
@@ -23,7 +17,8 @@ export class RenderPages {
     const element2 = document.getElementById(id2);
     element2?.classList.remove(item);}
   }
-  getColoredCar(color: string | null): string {
+
+   getColoredCar(color: string | null): string {
     if (!color || color.length !== 7) color = '#ffffff';
     const car = `
     <?xml version="1.0" encoding="utf-8"?> <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools --> 
@@ -40,7 +35,51 @@ export class RenderPages {
     const btnWinner = this.createElement('button', 'button__bordered', 'winner','to winners');
     document.getElementsByClassName('header')[0].append(btnGarage);
     document.getElementsByClassName('header')[0].append(btnWinner);
-  
+
+    const section = this.createElement('section', 'section', 'section_main');
+    header.insertAdjacentElement("afterend", section);
    }
 
+   clearSection():void {
+    const section = document.getElementById('section_main') as HTMLElement;
+    section.innerHTML = '';
+  }
+
+   winner():void {
+    this.clearSection();
+    const titleTable: string[] = ['Number', 'Car', 'Name', 'Wins','Best time(seconds)'];
+    const section = document.getElementById('section_main') as HTMLElement
+    const title = this.createElement('h1', 'title_winners', 'title_winners', 'Winners()');
+    section.append(title);
+    const text = this.createElement('h3', 'winners_page', 'winners_page', 'Page #1');
+    section.append(text);
+    const table =   this.createElement('table', 'table', 'table');
+    const thead = this.createElement('thead', 'thead', 'thead');
+    for (let k = 0; k < 5; k++) {
+      const td = this.createElement('td', 'td_head');
+      td.textContent = titleTable[k];
+      thead.append(td);
+    }
+    table.append(thead);
+    for (let i = 0; i < 10; i += 1) {
+      const tr = this.createElement('tr', 'tr');
+        for (let j = 0; j < 5; j++) {
+          const td = this.createElement('td', 'td');
+          tr.append(td)
+        }
+        table.append(tr);
+    }
+    section.append(table);
+    const div = this.createElement('div', 'winners_list', 'winners_list')
+    const btn_prev = this.createElement('button', 'button_colored', 'btn_previous', 'previous');
+    const btn_next = this.createElement('button', 'button_colored', 'btn_next', 'next');
+    div.insertAdjacentElement('beforeend', btn_prev);
+    div.insertAdjacentElement('beforeend', btn_next);
+    section.append(div);
+   }
+
+   garage():void {
+    this.clearSection();
+
+   }
 }

@@ -1,6 +1,6 @@
 import { RenderPages } from '../pages/page';
 
-export function buttonListener():void {
+export function buttonHeaderListener():void {
   //render 2 buttons: to Garage & to Winners
   const render = new RenderPages();
   render.getButtonsHeader();
@@ -9,8 +9,8 @@ export function buttonListener():void {
     button.addEventListener('click', function change() {
       render.removeClass('garage', 'selected', 'winner');
       button.classList.add('selected');
-      console.log(button);
+      if (button.id === 'garage') render.garage();
+      else render.winner();
     })
-    
   }
 }

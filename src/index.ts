@@ -1,7 +1,7 @@
 import './style.css';
-import { buttonListener } from './component/button';
+import { buttonHeaderListener } from './component/button';
 
 function startGame():void {
-  buttonListener();
+  buttonHeaderListener();
 }
 startGame();
