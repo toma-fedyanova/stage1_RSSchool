@@ -9,7 +9,24 @@ export class RenderPages {
     if (text)element.textContent = text;
     return element;
   }
-  
+  createInput(classNam: string, typeName: string, placeholder?: string, val?: string) :HTMLInputElement {
+    const input = document.createElement('input');
+    if (classNam) input.classList.add(classNam);
+    if (typeName) input.type = typeName;
+    if (placeholder) input.placeholder = placeholder;
+    if (val) input.value = val;
+    return input;
+  }
+  createButtons(classNam: string, id: string[], text: string[], parent:HTMLElement): void{
+    for (let i = 0; i < text.length; i += 1) {
+      const btn = document.createElement('button');
+      if (classNam) btn.classList.add(classNam);
+      if (id.length) btn.id = id[i];
+      btn.textContent = text[i];
+      parent.append(btn);
+    }
+  }
+
   removeClass(id1: string, item: string, id2?: string) :void {
     const element1 = document.getElementById(id1);
     element1?.classList.remove(item);
@@ -30,15 +47,32 @@ export class RenderPages {
    getButtonsHeader():void {
     const header = this.createElement('header', 'header', 'header');
     document.body.prepend(header);
-    const btnGarage = this.createElement('button', 'button__bordered', 'garage', 'to garage');
-    btnGarage.classList.add('selected');
-    const btnWinner = this.createElement('button', 'button__bordered', 'winner','to winners');
-    document.getElementsByClassName('header')[0].append(btnGarage);
-    document.getElementsByClassName('header')[0].append(btnWinner);
+    this.createButtons('button__bordered', ['garage', 'winner'], ['to garage', 'to winners'], header);
+    const firstButton = header.firstElementChild;
+    firstButton?.classList.add('selected');
 
     const section = this.createElement('section', 'section', 'section_main');
     header.insertAdjacentElement("afterend", section);
    }
+
+   createBlockConfig():HTMLElement {
+    const block = this.createElement('section', 'section__config', 'section__config');
+    const buttonText = ['create', 'update']
+    for (let i = 0; i < 2; i += 1) {
+      const div = this.createElement('div', 'div_config');
+      const inputText = this.createInput('car_name', 'text', 'Enter car name');
+      const inputColor = this.createInput('car_color', 'color','', '#ff1507');
+      const button = this.createElement('button', 'button_colored', `btn_${buttonText[i]}`, buttonText[i]);
+      div.append(inputText);
+      div.append(inputColor);
+      div.append(button);
+      block.append(div);
+    }
+    const divButton = this.createElement('div', 'div_buttons');
+    this.createButtons('button_colored',['btn_race', 'btn_reset'], ['race', 'reset'], divButton)
+    block.append(divButton);
+    return block;
+  }
 
    clearSection():void {
     const section = document.getElementById('section_main') as HTMLElement;
@@ -71,15 +105,13 @@ export class RenderPages {
     }
     section.append(table);
     const div = this.createElement('div', 'winners_list', 'winners_list')
-    const btn_prev = this.createElement('button', 'button_colored', 'btn_previous', 'previous');
-    const btn_next = this.createElement('button', 'button_colored', 'btn_next', 'next');
-    div.insertAdjacentElement('beforeend', btn_prev);
-    div.insertAdjacentElement('beforeend', btn_next);
+    this.createButtons('button_colored', ['btn_previous', 'btn_next'], ['previous', 'next'], div)
     section.append(div);
    }
 
    garage():void {
     this.clearSection();
-
+    const section = document.getElementById('section_main') as HTMLElement;
+    section.prepend(this.createBlockConfig());
    }
 }
