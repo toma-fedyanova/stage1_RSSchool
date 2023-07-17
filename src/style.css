@@ -37,6 +37,10 @@ body {
 #btn_reset {
   background-color: rgb(225, 225, 151);
 }
+#btn_select,
+#btn_remove {
+  margin-left: 0;
+}
 .selected {
   background-color: rgb(122, 122, 214);
 }
@@ -44,7 +48,11 @@ button:hover {
   cursor: pointer;
   transform: scale(1.1);
 }
-
+#btn_A,
+#btn_B {
+  margin: 0;
+  font-size: 1.0rem;
+}
 /* race */
 .section__config {
   padding-top: 15px;
@@ -73,8 +81,25 @@ button:hover {
 .div_buttons {
   padding-top: 10px;
 }
-
-
+.garage_car {
+  border-bottom: 2px dotted white;
+  position: relative;
+  margin-bottom: 15px;
+}
+.garage_title {
+  font-size: 3.6rem;
+  margin-top: 25px;
+}
+.garage_page {
+  font-size: 2.6rem;
+  margin-top: 15px;
+}
+.flag {
+  position: absolute;
+  font-size: 3.6rem;
+  right: 100px;
+  top: 57px;
+}
 /* winners */
 .table {
   width: 80%;
