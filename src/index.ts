@@ -1,7 +1,8 @@
 import './style.css';
-import { buttonHeaderListener } from './component/button';
+import { StartRace } from './component/startRace';
 
 function startGame():void {
-  buttonHeaderListener();
+  const start = new StartRace();
+  start.start();
 }
 startGame();

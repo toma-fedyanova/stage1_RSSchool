@@ -1,7 +1,11 @@
 import { CarWeiv } from '../types/type';
+import { Api } from '../api/garage';
 
 export class RenderPages {
-  
+  api: Api;
+  constructor() {
+    this.api = new Api();
+  }
   createElement(value: string, classNam: string, id?: string, text?: string):HTMLElement {
     const element = document.createElement(value);
     if (classNam) element.classList.add(classNam);
@@ -91,7 +95,7 @@ export class RenderPages {
     }
   
     createGarage(data: CarWeiv[]):HTMLElement {
-    const garage = this.createElement('section', 'garage', 'garage');
+    const garage = this.createElement('section', 'garage', 'garageBlock');
     const countOfCars = data.length > 0 ? data.length : 0;
     const title = this.createElement('h1', 'garage_title', 'garage_title', 'Garage ');
     const span = this.createElement('span', 'cars_count', 'cars_count', `${countOfCars}`);
@@ -152,6 +156,7 @@ export class RenderPages {
     this.clearSection();
     const section = document.getElementById('section_main') as HTMLElement;
     section.prepend(this.createBlockConfig());
-    section.insertAdjacentElement("beforeend", this.createGarage([{id: 1, color:'', name: ''}, {id: 2, color:'', name: ''}]))
+    section.insertAdjacentElement("beforeend", this.createGarage([]));
+    console.log([this.api.getAllCars()]);
    }
 }
