@@ -1,4 +1,4 @@
-import { CarWeiv } from '../types/type';
+//import { CarWeiv } from '../types/type';
 import { Api } from '../api/garage';
 
 export class RenderPages {
@@ -94,9 +94,8 @@ export class RenderPages {
       return car;
     }
   
-    createGarage(data: CarWeiv[]):HTMLElement {
+    createGarage(countOfCars: string):HTMLElement {
     const garage = this.createElement('section', 'garage', 'garageBlock');
-    const countOfCars = data.length > 0 ? data.length : 0;
     const title = this.createElement('h1', 'garage_title', 'garage_title', 'Garage ');
     const span = this.createElement('span', 'cars_count', 'cars_count', `${countOfCars}`);
     title.insertAdjacentElement("beforeend", span);
@@ -106,10 +105,6 @@ export class RenderPages {
     garage.insertAdjacentElement("beforeend", title);
     garage.insertAdjacentElement("beforeend", text);
     const ul = this.createElement('ul', 'ul_cars', 'ul_cars')
-    data.map(element => {
-        ul.append(this.createCar(element.name, element.color, element.id));
-  
-    });
     garage.append(ul);
     const div = this.createElement('div', 'buttons_page');
     this.createButtons('button_colored', ['btn_previous_garage', 'btn_next_garage'], ['previous', 'next'], div);
@@ -156,7 +151,6 @@ export class RenderPages {
     this.clearSection();
     const section = document.getElementById('section_main') as HTMLElement;
     section.prepend(this.createBlockConfig());
-    section.insertAdjacentElement("beforeend", this.createGarage([]));
-    console.log([this.api.getAllCars()]);
+    section.append(this.createGarage('4'))                                           //todo count of car
    }
 }

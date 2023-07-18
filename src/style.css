@@ -58,6 +58,7 @@ button:hover {
   padding-top: 15px;
   width: 340px;
   margin-left: 5px;
+  margin-bottom: 25px;
 }
 .div_config {
   display: flex;
@@ -99,6 +100,12 @@ button:hover {
   font-size: 3.6rem;
   right: 100px;
   top: 57px;
+}
+li {
+  list-style: none;
+}
+span {
+  font-size: 1.4rem;
 }
 /* winners */
 .table {
