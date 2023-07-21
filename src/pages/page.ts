@@ -21,11 +21,12 @@ export class RenderPages {
     if (val) input.value = val;
     return input;
   }
-  createButtons(classNam: string, id: string[], text: string[], parent:HTMLElement): void{
+  createButtons(classNam: string, id: string[], text: string[], parent:HTMLElement, dataName?: string[]): void{
     for (let i = 0; i < text.length; i += 1) {
       const btn = document.createElement('button');
       if (classNam) btn.classList.add(classNam);
       if (id.length) btn.id = id[i];
+      if (dataName) btn.setAttribute('data-name', dataName[i])
       btn.textContent = text[i];
       parent.append(btn);
     }
@@ -116,7 +117,8 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
       const span = this.createElement('span', 'car_name', '', `${name}`);
       div.append(span);
       const div1 = this.createElement('div', 'car_buttons');
-      this.createButtons('button__bordered', ['btn_A', 'btn_B'], ['A', 'B'], div1);
+      div1.classList.add('single_race');
+      this.createButtons('button__bordered', ['', ''], ['A', 'B'], div1, ['btn_A', 'btn_B']);
       div1.firstElementChild?.classList.add('selected');
       car.append(div);
       car.append(div1);
