@@ -121,6 +121,7 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
       this.createButtons('button__bordered', ['', ''], ['A', 'B'], div1, ['btn_A', 'btn_B']);
       div1.firstElementChild?.classList.add('selected');
       div1.lastElementChild?.classList.add('btn_B');
+      div1.firstElementChild?.classList.add('btn_A');
       car.append(div);
       car.append(div1);
       car.insertAdjacentHTML('beforeend', this.getColoredCar(color));
@@ -185,6 +186,7 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
     this.clearSection();
     const section = document.getElementById('section_main') as HTMLElement;
     section.prepend(this.createBlockConfig());
+    document.getElementById('btn_race')?.setAttribute('data-bool', 'false');
     section.append(this.createGarage('4'))                                           //todo count of car
    }
 }

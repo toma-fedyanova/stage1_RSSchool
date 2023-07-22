@@ -71,11 +71,19 @@ export class StartRace {
               this.animationRace.returnStart(el);
             }
         else if(el.closest('#btn_race')) {
+          if (el.getAttribute('data-bool') === 'false') {
           this.animationRace.startRace();
+          el.setAttribute('data-bool', 'true')}
+          else alert('Верните машины на старт с помощью кнопки "RESET"!')
+            }
+        else if(el.closest('#btn_reset')) {
+          this.animationRace.stopRace();
+          const btn = document.getElementById('btn_race');
+          btn?.setAttribute('data-bool', 'false')
             }
           });
         }
-  }
+    }
 
 
 

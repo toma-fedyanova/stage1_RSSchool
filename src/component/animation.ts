@@ -16,6 +16,13 @@ export class AnimationRace {
         span.textContent = ' It`s engine was broken down';
         if (parent) parent.insertAdjacentElement('beforeend', span);
   }
+  getMessageWin(parent:Element | null | undefined):void {
+        const name = parent?.querySelector('span')?.textContent;
+        const span = document.createElement('span');
+        span.classList.add('message');
+        span.textContent = `🎉 ${name} won!! 🎉🎉🎉`;
+        if (parent) parent.insertAdjacentElement('beforeend', span);
+  }
 
   async startMove(element: HTMLElement): Promise<number[]>{
     element.classList.add('selected');
@@ -70,7 +77,33 @@ export class AnimationRace {
     
     startRace():void {
       const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn_B');
-      Promise.any((Array.from(buttons)).map(btn => this.startMove(btn))).then(res => console.log(res)).catch(er => console.log(er))
+      const header = document.querySelector('.section__config')
+      const div = document.createElement('div');
+      div.classList.add('absolute');
+      div.style.backgroundColor = 'black';
+      header?.prepend(div);
+      Promise.any((Array.from(buttons)).map(btn => this.startMove(btn))).then(res => {
+        console.log(res);
+        return res;
+      }).then((res) => {
+        const num = String(res[0]);
+        const li = document.getElementById(num);
+        this.getMessageWin(li?.firstElementChild);
+        })
+      .then(() => {
+        setTimeout(() => {
+          div.classList.remove('absolute')
+        },4000) 
+      }).catch(er => console.log(er))
     }
+    stopRace():void {
+      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn_A');
+      Promise.all((Array.from(buttons)).map(btn => this.returnStart(btn))).then(() => {
+        const spans = document.querySelectorAll('.message');
+        spans.forEach(span => span.remove());
+      }).catch(er => console.log(er))
+
+    }
+
 }
 
