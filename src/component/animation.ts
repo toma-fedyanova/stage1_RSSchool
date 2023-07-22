@@ -21,7 +21,7 @@ export class AnimationRace {
     element.classList.add('selected');
     element.previousElementSibling?.classList.remove('selected');
     const div = element.parentElement?.children as HTMLCollectionOf<HTMLButtonElement>;
-    if (div) [...div].map(btn => btn.disabled = true);
+    if (div) [...div].forEach(btn => btn.disabled = true);
   const li = element.closest('li.garage_car');
   let roadLength: number;
   if (li) roadLength= parseInt(window.getComputedStyle(li).width) - this.#carWidth;
@@ -66,6 +66,11 @@ export class AnimationRace {
       if (span) span.textContent = '';
       const car = li?.querySelector('svg');
       if (car) car.style.transform = `translateX(0px)`
+    }
+    
+    startRace():void {
+      const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn_B');
+      Promise.any((Array.from(buttons)).map(btn => this.startMove(btn))).then(res => console.log(res)).catch(er => console.log(er))
     }
 }
 

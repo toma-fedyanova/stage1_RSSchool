@@ -70,9 +70,11 @@ export class StartRace {
         else if (el.getAttribute('data-name') === 'btn_A') { 
               this.animationRace.returnStart(el);
             }
+        else if(el.closest('#btn_race')) {
+          this.animationRace.startRace();
+            }
           });
         }
-  
   }
 
 

@@ -120,6 +120,7 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
       div1.classList.add('single_race');
       this.createButtons('button__bordered', ['', ''], ['A', 'B'], div1, ['btn_A', 'btn_B']);
       div1.firstElementChild?.classList.add('selected');
+      div1.lastElementChild?.classList.add('btn_B');
       car.append(div);
       car.append(div1);
       car.insertAdjacentHTML('beforeend', this.getColoredCar(color));
