@@ -12,10 +12,11 @@ export class Api {
     return res;
   }
 
-  async getTotalCars(): Promise<CarWeiv[]> {
+  async getTotalCars(): Promise<number> {
     const data = await fetch(`${this.#url}/garage`);
-    const res =  data.json();
-    return res;
+    const res =  await data.json();
+    const number = res.headers.get('X-Total-Count');
+    return Number(number);
   }
 
   async getCar(id: string): Promise<CarWeiv> {

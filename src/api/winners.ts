@@ -45,10 +45,17 @@ export class WinnersApi {
     return res; 
   }
 
-  async getWinner(id: number): Promise<Winners | null> {
+  async getWinner(id: number): Promise<Winners> {
     const data = await fetch(`${this.#url}/winners/${id}`, {method: 'GET'});
     const res = await data.json();
-    if (res.status === 200) return res; 
-    else return null;
+    return res;
+    // if (res.status === 200) return res; 
+    // else return null;
   }
-}
+
+  async getAllWinner(): Promise<number[]> {
+    const data = await fetch(`${this.#url}/winners`, {method: 'GET'});
+    const res = await data.json();
+    return res;
+  }
+  }

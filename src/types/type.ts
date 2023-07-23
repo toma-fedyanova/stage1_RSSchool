@@ -11,3 +11,8 @@ export interface Engine {
 export interface MessageEngine {
   success: boolean
 }
+export interface Winners {
+    id?: number,
+    wins: number,
+    time: number
+}

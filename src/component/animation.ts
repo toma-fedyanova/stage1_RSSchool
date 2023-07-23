@@ -1,13 +1,14 @@
 import {EngineApi} from '../api/engine';
-
+import { WinnersApi } from '../api/winners';
 export class AnimationRace {
   engineApi: EngineApi;
+  winnersApi: WinnersApi;
   #carWidth: number;
 
   constructor() {
     this.engineApi = new EngineApi();
+    this.winnersApi = new WinnersApi();
     this.#carWidth = 85; //from svg parametrs
-
   }
 
   getMessage(parent:Element | null | undefined):void {
@@ -52,7 +53,6 @@ export class AnimationRace {
       step();
       return duration;
     });
-  
     return this.engineApi.infoDrive(id)
       .then(() => {
         if (div) [...div].map(btn => btn.disabled = false);
@@ -83,7 +83,7 @@ export class AnimationRace {
       div.style.backgroundColor = 'black';
       header?.prepend(div);
       Promise.any((Array.from(buttons)).map(btn => this.startMove(btn))).then(res => {
-        console.log(res);
+        this.sendWinnerServer(res);
         return res;
       }).then((res) => {
         const num = String(res[0]);
@@ -96,6 +96,7 @@ export class AnimationRace {
         },4000) 
       }).catch(er => console.log(er))
     }
+
     stopRace():void {
       const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn_A');
       Promise.all((Array.from(buttons)).map(btn => this.returnStart(btn))).then(() => {
@@ -105,5 +106,19 @@ export class AnimationRace {
 
     }
 
+    async sendWinnerServer(res: number[]): Promise<void> {
+        const id = res[0];
+        let time = Number((res[1] / 1000).toFixed(2));
+        console.log(time)
+        let winners:number;
+        await this.winnersApi.getWinner(res[0]).then(async (res) => {
+        if (res){
+            winners = res.wins + 1;
+            if (res.time < time) time = res.time;
+            await this.winnersApi.putWinner(id, winners, time);
+          }
+          else await this.winnersApi.postWinner(id, 1, time)                 //check
+        }).then(() => console.log(this.winnersApi.getAllWinner()));          //delete
+        
 }
-
+}
