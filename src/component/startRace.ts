@@ -98,16 +98,17 @@ export class StartRace {
             if (el.closest('#btn_create')){
               const colorInput = el.previousElementSibling as HTMLInputElement;
               const color = colorInput.value;
-              console.log(color)
               const nameInput = colorInput.previousElementSibling as HTMLInputElement;
               const name = (nameInput.value.length > 0) ? nameInput.value : 'машина будущего'
-              console.log(name)
-              await this.api.postCar(name, color).then(() => this.renderPages.getcountCars()).then(() => {
+                await this.api.postCar(name, color).then(() => this.renderPages.getcountCars()).then(() => {
                 this.renderPages.garage();
                 this.renderCars();
               })
             }
-
+            if (el.closest('.btn_remove')) {
+              const li = el.closest('li');
+              if (li) await this.api.deleteCar(li?.id).then(() => li?.remove());
+            }
           })
         }
 

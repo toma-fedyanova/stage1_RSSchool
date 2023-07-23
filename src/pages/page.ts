@@ -131,7 +131,11 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
     createCar(name: string, color: string, id: number):HTMLElement {
       const car = this.createElement('li', 'garage_car', String(id));
       const div = this.createElement('div', 'car_buttons');
-      this.createButtons('button_colored', ['btn_select', 'btn_remove'], ['select', 'remove'], div);
+      this.createButtons('button_colored', ['', ''], ['select', 'remove'], div);
+      const button = div.firstElementChild;
+      button?.classList.add('btn_select');
+      const button2 = button?.nextElementSibling;
+      button2?.classList.add('btn_remove')
       const span = this.createElement('span', 'car_name', '', `${name}`);
       div.append(span);
       const div1 = this.createElement('div', 'car_buttons');
