@@ -2,7 +2,6 @@ import { RenderPages } from '../pages/page';
 import { Api} from '../api/garage'
 import {EngineApi} from '../api/engine';
 import {AnimationRace} from '../component/animation';
-//import { CarWeiv } from '../types/type';
 
 export class StartRace {
   renderPages: RenderPages;
@@ -27,7 +26,10 @@ export class StartRace {
     this. buttonGarag();
     this.buttonWinner();
     this.startDriveButtons();
+    this.buttonCreateCar(); 
+    this.buttonChangePagesGarage();
   }
+
    renderButtonsHeader():void {
     this.renderPages.getButtonsHeader()
    }
@@ -49,6 +51,8 @@ export class StartRace {
       buttonGarage.classList.add('selected');
       this.renderPages.garage();
       this.renderCars();
+      const span = document.getElementById('page_count');
+      if (span) span.textContent = '#1'
       console.log(this.apiEngine.infoDistance(1, 'started'));
       console.log(this.apiEngine.infoDrive(1));
       console.log(this.apiEngine.infoDistance(1, 'stopped'));
@@ -87,7 +91,54 @@ export class StartRace {
             }
           });
         }
-    }
+
+        buttonCreateCar(): void {
+          document.body.addEventListener('click', async(event) => {
+            const el = event.target as HTMLElement;
+            if (el.closest('#btn_create')){
+              const colorInput = el.previousElementSibling as HTMLInputElement;
+              const color = colorInput.value;
+              console.log(color)
+              const nameInput = colorInput.previousElementSibling as HTMLInputElement;
+              const name = (nameInput.value.length > 0) ? nameInput.value : 'машина будущего'
+              console.log(name)
+              await this.api.postCar(name, color).then(() => this.renderPages.getcountCars()).then(() => {
+                this.renderPages.garage();
+                this.renderCars();
+              })
+            }
+
+          })
+        }
+
+        buttonChangePagesGarage(): void {
+          document.body.addEventListener('click', async(event) => {
+            const el = event.target as HTMLElement;
+            const count =  this.renderPages.getPagesgarage();
+            const span = document.getElementById('page_count');
+            const pageActual = Number(span?.textContent?.slice(1));
+            if (el.closest('#btn_next_garage')){
+               const num = (pageActual < count) ? (pageActual + 1) : count;
+               this.page = num;
+               this.renderPages.garage();
+               this.renderCars();
+               const span = document.getElementById('page_count');
+              if (span) span.textContent = `#${this.page}`;
+               
+            }
+            else if (el.closest('#btn_previous_garage')){
+               const num = (pageActual > 1) ? (pageActual - 1) : 1;
+               this.page = num;
+               this.renderPages.garage();
+               this.renderCars();
+               const span = document.getElementById('page_count');
+              if (span) span.textContent = `#${this.page}`;
+            }
+            
+            })
+        }
+
+  }
 
 
 

@@ -26,9 +26,8 @@ export class Api {
     return res;
   }
 
-  async postCar(id: string, name:string, color: string): Promise<void> {
+  async postCar(name:string, color: string): Promise<void> {
     const config = {
-      id: id,
       name: name,
       color: color
     }

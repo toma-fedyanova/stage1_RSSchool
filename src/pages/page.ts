@@ -21,6 +21,11 @@ export class RenderPages {
     await this.winnersApi.getAllWinner().then(res => this.countWinners = res.length);
   }
 
+  getPagesgarage(): number {
+    const num = Math.ceil(this.countCars / 7);
+    return num;
+  }
+
   createElement(value: string, classNam: string, id?: string, text?: string):HTMLElement {
     const element = document.createElement(value);
     if (classNam) element.classList.add(classNam);
@@ -148,7 +153,7 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
     const span = this.createElement('span', 'cars_count', 'cars_count', `${countOfCars}`);
     title.insertAdjacentElement("beforeend", span);
     const text = this.createElement('h3', 'garage_page', 'garage_page', 'Page ');
-    const span1 = this.createElement('span', 'page_count', 'page_count', `#1`);
+    const span1 = this.createElement('span', 'page_count', 'page_count'); 
     text.insertAdjacentElement("beforeend", span1);
     garage.insertAdjacentElement("beforeend", title);
     garage.insertAdjacentElement("beforeend", text);

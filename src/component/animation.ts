@@ -1,13 +1,18 @@
 import {EngineApi} from '../api/engine';
 import { WinnersApi } from '../api/winners';
+import { Api } from '../api/garage';
+
 export class AnimationRace {
   engineApi: EngineApi;
   winnersApi: WinnersApi;
+  api: Api;
   #carWidth: number;
+
   constructor() {
     this.engineApi = new EngineApi();
     this.winnersApi = new WinnersApi();
-      this.#carWidth = 85; //from svg parametrs
+    this.api = new Api();
+    this.#carWidth = 85; //from svg parametrs
   }
 
   getMessage(parent:Element | null | undefined):void {
@@ -102,7 +107,6 @@ export class AnimationRace {
         const spans = document.querySelectorAll('.message');
         spans.forEach(span => span.remove());
       }).catch(er => console.log(er))
-
     }
 
     async sendWinnerServer(res: number[]): Promise<void> {
@@ -110,12 +114,11 @@ export class AnimationRace {
         const time = Number((res[1] / 1000).toFixed(2));
         console.log(time)
         await this.winnersApi.postWinner(id, 1, time).catch(async () => {
-          if (res === undefined) console.log('not result');
           const winners = await this.winnersApi.getWinner(id);
           const timeBest = winners.time;
           console.log(timeBest + 'timebest')
          if (timeBest > time) winners.time = time;
          winners.wins = winners.wins + 1;
          await this.winnersApi.putWinner(id, winners.wins, winners.time)})
-}
+  }
 }
