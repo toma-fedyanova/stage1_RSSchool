@@ -3,8 +3,10 @@ import { Api } from '../api/garage';
 
 export class RenderPages {
   api: Api;
+  countCars: number;
   constructor() {
     this.api = new Api();
+    this.countCars = 4;
   }
   createElement(value: string, classNam: string, id?: string, text?: string):HTMLElement {
     const element = document.createElement(value);
@@ -187,6 +189,6 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
     const section = document.getElementById('section_main') as HTMLElement;
     section.prepend(this.createBlockConfig());
     document.getElementById('btn_race')?.setAttribute('data-bool', 'false');
-    section.append(this.createGarage('4'))                                           //todo count of car
+    section.append(this.createGarage(String(this.countCars)))                                           //todo count of car
    }
 }

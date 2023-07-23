@@ -24,4 +24,38 @@ export class Api {
     const res = data.json();
     return res;
   }
+
+  async postCar(id: string, name:string, color: string): Promise<void> {
+    const config = {
+      id: id,
+      name: name,
+      color: color
+    }
+    const data = await fetch(`${this.#url}/garage/`, {
+      method: 'POST',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(config)
+    });
+    const res = data.json();
+    return res;
+  }
+
+  async putCar(id: string, name:string, color: string): Promise<void> {
+    const config = {
+      name: name,
+      color: color
+    }
+    const data = await fetch(`${this.#url}/garage/${id}`, {
+      method: 'PUT',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(config)
+    });
+    const res = data.json();
+    return res;
+  }
+  async deleteCar(id: string): Promise<void> {
+    const data = await fetch(`${this.#url}/garage/${id}`, {method: 'DELETE'});
+    const res = data.json();
+    return res;
+  }
 } 
