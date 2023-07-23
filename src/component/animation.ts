@@ -4,11 +4,10 @@ export class AnimationRace {
   engineApi: EngineApi;
   winnersApi: WinnersApi;
   #carWidth: number;
-
   constructor() {
     this.engineApi = new EngineApi();
     this.winnersApi = new WinnersApi();
-    this.#carWidth = 85; //from svg parametrs
+      this.#carWidth = 85; //from svg parametrs
   }
 
   getMessage(parent:Element | null | undefined):void {
@@ -108,17 +107,15 @@ export class AnimationRace {
 
     async sendWinnerServer(res: number[]): Promise<void> {
         const id = res[0];
-        let time = Number((res[1] / 1000).toFixed(2));
+        const time = Number((res[1] / 1000).toFixed(2));
         console.log(time)
-        let winners:number;
-        await this.winnersApi.getWinner(res[0]).then(async (res) => {
-        if (res){
-            winners = res.wins + 1;
-            if (res.time < time) time = res.time;
-            await this.winnersApi.putWinner(id, winners, time);
-          }
-          else await this.winnersApi.postWinner(id, 1, time)                 //check
-        }).then(() => console.log(this.winnersApi.getAllWinner()));          //delete
-        
+        await this.winnersApi.postWinner(id, 1, time).catch(async () => {
+          if (res === undefined) console.log('not result');
+          const winners = await this.winnersApi.getWinner(id);
+          const timeBest = winners.time;
+          console.log(timeBest + 'timebest')
+         if (timeBest > time) winners.time = time;
+         winners.wins = winners.wins + 1;
+         await this.winnersApi.putWinner(id, winners.wins, winners.time)})
 }
 }

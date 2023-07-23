@@ -31,6 +31,7 @@ export class StartRace {
    renderButtonsHeader():void {
     this.renderPages.getButtonsHeader()
    }
+
    renderCars():void {
     const ul = document.getElementById('ul_cars') as HTMLUListElement;
     this.api.getCars(this.page).then(arr => {                                            //todo page number
@@ -40,6 +41,7 @@ export class StartRace {
       }
      })
    }
+
    buttonGarag():void {
     const buttonGarage = document.getElementById('garage');
     buttonGarage?.addEventListener('click', () => {
@@ -52,6 +54,7 @@ export class StartRace {
       console.log(this.apiEngine.infoDistance(1, 'stopped'));
       });
     }
+
    buttonWinner():void {
     const buttonWinner = document.getElementById('winner');
     buttonWinner?.addEventListener('click', () => {
@@ -60,6 +63,7 @@ export class StartRace {
       this.renderPages.winner();
       });
     }
+    
     startDriveButtons():void {
         document.body.addEventListener('click', async(event) => {
         const el = event.target as HTMLElement;
