@@ -68,6 +68,10 @@ export class StartRace {
     return res;
    }
 
+   randomNumber(max: number): number {
+    return Math.floor(Math.random() * (max + 1))
+   }
+
    async renderWinners():Promise<void> {
     await this.winnersApi.getPageWinners(this.pageWinner).then((arr) => {
       const trs = document.getElementsByClassName('tr');
@@ -157,6 +161,17 @@ export class StartRace {
                 const span = document.getElementById('page_count');
                if (span) span.textContent = `#${this.page}`
               })
+            } else if (el.closest('#btn_generate')) {
+              for (let i = 0; i < 100; i++){
+                const color = this.arrayColor[this.randomNumber(this.arrayColor.length)]
+                const name = this.arrayName[this.randomNumber(this.arrayName.length)]
+                await this.api.postCar(name, color).then(() => this.renderPages.getcountCars()).then(() => {
+                  this.renderPages.garage();
+                  this.renderCars();
+                  const span = document.getElementById('page_count');
+                 if (span) span.textContent = `#${this.page}`
+                })
+              }
             } else if (el.closest('.btn_remove')) {
               const li = el.closest('li');
               const id = Number(li?.id);
