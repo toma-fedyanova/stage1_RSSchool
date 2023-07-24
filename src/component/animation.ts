@@ -98,7 +98,7 @@ export class AnimationRace {
         setTimeout(() => {
           div.classList.remove('absolute')
         },4000) 
-      }).catch(er => console.log(er))
+      }).catch(() => div.classList.remove('absolute'))
     }
 
     stopRace():void {

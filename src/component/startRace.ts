@@ -1,6 +1,7 @@
 import { RenderPages } from '../pages/page';
 import { Api} from '../api/garage'
 import {EngineApi} from '../api/engine';
+import {WinnersApi} from '../api/winners';
 import {AnimationRace} from '../component/animation';
 
 export class StartRace {
@@ -10,12 +11,14 @@ export class StartRace {
   apiEngine: EngineApi; 
   page: number;
   animationRace: AnimationRace;
+  winnersApi: WinnersApi
 
   constructor() {
     this.renderPages = new RenderPages();
     this.api = new Api();
     this.apiEngine = new EngineApi();
     this.animationRace = new AnimationRace();
+    this.winnersApi = new WinnersApi();
     this.header = document.getElementById('header');
     this.page = 1;
   }
@@ -52,7 +55,7 @@ export class StartRace {
       this.renderPages.garage();
       this.renderCars();
       const span = document.getElementById('page_count');
-      if (span) span.textContent = '#1'
+      if (span) span.textContent = `#${this.page}`;
       console.log(this.apiEngine.infoDistance(1, 'started'));
       console.log(this.apiEngine.infoDrive(1));
       console.log(this.apiEngine.infoDistance(1, 'stopped'));
@@ -99,7 +102,7 @@ export class StartRace {
               const colorInput = el.previousElementSibling as HTMLInputElement;
               const color = colorInput.value;
               const nameInput = colorInput.previousElementSibling as HTMLInputElement;
-              const name = (nameInput.value.length > 0) ? nameInput.value : 'машина будущего'
+              const name = (nameInput.value.length > 0) ? nameInput.value : 'noname'
                 await this.api.postCar(name, color).then(() => this.renderPages.getcountCars()).then(() => {
                 this.renderPages.garage();
                 this.renderCars();
@@ -107,7 +110,8 @@ export class StartRace {
             }
             if (el.closest('.btn_remove')) {
               const li = el.closest('li');
-              if (li) await this.api.deleteCar(li?.id).then(() => li?.remove());
+              const id = Number(li?.id);
+              if (li) await this.api.deleteCar(li?.id).then(() => li?.remove()).then(() => this.winnersApi.deleteWinner(id));
             }
           })
         }
