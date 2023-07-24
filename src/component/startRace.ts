@@ -13,6 +13,8 @@ export class StartRace {
   pageWinner:  number;
   animationRace: AnimationRace;
   winnersApi: WinnersApi
+  arrayName: string[];
+  arrayColor: string[]
 
   constructor() {
     this.renderPages = new RenderPages();
@@ -23,6 +25,16 @@ export class StartRace {
     this.header = document.getElementById('header');
     this.page = 1;
     this.pageWinner = 1;
+    this.arrayName = [ 'Toyota Allion','Toyota Alphard','Toyota Altezza','Toyota Aristo','Toyota Auris','Toyota Avensis',
+'Toyota Belta','Toyota Brevis','Toyota BX','Toyota Caldina','Toyota Cami','Toyota Camry','Toyota Camry Solara','Toyota Carina',
+'Toyota Carina E','Toyota Celica','Toyota Celsior','Toyota Century','Toyota Chaser','Toyota Corsa','Toyota Corolla','Toyota Corolla Verso',
+'Toyota Corona','Toyota Corona Mark II','Toyota Cresta','Toyota Crown','Toyota Crown Majesta','Toyota Curren','Toyota Duet','Toyota Dyna',
+'Toyota Estima','Toyota FJ Cruiser','Toyota Fortuner','Toyota Fun Cargo','Toyota Granvia','Toyota Harrier','Toyota Highlander',
+'Toyota Hi-Lux ','Toyota Hilux Surf','Toyota Hiace','Toyota Innova','Toyota Ipsum','Toyota Isis','Toyota ist','Toyota Kluger',
+'Toyota Land Cruiser','Toyota Mark II','Toyota Mark X','Toyota Premio','Toyota Prius','Toyota Probox','Toyota RAV4','Toyota Sequoia',
+'Toyota Sprinter Trueno','Toyota Sprinter Marino']
+     this.arrayColor = ['#FFDEAD', '#F5FFFA', '#F0F8FF', '#FFFFFF', '#BEBEBE', '#D3D3D3', '#6495ED', '#7B68EE', '#0000CD', '#00BFFF',
+    '#00FFFF', '#7FFFD4', '#7CFC00', '#EEE8AA', '#CD5C5C', '#FF69B4', '#FFB6C1', '#FF00FF', '#DA70D6', '#9400D3']
   }
 
   start():void {
