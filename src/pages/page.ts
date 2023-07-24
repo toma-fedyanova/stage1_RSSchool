@@ -189,7 +189,7 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
     title.append(span);
     section.append(title);
     const text = this.createElement('h3', 'winners_page', 'winners_page', 'Page');
-    const span1 = this.createElement('span', 'page__winner_number', 'page__winner_number', '');
+    const span1 = this.createElement('span', 'page__winner_number', 'page__winner_number', '#1'); /////
     text.append(span1);
     section.append(text);
     const table =   this.createElement('table', 'table', 'table');

@@ -33,6 +33,8 @@ export class StartRace {
     this.startDriveButtons();
     this.buttonCreateCar(); 
     this.buttonChangePagesGarage();
+    this.buttonChangePagesWinner();
+    this.buttonUpdateCarGarage();
   }
 
    renderButtonsHeader():void {
@@ -76,6 +78,7 @@ export class StartRace {
     });
    }
 
+
    buttonGarag():void {
     const buttonGarage = document.getElementById('garage');
     buttonGarage?.addEventListener('click', () => {
@@ -93,13 +96,14 @@ export class StartRace {
 
    buttonWinner():void {
     const buttonWinner = document.getElementById('winner');
-    buttonWinner?.addEventListener('click', () => {
+    buttonWinner?.addEventListener('click', async() => {
       this.renderPages.removeClass('garage', 'selected', 'winner');
       buttonWinner.classList.add('selected');
-      this.renderPages.winner();
+       this.renderPages.winner();
+      const span = document.querySelector('#page__winner_number');
+      console.log(span)
+      if (span) span.textContent = `#${this.pageWinner}`
       this.renderWinners();
-      const span = document.getElementById('page__winner_number');
-      if (span) span.textContent = `#${this.pageWinner}`;
       });
     }
     
@@ -138,16 +142,52 @@ export class StartRace {
                 await this.api.postCar(name, color).then(() => this.renderPages.getcountCars()).then(() => {
                 this.renderPages.garage();
                 this.renderCars();
+                const span = document.getElementById('page_count');
+               if (span) span.textContent = `#${this.page}`
               })
-            }
-            if (el.closest('.btn_remove')) {
+            } else if (el.closest('.btn_remove')) {
               const li = el.closest('li');
               const id = Number(li?.id);
               if (li) await this.api.deleteCar(li?.id).then(() => li?.remove()).then(() => this.winnersApi.deleteWinner(id));
-            }
+              const span = document.getElementById('page_count');
+              if (span) span.textContent = `#${this.page}`
+            } else if(el.closest('.btn_select')) {
+              el.id = 'active';
+              const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn_select');
+              buttons.forEach(btn => {
+                if (!(btn.id === 'active')) btn.disabled = true;
+              })
+            } 
           })
         }
-
+        
+        buttonUpdateCarGarage ():void {
+          document.body.addEventListener('click', (event) => {
+            const el = event.target as HTMLElement;
+            if (el.closest('#btn_update')){
+              const colorInput = el.closest('#btn_update')?.previousElementSibling as HTMLInputElement;
+              const color = colorInput.value;
+              const nameInput = colorInput?.previousElementSibling as HTMLInputElement;
+              const name = nameInput.value;
+              const buttons: NodeListOf<HTMLButtonElement> = document.querySelectorAll('.btn_select');
+            
+              buttons.forEach(btn => {
+                if (btn.id === 'active') {
+                  const id = btn.closest('li')?.id || '0';
+                  const li = btn.closest('li');
+                  const svg = li?.querySelector('svg');
+                  svg?.remove();
+                  li?.insertAdjacentHTML('beforeend', this.renderPages.getColoredCar(color))
+                  const text = li?.querySelector('.car_name');
+                  if (text) text.textContent = name;
+                  this.api.putCar(id, name, color);
+                  btn.id = '';
+                } else btn.disabled = false})
+                
+            }
+         });
+       
+     }
         buttonChangePagesGarage(): void {
           document.body.addEventListener('click', async(event) => {
             const el = event.target as HTMLElement;
@@ -176,26 +216,32 @@ export class StartRace {
         }
         buttonChangePagesWinner(): void {
           document.body.addEventListener('click', async(event) => {
+        
+    
+
+            
             const el = event.target as HTMLElement;
-            const count =  this.renderPages.getPageswinner();
-            const span = document.getElementById('page__winner_number');
-            const pageActual = Number(span?.textContent?.slice(1));
             if (el.closest('#btn_next')){
+              const count =  this.renderPages.getPageswinner();
+              const span = document.querySelector('#page__winner_number');
+              console.log(span);
+              const pageActual = Number(span?.textContent?.slice(1));
                const num = (pageActual < count) ? (pageActual + 1) : count;
                this.pageWinner = num;
                this.renderPages.winner();
                this.renderWinners();
-               const span = document.getElementById('page__winner_number');
-              if (span) span.textContent = `#${this.pageWinner}`;
+               if (span) span.textContent = `#${this.pageWinner}`;
                
             }
             else if (el.closest('#btn_previous')){
+              const span = document.querySelector('#page__winner_number');
+              console.log(span);
+              const pageActual = Number(span?.textContent?.slice(1));
                const num = (pageActual > 1) ? (pageActual - 1) : 1;
                this.pageWinner = num;
                this.renderPages.winner();
                this.renderWinners();
-               const span = document.getElementById('page__winner_number');
-              if (span) span.textContent = `#${this.pageWinner}`;
+               if (span) span.textContent = `#${this.pageWinner}`;
             }
             
             })
