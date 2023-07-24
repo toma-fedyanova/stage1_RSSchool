@@ -45,9 +45,8 @@ h2 {
 #btn_reset {
   background-color: rgb(225, 225, 151);
 }
-#btn_select,
-#btn_remove {
-  margin-left: 0;
+#active {
+  background-color: rgb(25, 47, 192);
 }
 .selected {
   background-color: rgb(122, 122, 214);
@@ -131,7 +130,7 @@ span {
 }
 .thead,
 .td_head {
-  border: 1px solid rgb(148, 234, 42);
+  border: 1px solid rgb(26, 237, 40);
 }
 .thead,
 .tr,
