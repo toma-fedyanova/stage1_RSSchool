@@ -25,6 +25,10 @@ export class RenderPages {
     const num = Math.ceil(this.countCars / 7);
     return num;
   }
+  getPageswinner(): number {
+    const num = Math.ceil(this.countWinners / 10);
+    return num;
+  }
 
   createElement(value: string, classNam: string, id?: string, text?: string):HTMLElement {
     const element = document.createElement(value);
@@ -174,17 +178,19 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
     section.innerHTML = '';
   }
 
-   winner():void {
+   async winner():Promise<void> {
     this.clearSection();
     const titleTable: string[] = ['Number', 'Car', 'Name', 'Wins','Best time(seconds)'];
     const section = document.getElementById('section_main') as HTMLElement
     const title = this.createElement('h1', 'title_winners', 'title_winners', 'Winners ');
     const span = document.createElement('span');
-    this.getcountWinners()
+    await this.getcountWinners()
     span.textContent = String(this.countWinners);                                        //todo coun winners
     title.append(span);
     section.append(title);
-    const text = this.createElement('h3', 'winners_page', 'winners_page', 'Page #1');
+    const text = this.createElement('h3', 'winners_page', 'winners_page', 'Page');
+    const span1 = this.createElement('span', 'page__winner_number', 'page__winner_number', '');
+    text.append(span1);
     section.append(text);
     const table =   this.createElement('table', 'table', 'table');
     const thead = this.createElement('thead', 'thead', 'thead');
@@ -196,6 +202,7 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
     table.append(thead);
     for (let i = 0; i < 10; i += 1) {
       const tr = this.createElement('tr', 'tr');
+      tr.setAttribute('data-row', (i + 1).toString());
         for (let j = 0; j < 5; j++) {
           const td = this.createElement('td', 'td');
           tr.append(td)
@@ -204,7 +211,7 @@ c-7 -2 -19 -2 -25 0 -7 3 -2 5 12 5 14 0 19 -2 13 -5z m115 -10 c-10 -2 -28
     }
     section.append(table);
     const div = this.createElement('div', 'winners_list', 'winners_list')
-    this.createButtons('button_colored', ['btn_previous', 'btn_next'], ['previous', 'next'], div)
+    this.createButtons('button_colored', ['btn_previous', 'btn_next'], ['previous', 'next'], div);
     section.append(div);
    }
 

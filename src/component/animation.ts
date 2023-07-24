@@ -7,12 +7,14 @@ export class AnimationRace {
   winnersApi: WinnersApi;
   api: Api;
   #carWidth: number;
+  timeMessage: string;
 
   constructor() {
     this.engineApi = new EngineApi();
     this.winnersApi = new WinnersApi();
     this.api = new Api();
     this.#carWidth = 85; //from svg parametrs
+    this.timeMessage = '';
   }
 
   getMessage(parent:Element | null | undefined):void {
@@ -25,7 +27,7 @@ export class AnimationRace {
         const name = parent?.querySelector('span')?.textContent;
         const span = document.createElement('span');
         span.classList.add('message');
-        span.textContent = `🎉 ${name} won!! 🎉🎉🎉`;
+        span.textContent = `🎉 ${name} won!! 🎉🎉🎉 time ${this.timeMessage}`;
         if (parent) parent.insertAdjacentElement('beforeend', span);
   }
 
@@ -112,6 +114,7 @@ export class AnimationRace {
     async sendWinnerServer(res: number[]): Promise<void> {
         const id = res[0];
         const time = Number((res[1] / 1000).toFixed(2));
+        this.timeMessage = String(time);
         console.log(time)
         await this.winnersApi.postWinner(id, 1, time).catch(async () => {
           const winners = await this.winnersApi.getWinner(id);

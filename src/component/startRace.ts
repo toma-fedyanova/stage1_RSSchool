@@ -10,6 +10,7 @@ export class StartRace {
   api: Api;
   apiEngine: EngineApi; 
   page: number;
+  pageWinner:  number;
   animationRace: AnimationRace;
   winnersApi: WinnersApi
 
@@ -21,6 +22,7 @@ export class StartRace {
     this.winnersApi = new WinnersApi();
     this.header = document.getElementById('header');
     this.page = 1;
+    this.pageWinner = 1;
   }
 
   start():void {
@@ -46,6 +48,33 @@ export class StartRace {
       }
      })
    }
+   async getName(id: string): Promise<string>{
+    const data = await this.api.getCar(String(id));
+    const res = data.name;
+    return res;
+   }
+
+   async renderWinners():Promise<void> {
+    await this.winnersApi.getPageWinners(this.pageWinner).then((arr) => {
+      const trs = document.getElementsByClassName('tr');
+      for (let i = 0; i < arr.length; i++) {
+        const id = arr[i].id;
+       for (const tr of trs) {
+          if (tr.getAttribute('data-row') === String(i + 1)){
+          tr.children[0].textContent = String(i + 1);
+          tr.children[3].textContent = String(arr[i].wins);
+          tr.children[4].textContent = String(arr[i].time);
+          this.getName(String(id)).then(res => {
+            const arrName = res.split(' ');
+            const [name, ...rest] = arrName;
+            tr.children[1].textContent = name;
+            tr.children[2].textContent = rest.toString();
+           });
+          }
+        }
+      }
+    });
+   }
 
    buttonGarag():void {
     const buttonGarage = document.getElementById('garage');
@@ -68,6 +97,9 @@ export class StartRace {
       this.renderPages.removeClass('garage', 'selected', 'winner');
       buttonWinner.classList.add('selected');
       this.renderPages.winner();
+      this.renderWinners();
+      const span = document.getElementById('page__winner_number');
+      if (span) span.textContent = `#${this.pageWinner}`;
       });
     }
     
@@ -138,6 +170,32 @@ export class StartRace {
                this.renderCars();
                const span = document.getElementById('page_count');
               if (span) span.textContent = `#${this.page}`;
+            }
+            
+            })
+        }
+        buttonChangePagesWinner(): void {
+          document.body.addEventListener('click', async(event) => {
+            const el = event.target as HTMLElement;
+            const count =  this.renderPages.getPageswinner();
+            const span = document.getElementById('page__winner_number');
+            const pageActual = Number(span?.textContent?.slice(1));
+            if (el.closest('#btn_next')){
+               const num = (pageActual < count) ? (pageActual + 1) : count;
+               this.pageWinner = num;
+               this.renderPages.winner();
+               this.renderWinners();
+               const span = document.getElementById('page__winner_number');
+              if (span) span.textContent = `#${this.pageWinner}`;
+               
+            }
+            else if (el.closest('#btn_previous')){
+               const num = (pageActual > 1) ? (pageActual - 1) : 1;
+               this.pageWinner = num;
+               this.renderPages.winner();
+               this.renderWinners();
+               const span = document.getElementById('page__winner_number');
+              if (span) span.textContent = `#${this.pageWinner}`;
             }
             
             })

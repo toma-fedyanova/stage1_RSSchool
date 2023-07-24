@@ -58,4 +58,9 @@ export class WinnersApi {
     const res = await data.json();
     return res;
   }
+  async getPageWinners(page = 1, limit = 10):Promise<Winners[]> {
+    const data = await fetch(`${this.#url}/winners/?_page=${page}&_limit=${limit}`);
+    const res = data.json();
+    return res;
+  }
   }
