@@ -1,6 +1,0 @@
-.eslintrc.js
-webpack.config.js
-bundle.js
-jest.config.ts
-_test_
-pages_garage.test.ts
