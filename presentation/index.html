@@ -65,6 +65,10 @@
 						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
 						    $ npm i --save lodash
 						</code></pre>
+						<p>main.js</p>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+							  import _ from 'lodash';
+						</code></pre>
 					</section>
 					<section>
 						<h2>In browser, using script tag</h2>
@@ -81,7 +85,7 @@
 							&lt;/headv
 								
 							&lt;body&gt;
-							&lt;scriptv
+							&lt;script&gt;
 											console.log(_.isNumber(100));
 											console.log(_.isNumber('This string'));
 											console.log(_.isNumber(78.43));
@@ -126,10 +130,27 @@ var curryN = require('lodash/fp/curryN');
 					<p>It returns the array of chunks that is also an array</p>
 				</section>
 				<section>
+					<p>Lodash _.chunk() Method.</p>
+					<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+let array = [2, 3, 5, 't', 'o', 'y', 'o']
+let result = _.chunk(array, 3);
+console.log(result)
+// [ [ 2, 3, 5 ], [ 't', 'o', 'y' ], [ 'o' ] ]
+					</code></pre>
+				</section>
+				<section>
 					<h3 style = "color:rgb(240, 137, 197)">“Array” Methods</h3>
 					<p>Lodash _.compact() Function.</p>
 					<p>Parameters: This function accepts only a single parameter array</p>
 					<p>This function returns the array after filtering the values. The values false, null, 0, “”, undefined, and NaN are falsey.</p>
+				</section>
+				<section>
+					<p>Lodash _.compact() Function.</p>
+					<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+let array = [0, 1, false, 2, '', 3, NaN, 4];
+console.log(_.compact(array))
+// [ 1, 2, 3, 4 ]
+					</code></pre>
 				</section>
 				<section>
 					<h3 style = "color:rgb(240, 137, 197)">“Array” Methods</h3>
@@ -138,10 +159,28 @@ var curryN = require('lodash/fp/curryN');
 					<p>It is the array of values that are to be removed from the original array.</p>
 				</section>
 				<section>
+					<p>Lodash _.difference() Function.</p>
+					<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						let array = ["a", "b", 1, 2, 3];
+						let removeValues = ["b", 2, 3];
+						console.log(_.difference(array, removeValues))
+// [ 'a', 1 ]
+					</code></pre>
+				</section>
+				<section>
 					<h3 style = "color:rgb(240, 137, 197)">“Object” Methods</h3>
 					<p>Lodash _.assign() Method.</p>
 					<p>The source objects are applied from left to right and any subsequent sources overwrite the property assignments of the previous sources. _.assign( dest_object, src_obj )</p>
 					<p>This method accepts two parameters: the destination object, the source objects.</p>
+				</section>
+				<section>
+					<p>Lodash _.assign() Method.</p>
+					<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						console.log(_.assign({ a: 1, c: 3 }, { a: 0 }));
+// { a: 0, c: 3 }
+						console.log(_.assign({ a: 0 }, { a: 1, c: 3 }, { d: 4 }));
+// { a: 1, c: 3, d: 4 }
+					</code></pre>
 				</section>
 				<section>
 					<h3 style = "color:rgb(240, 137, 197)">“Array” Methods</h3>
@@ -150,10 +189,43 @@ var curryN = require('lodash/fp/curryN');
 					<p>This method returns an object. This method mutates object.</p>
 				</section>
 				<section>
+					<p>Lodash _.defaults() Method.</p>
+					<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+let a = _.defaults({ 'a': 1 }, { 'b': 2 }, { 'a': 3 });
+let b = _.defaults({ 'a': 'some string' }, { 'a': 'new string' });
+console.log(a);
+// { a: 1, b: 2 }
+console.log(b);
+// { a: 'some string' }
+					</code></pre>
+				</section>
+				<section>
 					<h3 style = "color:rgb(240, 137, 197)">"Collection" Methods</h3>
 					<p>forEach</p>
 					<p>This method accepts two parameters: collection, the function invoked per iteration. _.forEach(collection, [iteratee=_.identity])</p>
 					<p>Objects with a "length" property are iterated like arrays.</p>
+				</section>
+				<section>
+					<p>Lodash _.difference() Function.</p>
+					<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						let obj = {
+							a: '1',
+							b: '2',
+							c: true
+						}
+						let array = [];
+						_.forEach(obj, function(value, key) {
+							console.log(key);
+						})
+// a
+// b
+// c
+						_.forEach(obj, function(item) {
+							array.push(item);
+						})
+						console.log(array);
+// [ '1', '2', true ]
+					</code></pre>
 				</section>
 				<section>
 					<h3 style = "color:rgb(240, 137, 197)">Tamara Fedyanova</h3>
@@ -182,4 +254,5 @@ var curryN = require('lodash/fp/curryN');
 		</script>
 	</body>
 </html>
+
 
