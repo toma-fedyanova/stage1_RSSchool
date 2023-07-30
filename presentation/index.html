@@ -1,0 +1,185 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<title>reveal.js</title>
+<!-- git add -f /путь к папке dist/ -->
+		<link rel="stylesheet" href="dist/reset.css">
+		<link rel="stylesheet" href="dist/reveal.css">
+		<link rel="stylesheet" href="dist/theme/black.css">
+		<link rel="stylesheet" href="plugin/highlight/monokai.css">
+	</head>
+	<body>
+		<div class="reveal">
+			<div class="slides">
+				
+				<section>
+					<h3 style = "color:rgb(162, 219, 49)">Lodash</h3>
+        <p>Lodash is a JavaScript library that helps programmers write more concise and maintainable JavaScript.</p>
+        <p>With the release of ES6 and later versions of JavaScript, many methods have appeared that extend the functionality of the language. For example, there are new methods of arrays and strings, as well as useful operators such as spread and rest.
+					However, utility libraries like Lodash continue to be relevant, as they contain many useful methods that are still not available in JavaScript out of the box.</p>
+        </section>
+
+				<section>
+					<h2>Documentation for Lodash</h2>
+					<p>
+						<a href="https://lodash.com/?_blank" target="_blank">https://lodash.com/?_blank</a>.
+					</p>
+				</section>
+
+				<section>
+					<h2>Lodash can be broken down into several main areas</h2>
+								<p>
+									<span style="display: inline-block;" class="fragment fade-right">Object: accessing, extending, merging, defaults, and transforming</span>
+									<span style="display: inline-block;" class="fragment fade-up">Array: creating, splitting, combining, modifying, and compressing</span>
+									<span style="display: inline-block;" class="fragment fade-down">String: conversion functions for performing basic string operations, such as trimming, converting to uppercase, camel case, etc</span>
+									<span style="display: inline-block;" class="fragment fade-left">Collection, Seq, Function</span>
+								</p>
+								<p><a href="https://lodash.com/docs/4.17.15" target="_blank">https://lodash.com/docs/4.17.15</a></p>
+								<!-- <p class="fragment fade-in-then-out">fade-in-then-out</p>
+								<p class="fragment fade-in-then-semi-out">fade-in-then-semi-out</p> -->
+								<!-- <p>Highlight <span class="fragment highlight-red">red</span> <span class="fragment highlight-blue">blue</span> <span class="fragment highlight-green">green</span></p> -->
+				 </section>
+
+				 <section>
+					<h2>Disadvantages of Lodash:</h2>
+								<p>
+									<span style="display: inline-block;" class="fragment fade-right">Lodash methods take more time to execute than normal JavaScript functions.</span>
+									<span style="display: inline-block;" class="fragment fade-up">In JavaScript, we can chain many functions together as we want but in Lodash we can’t chain functions, we can only wrap them.g</span>
+								</p>
+						</section>
+
+				 <section>
+					<section>
+						<h2>First steps</h2>
+						<p>Installation</p>
+						<br>
+						<a href="#/2/1" class="navigate-down">
+							<img class="r-frame" style="background: rgba(255,255,255,0.1);" width="50" height="100" data-src="https://static.slid.es/reveal/arrow.png" alt="Down arrow">
+						</a>
+					</section>
+					<section>
+						<h2>Using npm</h2>
+						<pre data-id="code-animation"><code class="hljs javascript" data-trim data-line-numbers>
+						    $ npm i --save lodash
+						</code></pre>
+					</section>
+					<section>
+						<h2>In browser, using script tag</h2>
+						<pre><code class="hljs html" style="word-wrap: break-word;">
+							&lt;!DOCTYPE html&gt;
+							&lt;html lang="en"&gt;
+								
+							&lt;head&gt;
+							&lt;meta name="viewport" content=
+											"width=device-width, initial-scale=1.0"&gt;
+											&lt;script type="text/JavaScript" src=
+							"https://cdn.jsdelivr.net/npm/lodash@4.17.20/lodash.min.js"&gt;
+							&lt;/script&gt;
+							&lt;/headv
+								
+							&lt;body&gt;
+							&lt;scriptv
+											console.log(_.isNumber(100));
+											console.log(_.isNumber('This string'));
+											console.log(_.isNumber(78.43));
+											&lt;/script&gt;
+											&lt;/body&gt;
+								
+											&lt;/html&gt;
+						</code></pre>
+					</section>
+					<section>
+						<h2>In Node.js</h2>
+						<section data-markdown>
+							<script type="text/template">
+								## Markdown Support
+								```html []
+								<section data-markdown>
+// Load the full build.
+var _ = require('lodash');
+// Load the core build.
+var _ = require('lodash/core');
+// Load the FP build for immutable auto-curried iteratee-first data-last methods.
+var fp = require('lodash/fp');
+ 
+// Load method categories.
+var array = require('lodash/array');
+var object = require('lodash/fp/object');
+ 
+// Cherry-pick methods for smaller browserify/rollup/webpack bundles.
+var at = require('lodash/at');
+var curryN = require('lodash/fp/curryN');
+								</section>
+								```
+							</script>
+						</section>
+					</section>
+				</section>
+
+				<section>
+					<h3 style = "color:rgb(240, 137, 197)">“Array” Methods</h3>
+					<p>Lodash _.chunk() Method.</p>
+					<p>Parameters: This function accepts two parameters(array, size)</p>
+					<p>It returns the array of chunks that is also an array</p>
+				</section>
+				<section>
+					<h3 style = "color:rgb(240, 137, 197)">“Array” Methods</h3>
+					<p>Lodash _.compact() Function.</p>
+					<p>Parameters: This function accepts only a single parameter array</p>
+					<p>This function returns the array after filtering the values. The values false, null, 0, “”, undefined, and NaN are falsey.</p>
+				</section>
+				<section>
+					<h3 style = "color:rgb(240, 137, 197)">“Array” Methods</h3>
+					<p>Lodash _.difference() Function.</p>
+					<p>Parameters: This function accepts two parameters(array, values). We can use single value or the array of values</p>
+					<p>It is the array of values that are to be removed from the original array.</p>
+				</section>
+				<section>
+					<h3 style = "color:rgb(240, 137, 197)">“Object” Methods</h3>
+					<p>Lodash _.assign() Method.</p>
+					<p>The source objects are applied from left to right and any subsequent sources overwrite the property assignments of the previous sources. _.assign( dest_object, src_obj )</p>
+					<p>This method accepts two parameters: the destination object, the source objects.</p>
+				</section>
+				<section>
+					<h3 style = "color:rgb(240, 137, 197)">“Array” Methods</h3>
+					<p>Lodash _.defaults() Method.</p>
+					<p>This method accepts two parameters: the destination object, the source objects. _.defaults( dest_object, [src_obj])</p>
+					<p>This method returns an object. This method mutates object.</p>
+				</section>
+				<section>
+					<h3 style = "color:rgb(240, 137, 197)">"Collection" Methods</h3>
+					<p>forEach</p>
+					<p>This method accepts two parameters: collection, the function invoked per iteration. _.forEach(collection, [iteratee=_.identity])</p>
+					<p>Objects with a "length" property are iterated like arrays.</p>
+				</section>
+				<section>
+					<h3 style = "color:rgb(240, 137, 197)">Tamara Fedyanova</h3>
+					<img width="190" height="250" src="./assets/photo_2023.jpg" alt="photo">
+					<p>Discord: @toma_fedyanova#0396</p>
+					<p>Telegram: @Toma_FedyanovaKhv</p>
+					<p>Mail: toma_fedyanova@mail.ru</p>
+				</section>
+			</div>
+		</div>
+     
+		<script src="dist/reveal.js"></script>
+		<script src="plugin/notes/notes.js"></script>
+		<script src="plugin/markdown/markdown.js"></script>
+		<script src="plugin/highlight/highlight.js"></script>
+		<script>
+			// More info about initialization & config:
+			// - https://revealjs.com/initialization/
+			// - https://revealjs.com/config/
+			Reveal.initialize({
+				hash: true,
+
+				// Learn about plugins: https://revealjs.com/plugins/
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+			});
+		</script>
+	</body>
+</html>
+
